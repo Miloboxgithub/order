@@ -1,0 +1,9 @@
+<view class="containers">
+  <view class="dates">
+    
+  </view>
+  <view class="chico">
+    <view class="zuo">会议室</view>
+    <view class="you">时间</view>
+  </view>
+</view>
