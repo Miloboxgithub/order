@@ -11,7 +11,7 @@ Component({
       "text": "首页"
     }
     , {
-      "pagePath": "/pages/logs/logs",
+      "pagePath": "/pages/person/person",
       "iconPath": "/img/2.png",
       "selectedIconPath": "/img/22.png",
       "text": "个人"

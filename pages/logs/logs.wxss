@@ -1,0 +1,133 @@
+page {
+  opacity: 1;
+  background: #EFEFEF;
+}
+
+.containers {
+  width: 89vw;
+  margin-left: 5.5vw;
+  height: 100vh;
+}
+
+.pic {
+  height: 160px;
+  width: 78vw;
+  margin-left: 5.5vw;
+  margin-top: 50px;
+}
+
+.pic image {
+  height: 100%;
+  width: 100%;
+}
+
+.hao {
+  width: 82vw;
+  margin-left: 3.5vw;
+  margin-top: 40px;
+}
+
+.hao text {
+  margin-left: 2vw;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0px;
+  color: #3D3D3D;
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 82vw;
+  border-radius: 10px;
+  opacity: 1;
+  background: #EBF2F0;
+  height: 62px;
+  display: flex;
+  align-items: center;
+}
+
+.input image {
+  margin-left: 14px;
+  width: 6.62%;
+  height: 27.98%;
+}
+
+.input input {
+  margin-left: 20px;
+  width: 100%;
+  margin-right: 20px;
+  height: 50px;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
+  letter-spacing: 0px;
+  color: #17482E;
+}
+
+.confirm {
+  display: flex;
+  width: 82vw;
+  margin-left: 3.5vw;
+  justify-content: space-between;
+  margin-top: 40px;
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: 17px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0px;
+  color: #17482E;
+}
+
+.confirm image {
+  margin-left: 14px;
+  width: 15.13px;
+  height: 17.34px;
+}
+
+.btn {
+  width: 84vw;
+  margin-left: 2.5vw;
+  border-radius: 100px;
+  opacity: 1;
+  background: #65C186;
+  height: 50px;
+  margin-top: 40px;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0px;
+  color: #FFFFFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.register{
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  font-family: Poppins;
+font-size: 14px;
+font-weight: normal;
+line-height: 20px;
+text-align: center;
+display: flex;
+align-items: center;
+letter-spacing: 0.63px;
+/* 没有帐户？ */ 
+color: #8B8B8B 
+/* 点击注册 */ 
+/* color: #426E52  */
+
+}

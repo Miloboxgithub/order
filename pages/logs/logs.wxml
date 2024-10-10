@@ -1,1 +1,29 @@
-<view>gggggggggggggggggg</view>
+<view class="containers">
+<view class="pic">
+<image src="/img/矩形 109.png" alt=""/>
+</view>
+<view class="hao">
+  <text>学号/职工号/手机号</text>
+  <view class="input">
+    <image src="/img/Vector.svg" mode=""/>
+    <input type="text"/>
+  </view>
+</view>
+<view class="hao" style="margin-top: 6px;">
+  <text>密码</text>
+  <view class="input">
+    <image src="/img/lock.svg" mode=""/>
+    <input type="password" style="font-size: 7px;" />
+  </view>
+</view>
+<view class="confirm">
+    <view style="display: flex;"><image src="/img/dui.svg" mode=""/><text style="margin-left: 5px;">记住我</text></view>
+    <view style="margin-right: 10px;"><text >忘记密码？</text></view>
+  </view>
+  <view class="btn">
+  登录
+  </view>
+  <view class="register">
+    没有帐户？<text style="color: #426E52">点击注册</text>
+  </view>
+</view>
