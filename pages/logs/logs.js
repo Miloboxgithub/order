@@ -14,7 +14,11 @@ Page({
   onLoad(options) {
 
   },
-
+  logins: function(e){
+wx.switchTab({
+  url: e.currentTarget.dataset.url,
+})
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

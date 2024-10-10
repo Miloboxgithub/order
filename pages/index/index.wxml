@@ -1,9 +1,23 @@
-<view class="containers">
+<scroll-view class="containers" scroll-y="true" style="height: 150vh;">
   <view class="dates">
-    
+    <view class="yi"><image src="/img/返回图标.svg" mode=""/></view>
   </view>
   <view class="chico">
-    <view class="zuo">会议室</view>
-    <view class="you">时间</view>
+  <view style="width: 30%; display: flex; justify-content: center;">
+    <view class="tabs {{tab1?'zuo':''}}" bind:tap="tabtab" data-id="1">会议室</view></view>
+    <view style="width: 1px; height: 30px;background-color: #D8D8D8;"></view>
+    <view style="width: 30%; display: flex; justify-content: center;">
+    <view class="tabs {{tab2?'zuo':''}}" bind:tap="tabtab" data-id="2">时间</view></view>
   </view>
-</view>
+  <view wx:if="{{tab1}}" class="hui">
+  <view wx:for="{{items}}" class="item" style="background-color:{{item.ed==item.ke? '#FAFAFA':''}};">
+      <view class="name" style="color:{{item.ed==item.ke? '#000000':''}};">{{item.name}}</view>
+      <view class="num">（{{item.num}}人）</view>
+      <view style="display: flex; justify-content: center;">
+      <view class="xuan {{item.ed==item.ke ? 'man':''}}">{{item.ed==item.ke ?'已满':item.ke+'/'+item.ed}}</view>
+      </view>
+  </view>
+  </view>
+  <view wx:if="{{tab2}}" class="time">
+  </view>
+</scroll-view>

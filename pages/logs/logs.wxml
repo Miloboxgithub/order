@@ -20,7 +20,7 @@
     <view style="display: flex;"><image src="/img/dui.svg" mode=""/><text style="margin-left: 5px;">记住我</text></view>
     <view style="margin-right: 10px;"><text >忘记密码？</text></view>
   </view>
-  <view class="btn">
+  <view class="btn" bindtap="logins" data-url="/pages/index/index">
   登录
   </view>
   <view class="register">

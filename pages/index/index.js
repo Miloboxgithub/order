@@ -5,7 +5,57 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    tab1:true,
+    tab2:false,
+    items:[{
+      name:'会议室1',
+      num:30,
+      ke:6,
+      ed:9
+    },
+    {
+      name:'会议室2',
+      num:20,
+      ke:9,
+      ed:9
+    },
+    {
+      name:'会议室3',
+      num:30,
+      ke:6,
+      ed:9
+    },
+    {
+      name:'会议室4',
+      num:30,
+      ke:6,
+      ed:9
+    },
+    {
+      name:'会议室5',
+      num:30,
+      ke:6,
+      ed:9
+    },
+    {
+      name:'会议室6',
+      num:30,
+      ke:6,
+      ed:9
+    },
+    {
+      name:'会议室7',
+      num:30,
+      ke:6,
+      ed:9
+    },
+    {
+      name:'会议室8',
+      num:30,
+      ke:6,
+      ed:9
+    }
+  ]
   },
 
   /**
@@ -14,7 +64,20 @@ Page({
   onLoad(options) {
 
   },
-
+  tabtab(e){
+    if(e.currentTarget.dataset.id==1){
+      this.setData({
+        tab1:true,
+        tab2:false
+      })
+    }
+    else{
+      this.setData({
+        tab1:false,
+        tab2:true
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

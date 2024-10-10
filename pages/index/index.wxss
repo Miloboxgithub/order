@@ -1,10 +1,126 @@
-.chico{
+.chico {
   display: flex;
   align-items: center;
   justify-content: space-around;
   margin-top: 15px;
+  font-family: Alibaba Sans;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #979797;
+  padding-left: 10px;
+  padding-right: 10px;
 }
-.dates{
+.tabs{
+  width:80px;
+  height:40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.dates {
   height: 10vh;
-  background-color: rgb(221, 221, 221);
+  border-radius: 3px;
+  opacity: 1;
+  background: rgba(216, 216, 216, 0.63);
+  display: flex;
+  align-items: center;
+}
+
+.yi image {
+  margin-left: 5px;
+  width: 22px;
+  height: 28px;
+}
+
+.zuo {
+  border-bottom: solid 1.5px;
+  font-family: Alibaba Sans;
+  font-size: 24px;
+  font-weight: normal;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #000000;
+}
+
+.hui {
+
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* 两列，每列占据相等的空间 */
+  padding-top: 15px;
+  padding-left: 3vw;
+  padding-right: 3vw;
+}
+
+.time {
+  height: 200px;
+  width: 100vw;
+  border: solid 1px #979797;
+}
+
+.item {
+  border-radius: 10px;
+  opacity: 1;
+  background: #EDEFF5;
+  margin-left: 6.5vw;
+  width: 34vw;
+  height: 135px;
+  margin-top: 3vh;
+  text-align: center;
+}
+
+.name {
+  margin-top: 30px;
+  font-family: Alibaba Sans;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #0003C7;
+}
+.num{
+  margin-top: 2px;
+  font-family: Alibaba Sans;
+font-size: 20px;
+font-weight: normal;
+line-height: normal;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #3D3D3D;
+}
+.xuan {
+  margin-top: 2px;
+  width: 74px;
+  height: 31px;
+  border-radius: 10px;
+  opacity: 1;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 数字 */
+font-family: Alibaba Sans;
+font-size: 20px;
+font-weight: bold;
+line-height: normal;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #0003C7;
+}
+.man{
+  background-color: #DCD8D8;
+  font-family: Alibaba Sans;
+font-size: 20px;
+font-weight: normal;
+line-height: normal;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #FFFFFF;
 }
