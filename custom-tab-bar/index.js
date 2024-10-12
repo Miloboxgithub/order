@@ -3,17 +3,22 @@ Component({
     chans:false,
     selected:0,
     color: "#dbdbdb",
-    selectedColor: "#2c2c2c",
+    selectedColor: " #007AFF",
     list: [{
       "pagePath": "/pages/index/index",
       "iconPath": "/img/1.png",
       "selectedIconPath": "/img/11.png",
       "text": "首页"
+    } , {
+      "pagePath": "/pages/record/record",
+      "iconPath": "/img/2.png",
+      "selectedIconPath": "/img/22.png",
+      "text": "记录"
     }
     , {
       "pagePath": "/pages/person/person",
-      "iconPath": "/img/2.png",
-      "selectedIconPath": "/img/22.png",
+      "iconPath": "/img/3.png",
+      "selectedIconPath": "/img/33.png",
       "text": "个人"
     }]
   },

@@ -1,4 +1,4 @@
-// pages/person/person.js
+// pages/record/record.js
 Page({
 
   /**
@@ -29,10 +29,11 @@ Page({
     if (typeof this.getTabBar === 'function' &&
     this.getTabBar()) {
     this.getTabBar().setData({
-      selected: 2
+      selected: 1
     })
   }
   },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

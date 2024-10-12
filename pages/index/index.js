@@ -7,6 +7,47 @@ Page({
   data: {
     tab1:true,
     tab2:false,
+    time_items:[{
+      flag:true,
+      zou:'周一',
+      date:'9月30日'
+    },
+    {
+      flag:false,
+      zou:'周二',
+      date:'10月1日'
+    }
+    ,
+    {
+      flag:false,
+      zou:'周三',
+      date:'10月2日'
+    }
+    ,
+    {
+      flag:false,
+      zou:'周四',
+      date:'10月3日'
+    }
+    ,
+    {
+      flag:false,
+      zou:'周五',
+      date:'10月4日'
+    }
+    ,
+    {
+      flag:false,
+      zou:'周六',
+      date:'10月5日'
+    }
+    ,
+    {
+      flag:false,
+      zou:'周日',
+      date:'10月6日'
+    }
+  ],
     items:[{
       name:'会议室1',
       num:30,
@@ -55,6 +96,17 @@ Page({
       ke:6,
       ed:9
     }
+  ],
+  kkk:[
+    {time:'8:00-9:00',ke:8,ed:8},
+    {time:'9:00-10:00',ke:4,ed:8},
+    {time:'10:00-11:00',ke:6,ed:8},
+    {time:'11:00-12:00',ke:8,ed:8},
+    {time:'14:00-15:00',ke:8,ed:8},
+    {time:'15:00-16:00',ke:3,ed:8},
+    {time:'16:00-17:00',ke:8,ed:8},
+    {time:'19:00-20:00',ke:2,ed:8},
+    {time:'20:00-21:00',ke:7,ed:8},
   ]
   },
 

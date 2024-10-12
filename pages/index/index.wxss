@@ -14,14 +14,17 @@
   padding-left: 10px;
   padding-right: 10px;
 }
-.tabs{
-  width:80px;
-  height:40px;
+
+.tabs {
+  width: 80px;
+  height: 40px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
+
 .dates {
+  width: 170%;
   height: 10vh;
   border-radius: 3px;
   opacity: 1;
@@ -32,13 +35,13 @@
 
 .yi image {
   margin-left: 5px;
-  width: 22px;
-  height: 28px;
+  width: 18px;
+  height: 23px;
 }
 
 .zuo {
   border-bottom: solid 1.5px;
-  font-family: Alibaba Sans;
+  font-family: Source Han Sans;
   font-size: 24px;
   font-weight: normal;
   line-height: normal;
@@ -49,7 +52,6 @@
 }
 
 .hui {
-
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   /* 两列，每列占据相等的空间 */
@@ -58,69 +60,209 @@
   padding-right: 3vw;
 }
 
-.time {
-  height: 200px;
-  width: 100vw;
-  border: solid 1px #979797;
-}
+/* .time {} */
 
-.item {
-  border-radius: 10px;
-  opacity: 1;
-  background: #EDEFF5;
-  margin-left: 6.5vw;
-  width: 34vw;
-  height: 135px;
-  margin-top: 3vh;
-  text-align: center;
-}
-
-.name {
+.chan {
+  margin-left: 7vw;
   margin-top: 30px;
-  font-family: Alibaba Sans;
-  font-size: 20px;
+  font-family: Source Han Sans;
+  font-size: 18px;
   font-weight: normal;
   line-height: normal;
   letter-spacing: 0em;
   font-variation-settings: "opsz"auto;
-  color: #0003C7;
+  color: #3D3D3D;
 }
-.num{
-  margin-top: 2px;
-  font-family: Alibaba Sans;
-font-size: 20px;
-font-weight: normal;
+
+.kuang {
+  border-radius: 10px;
+  opacity: 1;
+  background: #F8F8F8;
+  width: 90vw;
+  height: 276px;
+  margin-left: 5vw;
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ks {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /* 创建3列，每列等宽 */
+  grid-template-rows: repeat(3, 1fr);
+  /* 创建3行，每行等高 */
+  gap: 10px;
+  /* 设置网格项之间的间距 */
+  width: 90%;
+  height: 78%;
+}
+
+.kkk {
+  border-radius: 10px;
+  opacity: 1;
+  background: #EFEFEF;
+  width: 25vw;
+  height: 59px;
+  display: flex;
+  flex-direction: column;
+  /* 子元素将垂直排列 */
+  align-items: center; 
+}
+.tst{
+  font-family: Source Han Sans;
+font-size: 14px;
+font-weight: bold;
 line-height: normal;
+text-align: center;
 letter-spacing: 0em;
 font-variation-settings: "opsz" auto;
 color: #3D3D3D;
+margin-top: 10%;
 }
-.xuan {
-  margin-top: 2px;
-  width: 74px;
-  height: 31px;
+.sts{
+  margin-top: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+opacity: 1;
+background: rgba(1, 211, 64, 0.94);
+width: 30px;
+height: 14px;
+font-family: Source Han Sans;
+font-size: 10px;
+font-weight: bold;
+line-height: normal;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #FFFFFF;
+}
+.item {
+  margin-left: 6.5vw;
+  width: 34vw;
+  height: 135px;
+  margin-top: 3vh;
+  /* text-align: center; */
+  border-radius: 10px;
+  opacity: 1;
+  background: linear-gradient(180deg, #E2E7F5 0%, #FFFFFF 100%);
+  display: flex;
+  flex-direction: column;
+  /* 子元素将垂直排列 */
+  justify-content: space-around;
+
+}
+
+.name {
+  font-family: Alibaba Sans;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #3D3D3D;
+  margin-left: 10%;
+}
+
+.num {
+  font-family: Alibaba Sans;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: rgba(61, 61, 61, 0.5);
+  margin-left: 10%;
+  margin-bottom: 5px;
+}
+
+.docu {
+  width: 45px;
+  height: 46px;
   border-radius: 10px;
   opacity: 1;
   background: #FFFFFF;
   display: flex;
   align-items: center;
   justify-content: center;
-  /* 数字 */
-font-family: Alibaba Sans;
-font-size: 20px;
-font-weight: bold;
-line-height: normal;
-letter-spacing: 0em;
-font-variation-settings: "opsz" auto;
-color: #0003C7;
 }
-.man{
-  background-color: #DCD8D8;
+
+.docu image {
+  position: absolute;
+  width: 75px;
+  height: 75px;
+  margin-right: 4px;
+  margin-bottom: 4px;
+}
+
+.xuan {
+  /* margin-top: 2px; */
+  width: 50px;
+  height: 26px;
+  border-radius: 60px;
+  opacity: 1;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* 数字 */
   font-family: Alibaba Sans;
-font-size: 20px;
-font-weight: normal;
-line-height: normal;
-letter-spacing: 0em;
-font-variation-settings: "opsz" auto;
-color: #FFFFFF;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: normal;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #0003C7;
+}
+
+.man {
+  background-color: transparent;
+  font-family: Source Han Sans;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #FFFFFF;
+  opacity: 1;
+  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+  margin-right: 4%;
+}
+
+.time-item {
+  border-radius: 10px;
+  opacity: 1;
+  background: #FFFFFF;
+  width: 72px;
+  height: 78%;
+  margin-left: 10px;
+  font-family: Source Han Sans;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: rgba(151, 151, 151, 0.67);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* 子元素将垂直排列 */
+  justify-content: center;
+}
+
+.ttt {
+  border-radius: 10px;
+  opacity: 1;
+  background: rgba(211, 228, 245, 0.7);
+  font-family: Source Han Sans;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #007AFF;
 }

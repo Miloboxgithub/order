@@ -2,7 +2,7 @@
   "usingComponents": {
 
   },
-  "navigationBarTitleText": "会议室预订",
+  "navigationBarTitleText": "登录",
   "navigationBarBackgroundColor": "#EFEFEF",
   "navigationBarTextStyle": "black"
 }
