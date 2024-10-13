@@ -3,7 +3,9 @@
     "pages/logs/logs",
     "pages/index/index",
     "pages/person/person",
-    "pages/record/record"
+    "pages/record/record",
+    "pages/message/message",
+    "pages/about/about"
   ],
   "window": {
     "navigationBarTextStyle": "black",

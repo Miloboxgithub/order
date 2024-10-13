@@ -1,2 +1,11 @@
-<!--pages/record/record.wxml-->
-<text>pages/record/record.wxml</text>
+<view class="containers">
+<view class="nnn">小明老师</view>
+<view class="ttt">已预定：</view>
+<view class="item" wx:for="{{items}}" wx:key="*this" >
+  <view class="name">会议室</view>
+  <view class="type">（{{item.type}}）</view>
+  <view class="day">{{item.day}}</view>
+  <view class="time">{{item.time}}</view>
+  <view class="quxiao" bind:tap="quxiao" data-index="{{index}}">取消预约</view>
+</view>
+</view>

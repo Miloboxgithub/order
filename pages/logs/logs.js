@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    number:'',
+    password:'',
   },
 
   /**
@@ -15,10 +16,22 @@ Page({
 
   },
   logins: function(e){
+    console.log(this.data.number,'|',this.data.password)
 wx.switchTab({
   url: e.currentTarget.dataset.url,
 })
   },
+  input1:function(e){
+    this.setData({
+      number:e.detail.value
+    })
+  },
+  input2:function(e){
+    this.setData({
+      password:e.detail.value
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

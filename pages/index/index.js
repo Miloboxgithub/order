@@ -116,18 +116,32 @@ Page({
   onLoad(options) {
 
   },
+  changeTitle: function (newTitle) {
+    wx.setNavigationBarTitle({
+      title: newTitle,
+      success: function (res) {
+        // 成功更改标题
+      },
+      fail: function (err) {
+        // 更改标题失败
+        console.error('更改标题失败：', err);
+      }
+    });
+  },
   tabtab(e){
     if(e.currentTarget.dataset.id==1){
       this.setData({
         tab1:true,
         tab2:false
       })
+      this.changeTitle('首页');
     }
     else{
       this.setData({
         tab1:false,
         tab2:true
       })
+      this.changeTitle('会议室预约时段');
     }
   },
   /**

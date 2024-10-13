@@ -1,0 +1,4 @@
+page {
+  opacity: 1;
+  background: #EFEFEF;
+}

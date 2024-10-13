@@ -1,1 +1,117 @@
-/* pages/record/record.wxss */
+page {
+  opacity: 1;
+  background: rgb(255, 255, 255);
+}
+.nnn{
+  width: 100vw;
+  text-align: center;
+  font-family: Source Han Sans;
+font-size: 18px;
+font-weight: normal;
+line-height: normal;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #222121;
+margin-top: 21px;
+}
+.ttt{
+  margin-top: 25px;
+  margin-left: 7vw;
+  font-family: Source Han Sans;
+font-size: 18px;
+font-weight: normal;
+line-height: normal;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #222121;
+margin-bottom: 30px;
+}
+.item{
+  margin-top: 10px;
+  border-radius: 16px;
+opacity: 1;
+/* 框底色 */
+/* 样式描述：框底色-灰色 */
+background: #EFEFEF;
+width: 88vw;
+margin-left: 6vw;
+height: 92px;
+position: relative;
+}
+.name{
+  position: absolute;
+left: 9px;
+top: 8.21px;
+width: 75px;
+height: 29.57px;
+font-family: Source Han Sans;
+font-size: 18px;
+font-weight: normal;
+line-height: normal;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #3D3D3D;
+}
+.type{
+  position: absolute;
+left: 70px;
+top: 10px;
+width: 72px;
+height: 26px;
+font-family: Source Han Sans;
+font-size: 18px;
+font-weight: normal;
+line-height: normal;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #979797;
+}
+.day{
+  position: absolute;
+left: 9px;
+bottom: 20px;
+width: 62px;
+height: 16.43px;
+font-family: Source Han Sans;
+font-size: 14px;
+font-weight: normal;
+line-height: normal;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: rgba(61, 63, 69, 0.85);
+}
+.time{
+  position: absolute;
+left: 74px;
+bottom: 20px;
+width: 78px;
+height: 16.43px;
+font-family: Source Han Sans;
+font-size: 14px;
+font-weight: normal;
+line-height: normal;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #3D3D3D;
+}
+.quxiao{
+  border-radius: 57px;
+opacity: 1;
+background: #FFFFFF;
+position: absolute;
+right: 20px;
+top: 10px;
+width: 75px;
+height: 35px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: Source Han Sans;
+font-size: 15px;
+font-weight: normal;
+line-height: normal;
+text-align: center;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #000000;
+}

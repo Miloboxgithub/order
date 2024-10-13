@@ -6,14 +6,14 @@
   <text>学号/职工号/手机号</text>
   <view class="input">
     <image src="/img/Vector.svg" mode=""/>
-    <input type="text"/>
+    <input bindinput="input1" type="text"/>
   </view>
 </view>
 <view class="hao" style="margin-top: 6px;">
   <text>密码</text>
   <view class="input">
     <image src="/img/lock.svg" mode=""/>
-    <input type="password" style="font-size: 7px;" />
+    <input bindinput="input2" type="password" style="font-size: 7px;" />
   </view>
 </view>
 <view class="confirm">

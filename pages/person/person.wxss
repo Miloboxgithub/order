@@ -1,1 +1,83 @@
-/* pages/person/person.wxss */
+.tou{
+  position: fixed;
+  top: 0;
+  width: 100vw;
+height: 100vh;
+background: linear-gradient(0deg, #FFFFFF 58%, #E5F1FF 100%);
+display: flex;
+}
+.xiang{
+  width: 88px;
+height: 88px;
+border-radius: 50%;
+background: rgba(20, 119, 255, 0.23);
+display: flex;
+align-items: center;
+justify-content: center;
+margin-left: 22px;
+margin-top: 8vh;
+}
+.xiang image{
+  width: 80px;
+height: 80px;
+}
+.msg{
+  margin-left: 35px;
+margin-top: 10vh;
+}
+.name{
+  font-family: Source Han Sans;
+font-size: 18px;
+font-weight: 350;
+line-height: normal;
+letter-spacing: 0em;
+color: #3D3D3D;
+}
+.num{
+  margin-top: 11px;
+  margin-left: 4px;
+  font-family: Source Han Sans;
+font-size: 10px;
+font-weight: 350;
+line-height: normal;
+letter-spacing: 0em;
+color: #3D3D3D;
+}
+.det{
+  position: fixed;
+  bottom: 0;
+  border-radius: 20px;
+opacity: 1;
+background: #FAFAFE;
+width: 100vw;
+height: 74vh;
+}
+.detitem{
+  margin-left: 4%;
+  margin-top: 15%;
+  width: 92%;
+  height: 298px;
+  opacity: 1;
+background: #FFFFFF;
+}
+.item{
+  height: 40px;
+  font-family: Source Han Sans;
+font-size: 20px;
+padding-top: 15px;
+padding-left: 10px;
+padding-right: 15px;
+font-weight: normal;
+line-height: normal;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #3D3D3D;
+display: flex;
+justify-content: space-between;
+align-items: center;
+margin-bottom: 10px;
+}
+.item image{
+  width: 9px;
+height: 17px;
+}

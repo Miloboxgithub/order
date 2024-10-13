@@ -1,2 +1,15 @@
-<!--pages/person/person.wxml-->
-<text>pages/person/person.wxml</text>
+<view class="containers">
+<view class="tou">
+  <view class="xiang"><image src="/img/User.svg" mode=""/></view>
+  <view class="msg"><view class="name">老师名字</view><view class="num">工号</view></view>
+
+</view>
+<view class="det">
+  <view class="detitem">
+  <view class="item" bind:tap="wei"><view>反馈与建议</view><image src="/img/回图标.svg" mode=""/></view>
+  <view class="item" bind:tap="wei"><view>更新日志</view><image src="/img/回图标.svg" mode=""/></view>
+  <view class="item" bind:tap="wei"><view>系统开发故事</view><image src="/img/回图标.svg" mode=""/></view>
+  <view class="item" bind:tap="navigate" data-url="/pages/about/about"><view>关于我们</view><image src="/img/回图标.svg" mode=""/></view>
+  </view>
+</view>
+</view>

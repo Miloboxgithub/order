@@ -14,7 +14,32 @@ Page({
   onLoad(options) {
 
   },
-
+  navigate: function (e) {
+    wx.navigateTo({url: e.currentTarget.dataset.url});
+  },
+  wei: function(){
+    wx.showModal({
+      title: '提示', // 提示的标题
+      content: '该功能板块未开发', // 提示的内容
+      showCancel: true, // 是否显示取消按钮
+      cancelText: '取消', // 取消按钮的文字
+      cancelColor: '#000000', // 取消按钮的文字颜色
+     confirmText: '确定', //确定按钮的文字
+      confirmColor: '#3CC51F', // 确定按钮的文字颜色
+      success: function (res) {
+        if (res.confirm) {
+          console.log('用户点击了确定');
+          // 执行一些操作
+        } else if (res.cancel) {
+          console.log('用户点击了取消');
+          // 执行其他操作
+        }
+      },
+      fail: function (err) {
+        console.error('调用失败：', err);
+      }
+    });
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
