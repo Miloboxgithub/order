@@ -1,0 +1,17 @@
+<scroll-view class="containers" scroll-y="true" scroll-with-animation="true" style="height: 150vh;">
+  <scroll-view scroll-x="true" scroll-with-animation="true">
+  <view class="dates">
+    <view class="yi">
+      <image src="/img/返回图标.svg" mode="" />
+    </view>
+    <view wx:for="{{time_items}}" class="time-item {{item.flag?'ttt':''}}">
+      <view>{{item.zou}}</view>
+      <view>{{item.date}}</view>
+    </view></view>
+  </scroll-view>
+  <view class="name">{{name}}</view>
+  <view bind:tap="navigate" data-url="/pages/message/message" class="item" wx:for="{{items}}">
+    <view class="time">{{item.time}}</view>
+    <view class="status {{item.p?'':'active'}}">{{item.p?item.p:'空闲'}}</view>
+  </view>
+</scroll-view>

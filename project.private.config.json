@@ -8,6 +8,20 @@
     "miniprogram": {
       "list": [
         {
+          "name": "pages/order2/order2",
+          "pathName": "pages/order2/order2",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
+          "name": "pages/order1/order1",
+          "pathName": "pages/order1/order1",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "pages/person/person",
           "pathName": "pages/person/person",
           "query": "",

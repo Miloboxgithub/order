@@ -1,0 +1,118 @@
+.dates {
+  width: 170%;
+  height: 10vh;
+  border-radius: 3px;
+  opacity: 1;
+  background: rgba(216, 216, 216, 0.63);
+  display: flex;
+  align-items: center;
+}
+
+.yi image {
+  margin-left: 5px;
+  width: 18px;
+  height: 23px;
+}
+.time-item {
+  border-radius: 10px;
+  opacity: 1;
+  background: #FFFFFF;
+  width: 72px;
+  height: 78%;
+  margin-left: 10px;
+  font-family: Source Han Sans;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: rgba(151, 151, 151, 0.67);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  /* 子元素将垂直排列 */
+  justify-content: center;
+}
+.ttt {
+  border-radius: 10px;
+  opacity: 1;
+  background: rgba(211, 228, 245, 0.7);
+  font-family: Source Han Sans;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #007AFF;
+}
+.name{
+  width: 100vw;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Source Han Sans;
+font-size: 20px;
+font-weight: normal;
+line-height: normal;
+text-align: center;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #3D3D3D;
+margin-bottom: 10px;
+}
+.item{
+  margin-top: 9px;
+  width: 92vw;
+  margin-left: 4vw;
+height: 86px;
+  border-radius: 10px;
+opacity: 1;
+/* 框底色 */
+/* 样式描述：框底色-灰色 */
+background: #EFEFEF;
+display: flex;
+align-items: center;
+justify-content: space-around;
+}
+.status{
+  border-radius: 57px;
+opacity: 1;
+background: #FFFFFF;
+width: 80px;
+height: 39px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: Source Han Sans;
+font-size: 20px;
+font-weight: normal;
+line-height: normal;
+text-align: center;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #3D3D3D;
+}
+.active{
+  background: #0FD54A;
+  font-family: Source Han Sans;
+font-size: 18px;
+font-weight: normal;
+line-height: normal;
+text-align: center;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #FFFFFF;
+}
+.time{
+  font-family: Source Han Sans;
+font-size: 18px;
+font-weight: normal;
+line-height: normal;
+text-align: center;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #3D3D3D;
+}

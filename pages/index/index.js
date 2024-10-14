@@ -116,6 +116,9 @@ Page({
   onLoad(options) {
 
   },
+  navigate: function (e) {
+    wx.navigateTo({url: e.currentTarget.dataset.url});
+  },
   changeTitle: function (newTitle) {
     wx.setNavigationBarTitle({
       title: newTitle,

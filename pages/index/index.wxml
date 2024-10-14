@@ -19,7 +19,7 @@
     </view>
   </view>
   <view wx:if="{{tab1}}" class="hui">
-    <view wx:for="{{items}}" class="item" style="background-color:{{item.ed==item.ke? '#FAFAFA':''}};">
+    <view bind:tap="navigate" data-url="/pages/order1/order1" wx:for="{{items}}" class="item" style="background-color:{{item.ed==item.ke? '#FAFAFA':''}};">
       <view style="display: flex; justify-content: space-around; align-items: center; width: 90%;margin-left: 8%;margin-top: 5px;">
         <view class="docu">
           <image src="{{item.ed==item.ke ?'/img/Paper.svg':'/img/Paper@1x.png'}}" mode="" />
@@ -28,14 +28,13 @@
       </view>
       <view class="name">{{item.name}}</view>
       <view class="num">人数{{item.num}}</view>
-
     </view>
   </view>
   <view wx:if="{{tab2}}" class="time">
     <view class="chan">选择参观时段</view>
     <view class="kuang">
       <view class="ks">
-        <view wx:for="{{kkk}}" class="kkk">
+        <view bind:tap="navigate" data-url="/pages/order2/order2" wx:for="{{kkk}}" class="kkk">
           <view class="tst">{{item.time}}</view>
           <view class="sts" style="background-color: {{item.ed==item.ke ?'rgba(208, 206, 206, 0.41)':''}};">{{item.ed==item.ke ?'约满':item.ke+'/'+item.ed}}</view>
         </view>

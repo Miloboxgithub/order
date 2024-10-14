@@ -26,7 +26,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    
+    
   },
   quxiao:function(e) {
     let that=this
@@ -80,6 +81,29 @@ Page({
         selected: 1
       })
     }
+    // 获取全局变量中的数据
+    const app = getApp();
+    const sharedData = app.globalData.sharedData;
+
+    console.log('sharedData:', sharedData);
+    if(sharedData.key1){
+      wx.showModal({
+        title: '您已预定成功！', // 提示的标题
+        showCancel: false, // 是否显示取消按钮
+        cancelText: '取消', // 取消按钮的文字
+        cancelColor: '#000000', // 取消按钮的文字颜色
+        confirmText: '确定', //确定按钮的文字
+        confirmColor: '#3CC51F', // 确定按钮的文字颜色
+        success: function (res) {
+        },
+        fail: function (err) {
+          console.error('调用失败：', err);
+        }
+      });
+    }
+    app.globalData.sharedData = {
+      key1: 0
+    };
   },
 
   /**

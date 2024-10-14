@@ -3,14 +3,14 @@
 <image src="/img/矩形 109.png" alt=""/>
 </view>
 <view class="hao">
-  <text>学号/职工号/手机号</text>
+  <text>职工号/手机号</text>
   <view class="input">
     <image src="/img/Vector.svg" mode=""/>
     <input bindinput="input1" type="text"/>
   </view>
 </view>
 <view class="hao" style="margin-top: 6px;">
-  <text>密码</text>
+  <text>姓名</text>
   <view class="input">
     <image src="/img/lock.svg" mode=""/>
     <input bindinput="input2" type="password" style="font-size: 7px;" />

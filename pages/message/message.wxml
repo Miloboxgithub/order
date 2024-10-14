@@ -1,2 +1,23 @@
-<!--pages/message/message.wxml-->
-<text>pages/message/message.wxml</text>
+<view class="containers">
+  <view class="coitem">
+    <view class="tst">姓名</view>
+    <view class="inp"><input type="text" placeholder="王蕊"/></view>
+  </view>
+  <view class="coitem">
+    <view class="tst">电话</view>
+    <view class="inp"><input type="text" placeholder="18565710266"/></view>
+  </view>
+  <view class="coitem">
+    <view class="tst">会议内容</view>
+    <view class="inp"><image src="/img/edit-2-fill@3x.png" mode=""/><input class="ttt" type="text" placeholder="请输入..." value="{{type}}"/></view>
+  </view>
+  <view class="types">
+    <view bind:tap="chantype" class="type" wx:for="{{types}}" wx:key="*this" data-index="{{index}}">
+      {{item.v}}
+    </view>
+  </view>
+  <view style="display: flex; align-items: center; justify-content: center;">
+  <view bind:tap="navigate" data-url="/pages/record/record" class="qur">
+  确认
+  </view></view>
+</view>

@@ -5,7 +5,9 @@
     "pages/person/person",
     "pages/record/record",
     "pages/message/message",
-    "pages/about/about"
+    "pages/about/about",
+    "pages/order1/order1",
+    "pages/order2/order2"
   ],
   "window": {
     "navigationBarTextStyle": "black",
