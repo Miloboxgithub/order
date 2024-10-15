@@ -80,9 +80,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    const app = getApp();
+    const sharedData = app.globalData.sharedData;
 
+    console.log('sharedData:', sharedData);
+    this.setData({
+      name:sharedData.keys
+    })
   },
-
   /**
    * 生命周期函数--监听页面隐藏
    */

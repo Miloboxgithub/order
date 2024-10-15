@@ -15,7 +15,8 @@ App({
   },
   globalData: {
       sharedData: {
-        key1:0
+        key1:0,
+        keys:''
       }
   }
 })

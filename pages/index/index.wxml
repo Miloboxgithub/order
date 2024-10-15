@@ -4,7 +4,7 @@
     <view class="yi">
       <image src="/img/返回图标.svg" mode="" />
     </view>
-    <view wx:for="{{time_items}}" class="time-item {{item.flag?'ttt':''}}">
+    <view bind:tap="changeFlag" wx:for="{{time_items}}" class="time-item {{item.flag?'ttt':''}}" wx:key="*this" data-index="{{index}}">
       <view>{{item.zou}}</view>
       <view>{{item.date}}</view>
     </view></view>
@@ -19,7 +19,7 @@
     </view>
   </view>
   <view wx:if="{{tab1}}" class="hui">
-    <view bind:tap="navigate" data-url="/pages/order1/order1" wx:for="{{items}}" class="item" style="background-color:{{item.ed==item.ke? '#FAFAFA':''}};">
+    <view bind:tap="navigate" data-url="/pages/order1/order1" wx:for="{{items}}" class="item" style="background-color:{{item.ed==item.ke? '#FAFAFA':''}};" wx:key="*this" data-index="{{index}}">
       <view style="display: flex; justify-content: space-around; align-items: center; width: 90%;margin-left: 8%;margin-top: 5px;">
         <view class="docu">
           <image src="{{item.ed==item.ke ?'/img/Paper.svg':'/img/Paper@1x.png'}}" mode="" />
@@ -34,7 +34,7 @@
     <view class="chan">选择参观时段</view>
     <view class="kuang">
       <view class="ks">
-        <view bind:tap="navigate" data-url="/pages/order2/order2" wx:for="{{kkk}}" class="kkk">
+        <view bind:tap="navigate" data-url="/pages/order2/order2" wx:for="{{kkk}}" class="kkk"  wx:key="*this" data-index="{{index}}">
           <view class="tst">{{item.time}}</view>
           <view class="sts" style="background-color: {{item.ed==item.ke ?'rgba(208, 206, 206, 0.41)':''}};">{{item.ed==item.ke ?'约满':item.ke+'/'+item.ed}}</view>
         </view>

@@ -80,7 +80,14 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    // 获取全局变量中的数据
+    const app = getApp();
+    const sharedData = app.globalData.sharedData;
 
+    console.log('sharedData:', sharedData);
+    this.setData({
+      name:sharedData.keys
+    })
   },
 
   /**
