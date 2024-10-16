@@ -4,14 +4,23 @@
     <view class="yi">
       <image src="/img/返回图标.svg" mode="" />
     </view>
-    <view wx:for="{{time_items}}" class="time-item {{item.flag?'ttt':''}}">
+    <view bind:tap="changeFlag" wx:for="{{time_items}}" class="time-item {{item.flag?'ttt':''}}" wx:key="*this" data-index="{{index}}">
       <view>{{item.zou}}</view>
       <view>{{item.date}}</view>
     </view></view>
   </scroll-view>
+  
   <view class="name">{{name}}</view>
-  <view bind:tap="navigate" data-url="/pages/message/message" class="item" wx:for="{{items}}">
+  <view bind:tap="choices" data-url="/pages/message/message" class="item" wx:for="{{items}}" wx:key="*this" data-index="{{index}}">
     <view class="time">{{item.time}}</view>
     <view class="status {{item.p?'':'active'}}">{{item.p?item.p:'空闲'}}</view>
+    <view class="dui">
+      <image src="{{item.flag?'/img/Severicons (1).svg':'/img/Severicons.svg'}}" mode="" />
+    </view>
+  </view>
+  <view style="display: flex; align-items: center; justify-content: center;">
+    <view bind:tap="navigate" style="pointer-events:{{dian}}; background:{{dian=='none'?'rgba(208, 206, 206, 0.41)':''}};" data-url="/pages/message/message" class="qur">
+      确认
+    </view>
   </view>
 </scroll-view>

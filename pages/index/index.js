@@ -95,47 +95,47 @@ Page({
     kkk: [{
         time: '8:00-9:00',
         ke: 8,
-        ed: 8
+        ed: 8,flag:false
       },
       {
         time: '9:00-10:00',
         ke: 4,
-        ed: 8
+        ed: 8,flag:false
       },
       {
         time: '10:00-11:00',
         ke: 6,
-        ed: 8
+        ed: 8,flag:false
       },
       {
         time: '11:00-12:00',
         ke: 8,
-        ed: 8
+        ed: 8,flag:false
       },
       {
         time: '14:00-15:00',
         ke: 8,
-        ed: 8
+        ed: 8,flag:false
       },
       {
         time: '15:00-16:00',
         ke: 3,
-        ed: 8
+        ed: 8,flag:false
       },
       {
         time: '16:00-17:00',
         ke: 8,
-        ed: 8
+        ed: 8,flag:false
       },
       {
         time: '19:00-20:00',
         ke: 2,
-        ed: 8
+        ed: 8,flag:false
       },
       {
         time: '20:00-21:00',
         ke: 7,
-        ed: 8
+        ed: 8,flag:false
       },
     ]
   },
@@ -151,20 +151,40 @@ Page({
       url: e.currentTarget.dataset.url
     });
     const app = getApp();
-    let v;
+   
     let i = e.currentTarget.dataset.index
     i = parseInt(i)
     if (e.currentTarget.dataset.url == "/pages/order1/order1") {
+      let v;
       v = this.data.items[i].name
-      //console.log(this.data.items[i] , "hhhhh")
-    } else {
-      v = this.data.kkk[i].time
-      //console.log(this.data.kkk[i] , "hhhhh")
-    }
-    // 设置要传递的数据
+          // 设置要传递的数据
     app.globalData.sharedData = {
       keys: v
     };
+    } else {
+      let v=[]
+      this.data.kkk.forEach(function(item,index){
+        if(item.flag){
+          v.push(item.time)
+        }
+      })
+    app.globalData.sharedData = {
+      arr: v
+    };
+    }
+
+  },
+  choices: function(e){
+    let i = e.currentTarget.dataset.index
+    let op = this.data.kkk
+    op.forEach(function(item,index){
+      if(index==i){
+        item.flag=!item.flag
+      }
+    })
+    this.setData({
+      kkk:op
+    })
   },
   changeTitle: function (newTitle) {
     wx.setNavigationBarTitle({

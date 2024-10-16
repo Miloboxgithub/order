@@ -46,7 +46,7 @@ Page({
       date:'10月6日'
     }
   ],
-  name:'11：00~12：00',
+  name:[],
   items:[
     {time:'会议室1 （30人）',p:''},
     {time:'会议室2 （10人）',p:'A老师'},
@@ -57,7 +57,8 @@ Page({
     {time:'会议室7 （40人）',p:''},
     {time:'会议室8 （10人）',p:''},
     {time:'会议室9 （20人）',p:''},
-  ]
+  ],
+  isSelect:false,//展示类型？
   },
 
   /**
@@ -85,12 +86,38 @@ Page({
 
     console.log('sharedData:', sharedData);
     this.setData({
-      name:sharedData.keys
+      name:sharedData.arr
     })
   },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
+    //点击控制下拉框的展示、隐藏
+    select:function(){
+      var isSelect = this.data.isSelect
+      this.setData({ isSelect:!isSelect})
+    },
+    //点击下拉框选项，选中并隐藏下拉框
+    getType:function(e){
+      console.log(e)
+      let value = e.currentTarget.dataset.type
+      console.log(value)
+      this.setData({
+        type:value,
+        // isSelect: false,
+      })
+    },
+    changeFlag(e) {
+      let i = e.currentTarget.dataset.index
+      let op = this.data.time_items
+      op.forEach(function (item, index) {
+        if (index == i) {
+          item.flag = true
+        } else {
+          item.flag = false
+        }
+      })
+      this.setData({
+        time_items: op
+      })
+    },
   onHide() {
 
   },

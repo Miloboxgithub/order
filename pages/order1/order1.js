@@ -48,16 +48,17 @@ Page({
   ],
   name:'会议室1',
   items:[
-    {time:'8：00~9：00',p:''},
-    {time:'9：00~10：00',p:'A老师'},
-    {time:'10：00~11：00',p:'B老师'},
-    {time:'11：00~12：00',p:'C老师'},
-    {time:'14：00~15：00',p:'D老师'},
-    {time:'15：00~16：00',p:''},
-    {time:'16：00~17：00',p:''},
-    {time:'19：00~20：00',p:''},
-    {time:'20：00~21：00',p:''},
-  ]
+    {time:'8：00~9：00',p:'' ,flag:false},
+    {time:'9：00~10：00',p:'A老师',flag:false},
+    {time:'10：00~11：00',p:'B老师',flag:false},
+    {time:'11：00~12：00',p:'C老师',flag:false},
+    {time:'14：00~15：00',p:'D老师',flag:false},
+    {time:'15：00~16：00',p:'',flag:false},
+    {time:'16：00~17：00',p:'',flag:false},
+    {time:'19：00~20：00',p:'',flag:false},
+    {time:'20：00~21：00',p:'',flag:false},
+  ],
+  dian:'none'
   },
 
   /**
@@ -69,9 +70,48 @@ Page({
   navigate: function (e) {
     wx.navigateTo({url: e.currentTarget.dataset.url});
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
+  choices: function(e){
+    let that =this
+    let ff =false
+    console.log(e)
+    let i = e.currentTarget.dataset.index
+    let op = this.data.items
+    op.forEach(function(item,index){
+      if(index==i){
+        item.flag=!item.flag
+      }
+      if(item.flag){
+        ff=true
+      }
+    })
+    if(ff){
+      this.setData({
+        dian:'auto'
+      })
+    }
+    else{
+        this.setData({
+          dian:'none'
+        })
+    }
+    this.setData({
+      items:op
+    })
+  },
+  changeFlag(e) {
+    let i = e.currentTarget.dataset.index
+    let op = this.data.time_items
+    op.forEach(function (item, index) {
+      if (index == i) {
+        item.flag = true
+      } else {
+        item.flag = false
+      }
+    })
+    this.setData({
+      time_items: op
+    })
+  },
   onReady() {
 
   },

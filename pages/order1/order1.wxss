@@ -49,7 +49,7 @@
 }
 .name{
   width: 100vw;
-  height: 80px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -64,15 +64,16 @@ color: #3D3D3D;
 margin-bottom: 10px;
 }
 .item{
+  position: relative;
   margin-top: 9px;
   width: 92vw;
   margin-left: 4vw;
 height: 86px;
-  border-radius: 10px;
+border-radius: 16px;
 opacity: 1;
-/* 框底色 */
-/* 样式描述：框底色-灰色 */
-background: #EFEFEF;
+/* 纯白 */
+background: #FFFFFF;
+box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1); /* 柔和的灰色阴影 */
 display: flex;
 align-items: center;
 justify-content: space-around;
@@ -80,14 +81,14 @@ justify-content: space-around;
 .status{
   border-radius: 57px;
 opacity: 1;
-background: #FFFFFF;
+background: rgba(208, 206, 206, 0.41);
 width: 80px;
 height: 39px;
 display: flex;
 align-items: center;
 justify-content: center;
 font-family: Source Han Sans;
-font-size: 20px;
+font-size: 18px;
 font-weight: normal;
 line-height: normal;
 text-align: center;
@@ -96,7 +97,7 @@ font-variation-settings: "opsz" auto;
 color: #3D3D3D;
 }
 .active{
-  background: #0FD54A;
+  background: linear-gradient(135deg, #c6f4d6, #60b98a);
   font-family: Source Han Sans;
 font-size: 18px;
 font-weight: normal;
@@ -115,4 +116,31 @@ text-align: center;
 letter-spacing: 0em;
 font-variation-settings: "opsz" auto;
 color: #3D3D3D;
+}
+.dui{
+  position: absolute;
+  right: 10px;
+}
+.dui image{
+  height: 16px;
+  width: 16px;
+}
+.qur{
+  position: fixed;
+  bottom: 100px;
+
+  border-radius: 10px;
+opacity: 1;
+background: #3386EC;
+font-family: Source Han Sans;
+font-size: 20px;
+font-weight: normal;
+line-height: normal;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #FFFFFF;
+padding: 7px 40px;
+display: flex;
+align-items: center;
+justify-content: center;
 }

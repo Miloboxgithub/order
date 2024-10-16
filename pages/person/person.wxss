@@ -63,21 +63,32 @@ background: #FFFFFF;
 .item{
   height: 40px;
   font-family: Source Han Sans;
-font-size: 20px;
-padding-top: 15px;
-padding-left: 10px;
-padding-right: 15px;
-font-weight: normal;
-line-height: normal;
-letter-spacing: 0em;
-font-variation-settings: "opsz" auto;
-color: #3D3D3D;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz" auto;
+  color: #3D3D3D;
 display: flex;
 justify-content: space-between;
 align-items: center;
 margin-bottom: 10px;
+padding-top: 15px;
+padding-left: 10px;
+padding-right: 15px;
 }
-.item image{
+.jjj{
   width: 9px;
 height: 17px;
+}
+.zzz image{
+  height: 20px;
+  width: 20px;
+  margin-right: 10px;
+  margin-left: 3px;
+}
+.zzz{
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }

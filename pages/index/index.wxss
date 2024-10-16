@@ -104,6 +104,7 @@ page {
 }
 
 .kkk {
+  position: relative;
   border-radius: 10px;
   opacity: 1;
   background: #EFEFEF;
@@ -126,7 +127,8 @@ color: #3D3D3D;
 margin-top: 10%;
 }
 .sts{
-  margin-top: 5%;
+  position: absolute;
+  bottom: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -143,6 +145,19 @@ letter-spacing: 0em;
 font-variation-settings: "opsz" auto;
 color: #FFFFFF;
 }
+.gou image{
+  height: 16px;
+  width: 16px;
+}
+.gou{
+  height: 16px;
+  width: 16px;
+  position: absolute;
+bottom: 10px;
+right: 10px;
+transform: rotate(0deg);
+}
+
 .item {
   margin-left: 6.5vw;
   width: 34vw;
@@ -269,4 +284,21 @@ color: #FFFFFF;
   letter-spacing: 0em;
   font-variation-settings: "opsz"auto;
   color: #007AFF;
+}
+.qur{
+  margin-top: 60px;
+  border-radius: 10px;
+opacity: 1;
+background: #3386EC;
+font-family: Source Han Sans;
+font-size: 20px;
+font-weight: normal;
+line-height: normal;
+letter-spacing: 0em;
+font-variation-settings: "opsz" auto;
+color: #FFFFFF;
+padding: 7px 20px;
+display: flex;
+align-items: center;
+justify-content: center;
 }

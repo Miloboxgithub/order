@@ -29,10 +29,10 @@ margin-bottom: 30px;
 .item{
   margin-top: 10px;
   border-radius: 16px;
-opacity: 1;
-/* 框底色 */
-/* 样式描述：框底色-灰色 */
-background: #EFEFEF;
+  opacity: 1;
+  /* 纯白 */
+  background: #FFFFFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1); /* 柔和的灰色阴影 */
 width: 88vw;
 margin-left: 6vw;
 height: 92px;
@@ -97,7 +97,7 @@ color: #3D3D3D;
 .quxiao{
   border-radius: 57px;
 opacity: 1;
-background: #FFFFFF;
+background: rgba(208, 206, 206, 0.41);
 position: absolute;
 right: 20px;
 top: 10px;

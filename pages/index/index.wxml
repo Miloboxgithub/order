@@ -9,6 +9,7 @@
       <view>{{item.date}}</view>
     </view></view>
   </scroll-view>
+  
   <view class="chico">
     <view style="width: 30%; display: flex; justify-content: center;">
       <view class="tabs {{tab1?'zuo':''}}" bind:tap="tabtab" data-id="1">会议室</view>
@@ -34,11 +35,16 @@
     <view class="chan">选择参观时段</view>
     <view class="kuang">
       <view class="ks">
-        <view bind:tap="navigate" data-url="/pages/order2/order2" wx:for="{{kkk}}" class="kkk"  wx:key="*this" data-index="{{index}}">
+        <view bind:tap="choices" data-url="/pages/order2/order2" wx:for="{{kkk}}" class="kkk"  wx:key="*this" data-index="{{index}}">
           <view class="tst">{{item.time}}</view>
           <view class="sts" style="background-color: {{item.ed==item.ke ?'rgba(208, 206, 206, 0.41)':''}};">{{item.ed==item.ke ?'约满':item.ke+'/'+item.ed}}</view>
+          <view class="gou"><image src="{{item.flag ?'/img/Severicons (1).svg':'/img/Severicons.svg'}}" mode=""/></view>
         </view>
       </view>
     </view>
+    <view style="display: flex; align-items: center; justify-content: center;">
+  <view bind:tap="navigate" data-url="/pages/order2/order2" class="qur">
+  确认
+  </view></view>
   </view>
 </scroll-view>

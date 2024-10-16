@@ -4,14 +4,28 @@
     <view class="yi">
       <image src="/img/返回图标.svg" mode="" />
     </view>
-    <view wx:for="{{time_items}}" class="time-item {{item.flag?'ttt':''}}">
+    <view bind:tap="changeFlag" wx:for="{{time_items}}" class="time-item {{item.flag?'ttt':''}}" wx:key="*this" data-index="{{index}}">
       <view>{{item.zou}}</view>
       <view>{{item.date}}</view>
     </view></view>
   </scroll-view>
-  <view class="name">时段{{name}}</view>
+  
+  <!-- <view class="name" wx:for="{{name}}">时段{{item}}</view> -->
+  <!-- hhhhhhhhhhhhhhhh -->
+  <!-- 通过点击事件改变图片的旋转角度、自定义下拉框的高度 -->
+  <view class="name" bindtap="select">
+    <view style="display:inline-block;">时段{{name[0]}}</view>
+    <image src="/img/arrow-down-s-fill.svg" class="sanjiao" style="{{isSelect?'transform:rotateZ(180deg)':''}}"/>
+    <!-- select -->
+    <view class="select" style="{{isSelect?'height:'+35*name.length+'px;':'border:0'}}">
+      <view class="type" catchtap="getType" wx:for="{{name}}" data-type="{{item}}" wx:key="type">{{item}}
+      </view>
+    </view>
+  </view>
+  <!-- hhhhhhhhhhhhhhhh -->
   <view bind:tap="navigate" data-url="/pages/message/message" class="item" wx:for="{{items}}">
     <view class="time">{{item.time}}</view>
     <view class="status {{item.p?'':'active'}}">{{item.p?item.p:'空闲'}}</view>
   </view>
+
 </scroll-view>
