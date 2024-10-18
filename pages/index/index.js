@@ -1,4 +1,4 @@
-// pages/playground/playground.js
+const app = getApp();
 Page({
 
   /**
@@ -95,95 +95,191 @@ Page({
     kkk: [{
         time: '8:00-9:00',
         ke: 8,
-        ed: 8,flag:false
+        ed: 8,
+        flag: false
       },
       {
         time: '9:00-10:00',
         ke: 4,
-        ed: 8,flag:false
+        ed: 8,
+        flag: false
       },
       {
         time: '10:00-11:00',
         ke: 6,
-        ed: 8,flag:false
+        ed: 8,
+        flag: false
       },
       {
         time: '11:00-12:00',
         ke: 8,
-        ed: 8,flag:false
+        ed: 8,
+        flag: false
       },
       {
         time: '14:00-15:00',
         ke: 8,
-        ed: 8,flag:false
+        ed: 8,
+        flag: false
       },
       {
         time: '15:00-16:00',
         ke: 3,
-        ed: 8,flag:false
+        ed: 8,
+        flag: false
       },
       {
         time: '16:00-17:00',
         ke: 8,
-        ed: 8,flag:false
+        ed: 8,
+        flag: false
       },
       {
         time: '19:00-20:00',
         ke: 2,
-        ed: 8,flag:false
+        ed: 8,
+        flag: false
       },
       {
         time: '20:00-21:00',
         ke: 7,
-        ed: 8,flag:false
+        ed: 8,
+        flag: false
       },
-    ]
+    ],
+    ymd:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.GetData1()
+    this.GetData2()
+    this.Get_time_items()
+  },
 
+  GetData1: function () {
+    let that = this
+    this.setData({
+      items: []
+    })
+    wx.request({
+      url: 'http://10.151.2.183:8085/user/getmeetingroom',
+      method: "GET",
+      data: {
+        ymd: that.data.ymd
+      },
+      success: (res) => {
+        console.log('data1', res.data.data.meeting_room.meetingroomnums);
+        let op = res.data.data.meeting_room.meetingroomnums
+        let ttt = []
+        op.forEach(function (item, index) {
+          let t = {
+            name: item.roomname,
+            ke: item.re,
+            ed: item.total,
+            num: item.capacity
+          }
+          ttt.push(t)
+        })
+        that.setData({
+          items: ttt
+        })
+      },
+      fail: (err) => {
+        console.error('nono', err);
+      }
+    })
+  },
+  GetData2: function () {
+    let that = this
+    this.setData({
+      kkk: []
+    })
+    wx.request({
+      url: '  http://10.151.2.183:8085/user/getmeetingtime',
+      method: "GET",
+      data: {
+        ymd: that.data.ymd
+      },
+      success: (res) => {
+        console.log('data2', res.data.data.MeetingTimeStates);
+        let op = res.data.data.MeetingTimeStates
+        let ttt = []
+        op.forEach(function (item, index) {
+          let t = {
+            time: item.start_time.substring(0, 5) + '-' + item.end_time.substring(0, 5),
+            ke: item.re,
+            ed: item.total,
+            flag: false
+          }
+          ttt.push(t)
+        })
+        that.setData({
+          kkk: ttt
+        })
+      },
+      fail: (err) => {
+        console.error('nono', err);
+      }
+    })
+  },
+  Get_time_items:function(){
+    let op =[]
+    let ed = app.globalData.futureDates
+    ed.forEach(function(item,index){
+      let t={
+        flag:false,
+        zou:item.dayOfWeek,
+        date:item.date,
+        fD:item.fD
+      }
+      op.push(t)
+    })
+    op[0].flag=true
+    this.setData({
+      time_items:op
+    })
   },
   navigate: function (e) {
     wx.navigateTo({
       url: e.currentTarget.dataset.url
     });
-    const app = getApp();
-   
+
+
     let i = e.currentTarget.dataset.index
     i = parseInt(i)
     if (e.currentTarget.dataset.url == "/pages/order1/order1") {
       let v;
       v = this.data.items[i].name
-          // 设置要传递的数据
-    app.globalData.sharedData = {
-      keys: v
-    };
+      // 设置要传递的数据
+      app.globalData.sharedData = {
+        keys: v
+      };
     } else {
-      let v=[]
-      this.data.kkk.forEach(function(item,index){
-        if(item.flag){
+      let v = []
+      this.data.kkk.forEach(function (item, index) {
+        if (item.flag) {
           v.push(item.time)
         }
       })
-    app.globalData.sharedData = {
-      arr: v
-    };
+      app.globalData.sharedData = {
+        arr: v
+      };
     }
 
   },
-  choices: function(e){
+  choices: function (e) {
     let i = e.currentTarget.dataset.index
     let op = this.data.kkk
-    op.forEach(function(item,index){
-      if(index==i){
-        item.flag=!item.flag
+    op.forEach(function (item, index) {
+      if (index == i) {
+        item.flag = !item.flag
       }
     })
     this.setData({
-      kkk:op
+      kkk: op
     })
   },
   changeTitle: function (newTitle) {
@@ -215,6 +311,10 @@ Page({
   },
   changeFlag(e) {
     let i = e.currentTarget.dataset.index
+    this.setData({
+      ymd:this.data.time_items[i].fD
+    })
+    // console.log(this.data.ymd)
     let op = this.data.time_items
     op.forEach(function (item, index) {
       if (index == i) {
@@ -226,6 +326,11 @@ Page({
     this.setData({
       time_items: op
     })
+    setTimeout(() => {
+      this.GetData1()
+      this.GetData2()
+    }, 100);
+
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

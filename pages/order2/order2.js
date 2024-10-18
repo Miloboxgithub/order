@@ -1,4 +1,4 @@
-// pages/order1/order1.js
+const app = getApp();
 Page({
 
   /**
@@ -59,13 +59,94 @@ Page({
     {time:'会议室9 （20人）',p:''},
   ],
   isSelect:false,//展示类型？
+  ymd:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    
+    const sharedData = app.globalData.sharedData;
 
+    console.log('sharedData:', sharedData);
+    this.setData({
+      name:sharedData.arr
+    })
+    this.GetData()
+    this.Get_time_items()
+  },
+  GetData: function()
+  {
+    let that = this
+    this.setData({
+      items:[]
+    })
+    wx.request({
+      url: 'http://10.151.2.183:8085/user/meetingtime',
+      method:"GET",
+      data:{
+        ymd:that.data.ymd,
+        all_time: that.data.name
+      },
+      success:(res)=>{
+        //[0].select_time_statuss
+        //console.log('aifbhdsbfds',res.data.data.meeting_time)
+        let op = res.data.data.meeting_time
+        let ttt =[]
+        op.forEach(function(item,index){
+          let cg = item.select_time_statuss
+          let t={}
+          cg.forEach(function(ite,ind){
+            t={
+              time:ite.room_name,
+              capacity:ite.capacity,
+              p:ite.reserved_by_name
+            }
+            if(ttt.length){
+              let fff =1
+            ttt.forEach(function(its,ins){
+              if(its.time===t.time){
+                fff=0
+                if(!its.p){
+                  ttt[ins]=t
+                }
+              }
+            })
+          if(fff)ttt.push(t)
+          }
+            else{
+              ttt.push(t)
+            }
+          })
+          
+        })
+        that.setData({
+          items:ttt
+        })
+      },
+      fail: (err) =>{
+        console.error('nono',err);
+      }
+    })
+  },
+  Get_time_items:function(){
+    let op =[]
+    let ed = app.globalData.futureDates
+    console.log(ed)
+    ed.forEach(function(item,index){
+      let t={
+        flag:false,
+        zou:item.dayOfWeek,
+        date:item.date,
+        fD:item.fD
+      }
+      op.push(t)
+    })
+    op[0].flag=true
+    this.setData({
+      time_items:op
+    })
   },
   navigate: function (e) {
     wx.navigateTo({url: e.currentTarget.dataset.url});
@@ -81,13 +162,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    const app = getApp();
-    const sharedData = app.globalData.sharedData;
-
-    console.log('sharedData:', sharedData);
-    this.setData({
-      name:sharedData.arr
-    })
+   
   },
     //点击控制下拉框的展示、隐藏
     select:function(){
@@ -106,6 +181,9 @@ Page({
     },
     changeFlag(e) {
       let i = e.currentTarget.dataset.index
+      this.setData({
+        ymd:this.data.time_items[i].fD
+      })
       let op = this.data.time_items
       op.forEach(function (item, index) {
         if (index == i) {
@@ -117,6 +195,9 @@ Page({
       this.setData({
         time_items: op
       })
+      setTimeout(() => {
+        this.GetData()
+      }, 100);
     },
   onHide() {
 

@@ -24,7 +24,7 @@
   </view>
   <!-- hhhhhhhhhhhhhhhh -->
   <view bind:tap="navigate" data-url="/pages/message/message" class="item" wx:for="{{items}}">
-    <view class="time">{{item.time}}</view>
+    <view class="time">{{item.time}} （{{item.capacity}}人）</view>
     <view class="status {{item.p?'':'active'}}">{{item.p?item.p:'空闲'}}</view>
   </view>
 

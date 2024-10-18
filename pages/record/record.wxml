@@ -1,8 +1,8 @@
 <view class="containers">
-<view class="nnn">小明老师</view>
+<view class="nnn">{{tname}}</view>
 <view class="ttt">已预定：</view>
 <view class="item" wx:for="{{items}}" wx:key="*this" >
-  <view class="name">会议室</view>
+  <view class="name">{{item.name}}</view>
   <view class="type">（{{item.type}}）</view>
   <view class="day">{{item.day}}</view>
   <view class="time">{{item.time}}</view>

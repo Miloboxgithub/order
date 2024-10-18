@@ -26,9 +26,10 @@ height: 80px;
 margin-top: 10vh;
 }
 .name{
+  margin-top: 13px;
   font-family: Source Han Sans;
-font-size: 18px;
-font-weight: 350;
+font-size: 23px;
+font-weight: 500;
 line-height: normal;
 letter-spacing: 0em;
 color: #3D3D3D;

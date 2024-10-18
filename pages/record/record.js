@@ -1,20 +1,24 @@
-// pages/record/record.js
+const app = getApp();
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    tname:'',
     items: [{
+      name:'会议室A',
         type: '班会',
         day: '9月29日',
         time: '9:00-10:00'
       },
       {
+        name:'会议室B',
         type: '班会',
         day: '9月29日',
         time: '9:00-10:00'
       }, {
+        name:'会议室C',
         type: '班会',
         day: '9月29日',
         time: '9:00-10:00'
@@ -26,8 +30,43 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
+    this.GetData()
+  },
+  GetData: function()
+  {
+    let that = this
     
-    
+    this.setData({
+      items:[],
+      tname:app.globalData.name
+    })
+    wx.request({
+      url: 'http://10.151.2.183:8085/user/getreservationinfo',
+      method:"GET",
+      data:{
+        reserved_by_name:that.data.tname
+      },
+      success:(res)=>{
+        console.log(res.data.data.reservedinfo.reserved_info2s,'sss')
+        let op = res.data.data.reservedinfo.reserved_info2s
+        let ttt =[]
+        op.forEach(function(item,index){
+          let t ={
+            name:item.room_name,
+            type:item.meetingtype,
+            day:item.ymd,
+            time : item.start_time.substring(0, 5)+'-'+item.end_time.substring(0, 5)
+          }
+          ttt.push(t)
+        })
+        that.setData({
+          items:ttt
+        })
+      },
+      fail: (err) =>{
+        console.error('nono',err);
+      }
+    })
   },
   quxiao:function(e) {
     let that=this
@@ -82,9 +121,7 @@ Page({
       })
     }
     // 获取全局变量中的数据
-    const app = getApp();
-    const sharedData = app.globalData.sharedData;
-
+    let sharedData = app.globalData.sharedData;
     console.log('sharedData:', sharedData);
     if(sharedData.key1){
       wx.showModal({
@@ -100,10 +137,10 @@ Page({
           console.error('调用失败：', err);
         }
       });
+      app.globalData.sharedData.key1= 0
     }
-    app.globalData.sharedData = {
-      key1: 0
-    };
+    
+
   },
 
   /**
