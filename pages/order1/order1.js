@@ -46,7 +46,7 @@ Page({
       date:'10月6日'
     }
   ],
-  name:'会议室1',
+  name:'',
   items:[
     {time:'8：00~9：00',p:'' ,flag:false},
     {time:'9：00~10：00',p:'A老师',flag:false},
@@ -59,7 +59,8 @@ Page({
     {time:'20：00~21：00',p:'',flag:false},
   ],
   dian:'none',
-  ymd:''
+  ymd:'',
+  ts:[],
   },
 
   /**
@@ -130,6 +131,11 @@ Page({
     })
   },
   navigate: function (e) {
+    app.globalData.submit={
+      ymd:this.data.ymd,
+      room_name:this.data.name,
+      ts:this.data.ts,
+    }
     wx.navigateTo({url: e.currentTarget.dataset.url});
   },
   forbit: function(){
@@ -146,17 +152,21 @@ Page({
     console.log(e)
     let i = e.currentTarget.dataset.index
     let op = this.data.items
+    let tst = []
     op.forEach(function(item,index){
       if(index==i){
         item.flag=!item.flag
       }
       if(item.flag){
         ff=true
+        tst.push(item.time)
+
       }
     })
     if(ff){
       this.setData({
-        dian:'auto'
+        dian:'auto',
+        ts:tst
       })
     }
     else{

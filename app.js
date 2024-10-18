@@ -44,6 +44,9 @@ App({
         arr:[],
       },
       name:'无名',
-      futureDates:[]
+      futureDates:[],
+      submit:{
+        
+      }
   }
 })

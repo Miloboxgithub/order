@@ -1,11 +1,11 @@
 <view class="containers">
   <view class="coitem">
     <view class="tst">姓名</view>
-    <view class="inp"><input type="text" placeholder="王蕊"/></view>
+    <view class="inp"><input type="text" placeholder="王蕊" value="{{rname}}"/></view>
   </view>
   <view class="coitem">
     <view class="tst">电话</view>
-    <view class="inp"><input type="text" placeholder="18565710266"/></view>
+    <view class="inp"><input type="text" placeholder="18565710266" value="{{phone}}"/></view>
   </view>
   <view class="coitem">
     <view class="tst">会议内容</view>
@@ -17,7 +17,7 @@
     </view>
   </view>
   <view style="display: flex; align-items: center; justify-content: center;">
-  <view bind:tap="navigate" data-url="/pages/record/record" class="qur">
+  <view bind:tap="PostData" data-url="/pages/record/record" class="qur">
   确认
   </view></view>
 </view>

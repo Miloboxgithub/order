@@ -149,6 +149,12 @@ Page({
     })
   },
   navigate: function (e) {
+    let i = e.currentTarget.dataset.index
+    app.globalData.submit={
+      ymd:this.data.ymd,
+      room_name:this.data.items[i].time,
+      ts:this.data.name,
+    }
     wx.navigateTo({url: e.currentTarget.dataset.url});
   },
   /**
