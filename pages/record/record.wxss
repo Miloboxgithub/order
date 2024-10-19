@@ -2,116 +2,123 @@ page {
   opacity: 1;
   background: rgb(255, 255, 255);
 }
-.nnn{
+
+.nnn {
   width: 100vw;
   text-align: center;
   font-family: Source Han Sans;
-font-size: 18px;
-font-weight: normal;
-line-height: normal;
-letter-spacing: 0em;
-font-variation-settings: "opsz" auto;
-color: #222121;
-margin-top: 21px;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #222121;
+  margin-top: 21px;
 }
-.ttt{
+
+.ttt {
   margin-top: 25px;
   margin-left: 7vw;
   font-family: Source Han Sans;
-font-size: 18px;
-font-weight: normal;
-line-height: normal;
-letter-spacing: 0em;
-font-variation-settings: "opsz" auto;
-color: #222121;
-margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #222121;
+  margin-bottom: 30px;
 }
-.item{
+
+.item {
   margin-top: 10px;
   border-radius: 16px;
   opacity: 1;
   /* 纯白 */
   background: #FFFFFF;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1); /* 柔和的灰色阴影 */
-width: 88vw;
-margin-left: 6vw;
-height: 92px;
-position: relative;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* 柔和的灰色阴影 */
+  width: 88vw;
+  margin-left: 6vw;
+  height: 92px;
+  position: relative;
 }
-.name{
-  position: absolute;
-left: 9px;
-top: 8.21px;
-width: 75px;
-height: 29.57px;
-font-family: Source Han Sans;
-font-size: 18px;
-font-weight: normal;
-line-height: normal;
-letter-spacing: 0em;
-font-variation-settings: "opsz" auto;
-color: #3D3D3D;
-}
-.type{
-  position: absolute;
-left: 75px;
-top: 7px;
-/* width: 72px; */
-height: 26px;
-font-family: Source Han Sans;
-font-size: 18px;
-font-weight: normal;
-line-height: normal;
-letter-spacing: 0em;
-font-variation-settings: "opsz" auto;
-color: #979797;
-}
-.day{
-  position: absolute;
-left: 9px;
-bottom: 20px;
 
-height: 16.43px;
-font-family: Source Han Sans;
-font-size: 14px;
-font-weight: normal;
-line-height: normal;
-letter-spacing: 0em;
-font-variation-settings: "opsz" auto;
-color: rgba(61, 63, 69, 0.85);
-}
-.time{
+.name {
   position: absolute;
-left: 100px;
-bottom: 20px;
-
-height: 16.43px;
-font-family: Source Han Sans;
-font-size: 14px;
-font-weight: normal;
-line-height: normal;
-letter-spacing: 0em;
-font-variation-settings: "opsz" auto;
-color: #3D3D3D;
+  left: 9px;
+  top: 13px;
+  width: 75px;
+  height: 29.57px;
+  font-family: Source Han Sans;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #3D3D3D;
 }
-.quxiao{
+
+.type {
+  position: absolute;
+  left: 75px;
+  top: 13px;
+  /* width: 72px; */
+  height: 26px;
+  font-family: Source Han Sans;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #979797;
+}
+
+.day {
+  position: absolute;
+  left: 9px;
+  bottom: 20px;
+  height: 16.43px;
+  font-family: Source Han Sans;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: rgba(61, 63, 69, 0.85);
+}
+
+.time {
+  position: absolute;
+  left: 90px;
+  bottom: 20px;
+  height: 16.43px;
+  font-family: Source Han Sans;
+  font-size: 12px;
+  font-weight: normal;
+  line-height: normal;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #3D3D3D;
+}
+
+.quxiao {
   border-radius: 57px;
-opacity: 1;
-background: rgba(208, 206, 206, 0.41);
-position: absolute;
-right: 20px;
-top: 10px;
-width: 75px;
-height: 35px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: Source Han Sans;
-font-size: 15px;
-font-weight: normal;
-line-height: normal;
-text-align: center;
-letter-spacing: 0em;
-font-variation-settings: "opsz" auto;
-color: #000000;
+  opacity: 1;
+  background: rgba(208, 206, 206, 0.41);
+  position: absolute;
+  right: 20px;
+  top: 10px;
+  width: 75px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Source Han Sans;
+  font-size: 13px;
+  font-weight: normal;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #000000;
 }

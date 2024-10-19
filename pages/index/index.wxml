@@ -20,7 +20,7 @@
     </view>
   </view>
   <view wx:if="{{tab1}}" class="hui">
-    <view bind:tap="navigate" data-url="/pages/order1/order1" wx:for="{{items}}" class="item" style="background-color:{{item.ed==item.ke? '#FAFAFA':''}};" wx:key="*this" data-index="{{index}}">
+    <view bind:tap="navigate" data-url="/pages/order1/order1" wx:for="{{items}}" class="item " style="background-color:{{item.ed==item.ke? '#FAFAFA':''}};" wx:key="*this" data-index="{{index}}">
       <view style="display: flex; justify-content: space-around; align-items: center; width: 90%;margin-left: 8%;margin-top: 5px;">
         <view class="docu">
           <image src="{{item.ed==item.ke ?'/img/Paper.svg':'/img/Paper@1x.png'}}" mode="" />

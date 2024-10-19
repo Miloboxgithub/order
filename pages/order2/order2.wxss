@@ -13,6 +13,7 @@
   width: 18px;
   height: 23px;
 }
+
 .time-item {
   border-radius: 10px;
   opacity: 1;
@@ -34,6 +35,7 @@
   /* 子元素将垂直排列 */
   justify-content: center;
 }
+
 .ttt {
   border-radius: 10px;
   opacity: 1;
@@ -47,7 +49,8 @@
   font-variation-settings: "opsz"auto;
   color: #007AFF;
 }
-.name{
+
+.name {
   position: relative;
   width: 100vw;
   height: 40px;
@@ -55,107 +58,118 @@
   align-items: center;
   justify-content: center;
   font-family: Source Han Sans;
-font-size: 20px;
-font-weight: normal;
-line-height: normal;
-text-align: center;
-letter-spacing: 0em;
-font-variation-settings: "opsz" auto;
-color: #3D3D3D;
-margin-bottom: 10px;
+  font-size: 20px;
+  font-weight: normal;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #3D3D3D;
+  margin-bottom: 10px;
 }
-.item{
+
+.item {
   margin-top: 9px;
   width: 92vw;
   margin-left: 4vw;
-height: 86px;
-border-radius: 16px;
-opacity: 1;
-/* 纯白 */
-background: #FFFFFF;
-box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1); /* 柔和的灰色阴影 */
-display: flex;
-align-items: center;
-justify-content: space-around;
+  height: 86px;
+  border-radius: 16px;
+  opacity: 1;
+  /* 纯白 */
+  background: #FFFFFF;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
+  /* 柔和的灰色阴影 */
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
 }
-.status{
+
+.status {
   border-radius: 57px;
-opacity: 1;
-background: rgba(208, 206, 206, 0.41);
-width: 80px;
-height: 39px;
-display: flex;
-align-items: center;
-justify-content: center;
-font-family: Source Han Sans;
-font-size: 20px;
-font-weight: normal;
-line-height: normal;
-text-align: center;
-letter-spacing: 0em;
-font-variation-settings: "opsz" auto;
-color: #3D3D3D;
+  opacity: 1;
+  background: rgba(208, 206, 206, 0.41);
+  width: 70px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Source Han Sans;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #3D3D3D;
 }
-.active{
+
+.active {
   background: linear-gradient(135deg, #c6f4d6, #60b98a);
   font-family: Source Han Sans;
-font-size: 18px;
-font-weight: normal;
-line-height: normal;
-text-align: center;
-letter-spacing: 0em;
-font-variation-settings: "opsz" auto;
-color: #FFFFFF;
+  font-size: 15px;
+  font-weight: normal;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #FFFFFF;
 }
-.time{
+
+.time {
   font-family: Source Han Sans;
-font-size: 18px;
-font-weight: normal;
-line-height: normal;
-text-align: center;
-letter-spacing: 0em;
-font-variation-settings: "opsz" auto;
-color: #3D3D3D;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: normal;
+  text-align: center;
+  letter-spacing: 0em;
+  font-variation-settings: "opsz"auto;
+  color: #3D3D3D;
 }
 
 
-.sanjiao{
+.sanjiao {
   width: 18px;
   height: 18px;
   margin-left: 20rpx;
-  transition: 0.5s;/* 选转图片过渡 */
+  transition: 0.5s;
+  /* 选转图片过渡 */
 }
-.select{
+
+.select {
   position: absolute;
   z-index: 10;
   border: 2rpx solid #aaaaaa;
   padding: 0 8rpx;
-  top:37px;
-  
+  top: 37px;
+
   width: 180px;
   overflow: auto;
   height: 0;
-  
-  background-color:#fff;
+
+  background-color: #fff;
   box-sizing: border-box;
-  transition: height 0.5s;/* 高度变换过渡 */
+  transition: height 0.5s;
+  /* 高度变换过渡 */
 }
-.select .type{
+
+.select .type {
   font-family: Source Han Sans;
   font-size: 20px;
   font-weight: normal;
   line-height: normal;
   text-align: center;
   letter-spacing: 0em;
-  font-variation-settings: "opsz" auto;
+  font-variation-settings: "opsz"auto;
   color: #3D3D3D;
   border-top: 2px solid #dadada;
   padding: 6rpx;
 }
-.select :first-child{
+
+.select :first-child {
   border: 0;
 }
-.type{
+
+.type {
   display: flex;
   justify-content: space-between;
   align-items: center;
