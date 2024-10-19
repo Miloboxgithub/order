@@ -15,12 +15,12 @@ Page({
       v: '团建'
     }],
     type: '',
-    ymd:'',
-    name:'',
-    st:'',
-    et:'',
-    rname:'',
-    phone:'',
+    ymd: '',
+    name: '',
+    st: '',
+    et: '',
+    rname: '王培正',
+    phone: '15013659503',
 
   },
 
@@ -29,57 +29,79 @@ Page({
    */
   onLoad(options) {
     //this.PostData()
-    let exe=app.globalData.submit
+    let exe = app.globalData.submit
+    console.log(exe.ts, 'zuo')
     this.setData({
-      ymd:exe.ymd,
-      name:exe.room_name,
-      st:exe.ts.substring(0,5),
-      et:exe.ts.substring(6)
+      ymd: exe.ymd,
+      name: exe.room_name,
     })
   },
-  PostData: function()
-  {
+  PostData: function (e) {
+    let urls = e.currentTarget.dataset.url
     let that = this
     this.setData({
-      items:[]
+      items: []
     })
+    let exe = app.globalData.submit
+    let ll =exe.ts.length-1
+    for(let i=0;i<=ll;i++){
+      this.setData({
+        st: exe.ts[i].substring(0, 5),
+        et: exe.ts[i].substring(6, 11)
+      })
     wx.request({
       url: 'http://10.151.2.183:8085/user/reserved',
-      method:"POST",
-      data:{
-        ymd:that.data.ymd,
-        room_name:that.data.name,
-        start_time:that.data.st,
-        end_time:that.data.et,
-        reserved_by_name:that.data.rname,
-        reserved_by_phone:that.data.phone,
-        meetingtype:that.data.type
+      method: "POST",
+      header: {
+        Authorization: app.globalData.token
       },
-      success:(res)=>{
-        console.log(res)
-        that.navigate()
+      data: {
+        ymd: that.data.ymd,
+        room_name: that.data.name,
+        start_time: that.data.st,
+        end_time: that.data.et,
+        reserved_by_name: that.data.rname,
+        reserved_by_phone: that.data.phone,
+        meetingtype: that.data.type
       },
-      fail: (err) =>{
-        console.error('nono',err);
+      success: (res) => {
+        //console.log(res)
+        that.navigate(urls)
+      },
+      fail: (err) => {
+        console.error('nono', err);
       }
     })
+  }
   },
   navigate: function (e) {
-    wx.switchTab({
-      url: e.currentTarget.dataset.url,
-    })
-    const app = getApp();
-
-    // 设置要传递的数据
     app.globalData.sharedData = {
       key1: 1
     };
+    wx.switchTab({
+      url: e,
+    })
   },
   chantype: function (e) {
     console.log(e.currentTarget.dataset.index)
     let op = e.currentTarget.dataset.index
     this.setData({
       type: this.data.types[op].v
+    })
+  },
+  input1:function(e){
+    this.setData({
+      rname:e.detail.value
+    })
+  },
+  input2:function(e){
+    this.setData({
+      phone:e.detail.value
+    })
+  },
+  input3:function(e){
+    this.setData({
+      type:e.detail.value
     })
   },
   /**

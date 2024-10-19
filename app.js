@@ -42,11 +42,13 @@ App({
         key1:0,
         keys:'',
         arr:[],
+        ymd:'',
       },
       name:'无名',
       futureDates:[],
       submit:{
         
-      }
+      },
+      token:''
   }
 })

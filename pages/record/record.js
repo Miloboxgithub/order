@@ -23,7 +23,8 @@ Page({
         day: '9月29日',
         time: '9:00-10:00'
       }
-    ]
+    ],
+    shs:800
   },
 
   /**
@@ -46,9 +47,16 @@ Page({
       data:{
         reserved_by_name:that.data.tname
       },
+      header:{
+        Authorization:app.globalData.token
+      },
       success:(res)=>{
         console.log(res.data.data.reservedinfo.reserved_info2s,'sss')
         let op = res.data.data.reservedinfo.reserved_info2s
+        this.setData({
+          shs:150*(op.length+1)
+        })
+        console.log(that.data.shs)
         let ttt =[]
         op.forEach(function(item,index){
           let t ={
@@ -120,6 +128,7 @@ Page({
         selected: 1
       })
     }
+    this.GetData()
     // 获取全局变量中的数据
     let sharedData = app.globalData.sharedData;
     console.log('sharedData:', sharedData);

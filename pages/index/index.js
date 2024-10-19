@@ -147,7 +147,7 @@ Page({
         flag: false
       },
     ],
-    ymd:'',
+    ymd: '',
   },
 
   /**
@@ -167,6 +167,9 @@ Page({
     wx.request({
       url: 'http://10.151.2.183:8085/user/getmeetingroom',
       method: "GET",
+      header: {
+        Authorization: app.globalData.token
+      },
       data: {
         ymd: that.data.ymd
       },
@@ -200,6 +203,9 @@ Page({
     wx.request({
       url: '  http://10.151.2.183:8085/user/getmeetingtime',
       method: "GET",
+      header: {
+        Authorization: app.globalData.token
+      },
       data: {
         ymd: that.data.ymd
       },
@@ -225,29 +231,31 @@ Page({
       }
     })
   },
-  Get_time_items:function(){
-    let op =[]
+  Get_time_items: function () {
+    let that =this
+    let op = []
     let ed = app.globalData.futureDates
-    ed.forEach(function(item,index){
-      let t={
-        flag:false,
-        zou:item.dayOfWeek,
-        date:item.date,
-        fD:item.fD
+    ed.forEach(function (item, index) {
+      let t = {
+        flag: false,
+        zou: item.dayOfWeek,
+        date: item.date,
+        fD: item.fD
       }
       op.push(t)
     })
-    op[0].flag=true
+    op[0].flag = true
     this.setData({
-      time_items:op
+      time_items: op
+    })
+    this.setData({
+      ymd: that.data.time_items[0].fD
     })
   },
   navigate: function (e) {
     wx.navigateTo({
       url: e.currentTarget.dataset.url
     });
-
-
     let i = e.currentTarget.dataset.index
     i = parseInt(i)
     if (e.currentTarget.dataset.url == "/pages/order1/order1") {
@@ -255,7 +263,8 @@ Page({
       v = this.data.items[i].name
       // 设置要传递的数据
       app.globalData.sharedData = {
-        keys: v
+        keys: v,
+        ymd:this.data.ymd
       };
     } else {
       let v = []
@@ -265,7 +274,8 @@ Page({
         }
       })
       app.globalData.sharedData = {
-        arr: v
+        arr: v,
+        ymd:this.data.ymd
       };
     }
 
@@ -312,7 +322,7 @@ Page({
   changeFlag(e) {
     let i = e.currentTarget.dataset.index
     this.setData({
-      ymd:this.data.time_items[i].fD
+      ymd: this.data.time_items[i].fD
     })
     // console.log(this.data.ymd)
     let op = this.data.time_items

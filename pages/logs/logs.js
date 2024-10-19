@@ -5,7 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    number:'13923420245',
+    number:'20220110',
     password:'王培正',
   },
 
@@ -26,7 +26,7 @@ Page({
         name:that.data.password
       },
       success:(res)=>{
-        console.log('yesyes',res.data);
+        //console.log('yesyes',res.data);
         if(res.data.message=='sql: no rows in result set'){
           wx.showToast({
             title: '请填写正确信息~',
@@ -48,7 +48,7 @@ Page({
             })
           }, 1000);
           app.globalData.name= that.data.password
-          
+          app.globalData.token=res.data.data.token
       }
       },
       fail: (err) =>{

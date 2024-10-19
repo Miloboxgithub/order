@@ -1,4 +1,4 @@
-<view class="containers">
+<scroll-view class="containers" scroll-y="true" style="height: {{shs}}px;"> 
 <view class="nnn">{{tname}}</view>
 <view class="ttt">已预定：</view>
 <view class="item" wx:for="{{items}}" wx:key="*this" >
@@ -8,4 +8,4 @@
   <view class="time">{{item.time}}</view>
   <view class="quxiao" bind:tap="quxiao" data-index="{{index}}">取消预约</view>
 </view>
-</view>
+</scroll-view>
