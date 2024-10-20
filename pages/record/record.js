@@ -118,7 +118,7 @@ Page({
     console.log(i,'quxiao',this.data.items[i])
     wx.request({
       url: 'http://10.151.2.183:8085/user/delreserve',
-      method:'POST',
+      method:'DELETE',
       header:{
         Authorization:app.globalData.token
       },
