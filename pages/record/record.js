@@ -88,10 +88,11 @@ Page({
       confirmColor: '#3CC51F', // 确定按钮的文字颜色
       success: function (res) {
         if (res.confirm) {
+          
           console.log('用户点击了确定');
           // 执行一些操作
           const index = e.currentTarget.dataset.index; // 获取点击元素的索引
-          console.log(index,'hhh')
+          that.PostQuxiao(index)
           let items = that.data.items; // 获取当前数据
 
           // 从数组中移除指定索引的元素
@@ -101,6 +102,7 @@ Page({
           that.setData({
             items: items
           });
+          
         } else if (res.cancel) {
           console.log('用户点击了取消');
           // 执行其他操作
@@ -110,6 +112,31 @@ Page({
         console.error('调用失败：', err);
       }
     });
+  },
+  PostQuxiao(i){
+
+    console.log(i,'quxiao',this.data.items[i])
+    wx.request({
+      url: 'http://10.151.2.183:8085/user/delreserve',
+      method:'POST',
+      header:{
+        Authorization:app.globalData.token
+      },
+      data:{
+        ymd:this.data.items[i].day,
+        room_name:this.data.items[i].name,
+        start_time:this.data.items[i].time.substring(0,5),
+        end_time:this.data.items[i].time.substring(6,11),
+        meeting_type:this.data.items[i].type,
+        reserved_by_name:this.data.tname
+      },
+      success:(res)=>{
+        console.log(res)
+      },
+      fail: (err) =>{
+        console.error('nono',err);
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -81,6 +81,7 @@ Page({
     ],
     isSelect: false, //展示类型？
     ymd: '',
+    len:'',
   },
 
   /**
@@ -92,7 +93,8 @@ Page({
 
     console.log('sharedData:', sharedData);
     this.setData({
-      name: sharedData.arr
+      name: sharedData.arr,
+      len:sharedData.arr.length
     })
     this.Get_time_items()
     setTimeout(() => {
