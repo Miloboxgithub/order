@@ -154,9 +154,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.GetData1()
-    this.GetData2()
     this.Get_time_items()
+    setTimeout(() => {
+      this.GetData1()
+    this.GetData2()
+    }, 100);
+    
   },
 
   GetData1: function () {
