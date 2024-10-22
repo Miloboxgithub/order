@@ -167,8 +167,9 @@ Page({
     this.setData({
       items: []
     })
+    console.log(this.data.ymd)
     wx.request({
-      url: 'http://10.151.2.183:8085/user/getmeetingroom',
+      url: 'https://ehuiyue.buteck.com/user/getmeetingroom',
       method: "GET",
       header: {
         Authorization: app.globalData.token
@@ -177,7 +178,7 @@ Page({
         ymd: that.data.ymd
       },
       success: (res) => {
-        console.log('data1', res.data.data.meeting_room.meetingroomnums);
+        console.log('data1', res.data);
         let op = res.data.data.meeting_room.meetingroomnums
         let ttt = []
         op.forEach(function (item, index) {
@@ -204,7 +205,7 @@ Page({
       kkk: []
     })
     wx.request({
-      url: '  http://10.151.2.183:8085/user/getmeetingtime',
+      url: '  https://ehuiyue.buteck.com/user/getmeetingtime',
       method: "GET",
       header: {
         Authorization: app.globalData.token
@@ -362,6 +363,8 @@ Page({
         selected: 0
       })
     }
+    this.GetData1()
+    this.GetData2()
   },
 
   /**

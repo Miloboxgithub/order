@@ -57,7 +57,7 @@ height: 74vh;
   margin-left: 4%;
   margin-top: 15%;
   width: 92%;
-  height: 298px;
+  height: 338px;
   opacity: 1;
 background: #FFFFFF;
 }

@@ -1,5 +1,5 @@
 <scroll-view class="containers" scroll-y="true" scroll-with-animation="true" style="height: 150vh;">
-  <scroll-view scroll-x="true" scroll-with-animation="true">
+  <scroll-view scroll-x="true" scroll-with-animation="true" style="width: 310vw;">
   <view class="dates">
     <view class="yi">
       <image src="/img/返回图标.svg" mode="" />

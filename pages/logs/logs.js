@@ -5,8 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    number:'20220110',
-    password:'王培正',
+    number:'20242024',
+    password:'李三',
   },
 
   /**
@@ -19,14 +19,14 @@ Page({
     let that = this
     //console.log(this.data.number,'|',this.data.password)
     wx.request({
-      url: 'http://10.151.2.183:8085/login/login',
+      url: 'https://ehuiyue.buteck.com/login/login',
       method:'POST',
       data:{
         number:that.data.number,
         name:that.data.password
       },
       success:(res)=>{
-        //console.log('yesyes',res.data);
+        console.log('yesyes',res.data);
         if(res.data.message=='sql: no rows in result set'){
           wx.showToast({
             title: '请填写正确信息~',
@@ -42,13 +42,16 @@ Page({
             duration: 1000, // 显示时间，单位为毫秒，默认为 1500 毫秒
             mask: false, // 是否显示透明蒙层，防止触摸穿透
           });
+          app.globalData.name= that.data.password
+          app.globalData.token=res.data.data.token
+          wx.setStorageSync('name', that.data.password);
+          wx.setStorageSync('token', res.data.data.token);
           setTimeout(() => {
             wx.switchTab({
               url: e.currentTarget.dataset.url,
             })
           }, 1000);
-          app.globalData.name= that.data.password
-          app.globalData.token=res.data.data.token
+          //console.log(app.globalData.token)
       }
       },
       fail: (err) =>{

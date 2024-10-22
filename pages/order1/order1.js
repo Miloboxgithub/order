@@ -115,7 +115,7 @@ Page({
       items: []
     })
     wx.request({
-      url: 'http://10.151.2.183:8085/user/meetingroom',
+      url: 'https://ehuiyue.buteck.com/user/meetingroom',
       method: "GET",
       header: {
         Authorization: app.globalData.token

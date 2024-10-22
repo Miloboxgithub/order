@@ -19,8 +19,8 @@ Page({
     name: '',
     st: '',
     et: '',
-    rname: '王培正',
-    phone: '15013659503',
+    rname: '',
+    phone: '',
 
   },
 
@@ -34,6 +34,7 @@ Page({
     this.setData({
       ymd: exe.ymd,
       name: exe.room_name,
+      rname:app.globalData.name
     })
   },
   PostData: function (e) {
@@ -50,7 +51,7 @@ Page({
         et: exe.ts[i].substring(6, 11)
       })
     wx.request({
-      url: 'http://10.151.2.183:8085/user/reserved',
+      url: 'https://ehuiyue.buteck.com/user/reserved',
       method: "POST",
       header: {
         Authorization: app.globalData.token
@@ -65,8 +66,17 @@ Page({
         meetingtype: that.data.type
       },
       success: (res) => {
-        //console.log(res)
+        console.log(res.data.data.message,'sdsdsdsdsds')
+        if(res.data.data.message=='Success')
         that.navigate(urls)
+        else{
+          wx.showToast({
+            title: '请填写正确信息~',
+            icon: 'none', // 图标类型，可选值为 "success", "loading", "none"
+            duration: 1000, // 显示时间，单位为毫秒，默认为 1500 毫秒
+            mask: false, // 是否显示透明蒙层，防止触摸穿透
+          });
+        }
       },
       fail: (err) => {
         console.error('nono', err);

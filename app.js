@@ -15,11 +15,18 @@ App({
     this.GetTime()
     // console.log(this.globalData.futureDates)
   },
+  onShow: function (options) {
+    this.globalData.name=wx.getStorageSync('name');
+    this.globalData.token=wx.getStorageSync('token');
+    console.log(wx.getStorageSync('name'))
+  },
   GetTime(){
     const daysOfWeek = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
     const futureDates = [];
-
-    for (let i = 0; i < 7; i++) {
+    const date = new Date();
+    console.log(date.getDay())
+    let t = 15 - date.getDay()
+    for (let i = 0; i < t; i++) {
       const date = new Date();
       date.setDate(date.getDate() + i); // 设置为当前日期加上i天
 

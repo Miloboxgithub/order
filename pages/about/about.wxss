@@ -1,4 +1,5 @@
 .sss{
+  width: 90vw;
   margin-top: 18px;
   margin-left: 20px;
   font-family: Source Han Sans;
