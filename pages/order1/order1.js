@@ -91,6 +91,7 @@ Page({
     dian: 'none',
     ymd: '',
     ts: [],
+    lolo:false
   },
 
   /**
@@ -112,7 +113,8 @@ Page({
   GetData: function () {
     let that = this
     this.setData({
-      items: []
+      items: [],
+      lolo:true
     })
     wx.request({
       url: 'https://ehuiyue.buteck.com/user/meetingroom',
@@ -137,7 +139,8 @@ Page({
           ttt.push(t)
         })
         that.setData({
-          items: ttt
+          items: ttt,
+          lolo:false
         })
       },
       fail: (err) => {

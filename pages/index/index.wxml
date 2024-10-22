@@ -9,7 +9,7 @@
       <view>{{item.date}}</view>
     </view></view>
   </scroll-view>
-  
+  <custom-loading show="{{lolo}}" title="加载中..."></custom-loading>
   <view class="chico">
     <view style="width: 30%; display: flex; justify-content: center;">
       <view class="tabs {{tab1?'zuo':''}}" bind:tap="tabtab" data-id="1">会议室</view>

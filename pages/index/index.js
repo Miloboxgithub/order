@@ -148,6 +148,7 @@ Page({
       },
     ],
     ymd: '',
+    lolo:false,
   },
 
   /**
@@ -165,7 +166,8 @@ Page({
   GetData1: function () {
     let that = this
     this.setData({
-      items: []
+      items: [],
+      lolo:true
     })
     console.log(this.data.ymd)
     wx.request({
@@ -191,7 +193,8 @@ Page({
           ttt.push(t)
         })
         that.setData({
-          items: ttt
+          items: ttt,
+          lolo:false
         })
       },
       fail: (err) => {
@@ -202,7 +205,8 @@ Page({
   GetData2: function () {
     let that = this
     this.setData({
-      kkk: []
+      kkk: [],
+      lolo:true
     })
     wx.request({
       url: '  https://ehuiyue.buteck.com/user/getmeetingtime',
@@ -227,7 +231,8 @@ Page({
           ttt.push(t)
         })
         that.setData({
-          kkk: ttt
+          kkk: ttt,
+          lolo:false
         })
       },
       fail: (err) => {

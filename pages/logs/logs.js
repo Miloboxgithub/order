@@ -18,6 +18,16 @@ Page({
   logins: function(e){
     let that = this
     //console.log(this.data.number,'|',this.data.password)
+    wx.getUserProfile({
+      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: res => {
+        console.log('用户信息：', res.userInfo);
+        // 这里可以将用户信息发送到服务器进行进一步处理
+      },
+      fail: err => {
+        console.error('获取用户信息失败：', err);
+      }
+    });
     wx.request({
       url: 'https://ehuiyue.buteck.com/login/login',
       method:'POST',

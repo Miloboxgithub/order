@@ -1,6 +1,6 @@
 <view class="containers">
 <view class="tou">
-  <view class="xiang"><image src="/img/圆形 5.png" mode=""/></view>
+  <view class="xiang"><image src="/img/BgSub_ehuiyue_compressed.png" mode="aspectFill"/></view>
   <view class="msg"><view class="name">E会约</view></view>
 
 </view>

@@ -82,6 +82,7 @@ Page({
     isSelect: false, //展示类型？
     ymd: '',
     len:'',
+    lolo:false
   },
 
   /**
@@ -105,7 +106,8 @@ Page({
   GetData: function () {
     let that = this
     this.setData({
-      items: []
+      items: [],
+      lolo:true
     })
     wx.request({
       url: 'https://ehuiyue.buteck.com/user/meetingtime',
@@ -149,7 +151,8 @@ Page({
 
         })
         that.setData({
-          items: ttt
+          items: ttt,
+          lolo:false
         })
       },
       fail: (err) => {

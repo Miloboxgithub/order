@@ -47,5 +47,8 @@
         "text": "个人"
       }
     ]
+  },
+  "usingComponents": {
+    "custom-loading": "/components/custom-loading/index"
   }
 }
