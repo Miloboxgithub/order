@@ -1,2 +1,21 @@
-<!--pages/feedback/feedback.wxml-->
-<text>pages/feedback/feedback.wxml</text>
+<view class="container">
+  <view class="header">
+  </view>
+  <view class="content">
+    <view class="info">
+      <text class="label">当前版本:</text>
+      <text class="value">{{currentVersion}}</text>
+    </view>
+    <view class="update-log">
+      <text class="label">更新日志:</text>
+      <view class="log-items">
+        <!-- 更新条目示例 -->
+        <view class="log-item" wx:for="{{updateLog}}" wx:key="index">
+          <text class="version-date">{{item.version}} - {{item.date}}</text>
+          <text class="details">{{item.details}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <button bindtap="checkForUpdates" class="check-update-btn">检查更新</button>
+</view>

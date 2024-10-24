@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {},
+  "navigationBarTitleText": "版本信息",
+  "navigationBarBackgroundColor": "#EFEFEF"
 }

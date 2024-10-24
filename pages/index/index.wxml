@@ -9,6 +9,74 @@
       <view>{{item.date}}</view>
     </view></view>
   </scroll-view>
+  <view class="container2">
+<view class="bac"></view>
+   <!-- 第一块 -->
+   <!-- <view class="one">
+        <view class="place">
+            <image src="/Pic/dingwei.png" mode=""/>
+            <text>{{shi}}-{{qu}}</text>
+        </view>
+        <view class="time">
+            <text>更新时间{{time}}</text>
+        </view>
+    </view> -->
+
+    <!-- 第二块 -->
+    <view class="two">
+      <image  src="/Pic/QWeather-Icons-1.1.0/1.1.0/icons/{{icon}}.svg" mode=""/>
+        <view class="detail">
+          <view class="place">
+            <image style="height:20px;width:20px;margin-right: 7px;" src="/Pic/dingwei.png" mode=""/>
+            <text>{{shi}}-{{qu}}</text>
+        </view>
+            <view class="p">
+                <text style="font-size: 70rpx;font-weight: 500;padding-right: 15rpx;color: rgb(112, 120, 196);">{{temp}}℃</text>
+                <text>{{tianqi}}</text>
+            </view>
+            <view class="pp">
+                <text>{{fengxiang}} {{dengji}}级</text>
+                <text> | </text>
+                <text>湿度为{{humi}}</text>
+            </view>
+        </view>
+        
+    </view>
+
+    <!-- 第三块 -->
+    <view class="three">
+        <!-- 区分1 -->
+        <!-- <view class="t">
+            <view class="tt">
+                <text style="color: rgb(59, 129, 106);">{{jiangshui}}mm</text>
+                <text>降水量</text>
+            </view>
+            <view class="tt">
+                <text style="color: rgb(59, 129, 106);">{{AQI}}</text>
+                <text>AQI指数</text>
+            </view>
+            <view class="tt">
+                <text style="color: rgb(59, 129, 106);">{{jiance}}</text>
+                <text>监测点</text>
+            </view>
+        </view> -->
+        <!-- 区分2 -->
+        <!-- <view class="t">
+            <view class="tt">
+                <text style="color: rgb(59, 129, 106);">{{pa}}pa</text>
+                <text>大气压</text>
+            </view>
+            <view class="tt">
+                <text style="color: rgb(59, 129, 106);">{{PM}}</text>
+                <text>PM2.5</text>
+            </view>
+            <view class="tt">
+                <text style="color: rgb(59, 129, 106);">{{see}}Km</text>
+                <text>能见度</text>
+            </view>
+        </view> -->
+    </view>
+</view>
   <custom-loading show="{{lolo}}" title="加载中..."></custom-loading>
   <view class="chico">
     <view style="width: 30%; display: flex; justify-content: center;">

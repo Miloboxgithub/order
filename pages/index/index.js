@@ -160,7 +160,7 @@ Page({
       this.GetData1()
     this.GetData2()
     }, 100);
-    
+    this.getWeather()
   },
 
   GetData1: function () {
@@ -350,6 +350,60 @@ Page({
       this.GetData2()
     }, 100);
 
+  },
+  getWeather(e){
+    let that=this
+    wx.getLocation({
+        type: 'wgs84',
+        success (res) {
+         console.log(res);
+          const latitude = res.latitude
+          const longitude = res.longitude
+          const key='9ec4b623160141459b16b5d334f5140e'
+          wx.request({
+            url:`https://geoapi.qweather.com/v2/city/lookup?location=${longitude},${latitude}&key=${key}`,
+            success(res){
+                console.log(res.data.location[0].adm1);//市
+                console.log(res.data.location[0].name);//qu
+                that.setData({
+                    shi:res.data.location[0].adm1,
+                    qu:res.data.location[0].name
+                })
+                wx.request({
+                  url: `https://devapi.qweather.com/v7/weather/now?location=${longitude},${latitude}&key=${key}`,
+                  success(res){
+                      console.log(res.data.now);
+                      that.setData({
+                        icon:res.data.now.icon,
+                        tianqi:res.data.now.text,
+                        temp:res.data.now.temp,
+                        fengxiang:res.data.now.windDir,//fengxiang 
+                        dengji:res.data.now.windScale,
+                        humi:res.data.now.humidity,
+                        pa:res.data.now.pressure,
+                        see:res.data.now.vis,
+                        jiangshui:res.data.now.precip,
+                        time:res.data.updateTime.slice(11,16)                         
+                      })
+                      wx.request({
+                        url:`https://devapi.qweather.com/v7/indices/1d?type=1,2,3,4,5&location=${longitude},${latitude}&key=${key}`,
+                        success(res){
+                            console.log(res);
+                            that.setData({
+                                AQI:res.data.daily[4].category,
+                                jiance:res.data.daily[0].category,
+                                PM:res.data.daily[1].category,
+                              })
+                        }
+                      })
+                  }
+                })
+            }
+            
+          })
+        },
+
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
