@@ -2,12 +2,16 @@
   <scroll-view scroll-x="true" scroll-with-animation="true" style="width: 310vw;">
   <view class="dates">
     <view class="yi">
-      <image src="/img/返回图标.svg" mode="" />
+      <image style="transform: scaleX(-1); position: fixed; top:23px;left:5px;" src="/img/回图标.svg" mode="" />
     </view>
     <view bind:tap="changeFlag" wx:for="{{time_items}}" class="time-item {{item.flag?'ttt':''}}" wx:key="*this" data-index="{{index}}">
       <view>{{item.zou}}</view>
       <view>{{item.date}}</view>
-    </view></view>
+    </view>
+    <view class="yi">
+      <image style=" position: fixed; top:23px;right:5px;"  src="/img/回图标.svg" mode="" />
+    </view>
+    </view>
   </scroll-view>
   <view class="container2">
 <view class="bac"></view>
@@ -24,15 +28,15 @@
 
     <!-- 第二块 -->
     <view class="two">
-      <image  src="/Pic/QWeather-Icons-1.1.0/1.1.0/icons/{{icon}}.svg" mode=""/>
+      <!-- <image  src="/Pic/QWeather-Icons-1.1.0/1.1.0/icons/{{icon}}.svg" mode=""/> -->
         <view class="detail">
           <view class="place">
             <image style="height:20px;width:20px;margin-right: 7px;" src="/Pic/dingwei.png" mode=""/>
             <text>{{shi}}-{{qu}}</text>
         </view>
             <view class="p">
-                <text style="font-size: 70rpx;font-weight: 500;padding-right: 15rpx;color: rgb(112, 120, 196);">{{temp}}℃</text>
-                <text>{{tianqi}}</text>
+                <text style="font-size: 70rpx;font-weight: 500;padding-right: 15rpx;color: rgb(173, 175, 187);">{{temp}}℃</text>
+                <text style="color: rgb(214, 207, 207);">{{tianqi}}</text>
             </view>
             <view class="pp">
                 <text>{{fengxiang}} {{dengji}}级</text>

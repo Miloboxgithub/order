@@ -69,10 +69,10 @@
 
 .item {
   position: relative;
-  margin-top: 9px;
-  width: 86vw;
-  margin-left: 7vw;
-  height: 86px;
+  margin-top: 14px;
+  width: 90vw;
+  margin-left: 5vw;
+  height: 56px;
   border-radius: 16px;
   opacity: 1;
   /* 纯白 */
@@ -88,8 +88,8 @@
   border-radius: 57px;
   opacity: 1;
   background: rgba(208, 206, 206, 0.41);
-  width: 70px;
-  height: 30px;
+  width: 80px;
+  height: 27px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -104,7 +104,7 @@
 }
 
 .active {
-  background: linear-gradient(135deg, #c6f4d6, #60b98a);
+  background: rgba(1, 211, 64, 0.94);
   font-family: Source Han Sans;
   font-size: 15px;
   font-weight: normal;
