@@ -161,6 +161,12 @@ Page({
     this.GetData2()
     }, 100);
     this.getWeather()
+    // 获取今天的日期
+    const today = this.formatDate(new Date());
+    // 更新数据
+    this.setData({
+      today: today
+    });
   },
 
   GetData1: function () {
@@ -245,20 +251,22 @@ Page({
     let op = []
     let ed = app.globalData.futureDates
     ed.forEach(function (item, index) {
+      
       let t = {
         flag: false,
         zou: item.dayOfWeek,
         date: item.date,
         fD: item.fD
       }
+      if(item.today){t.flag=true; app.globalData.sharedData.ymd = t.fD}
       op.push(t)
     })
-    op[0].flag = true
+    //op[0].flag = true
     this.setData({
       time_items: op
     })
     this.setData({
-      ymd: that.data.time_items[0].fD
+      ymd:  app.globalData.sharedData.ymd 
     })
   },
   navigate: function (e) {
@@ -404,6 +412,13 @@ Page({
         },
 
     })
+  },
+  formatDate: function(date) {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // 月份从0开始，需要加1
+    const day = date.getDate().toString().padStart(2, '0');
+    
+    return `${year}-${month}-${day}`;
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

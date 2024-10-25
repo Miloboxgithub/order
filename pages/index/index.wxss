@@ -33,7 +33,7 @@ page {
   height: 10vh;
   border-radius: 3px;
   opacity: 1;
-  background: rgba(216, 216, 216, 0.63);
+  background: #EDEDED ;
   display: flex;
   align-items: center;
 }
@@ -45,7 +45,7 @@ page {
 }
 
 .zuo {
-  border-bottom: solid 1.5px;
+  border-bottom: #d6d4d4  solid 1.7px;
   font-family: Source Han Sans;
   font-size: 20px;
   font-weight: normal;
@@ -171,7 +171,7 @@ page {
   /* text-align: center; */
   border-radius: 10px;
   opacity: 1;
-  background: linear-gradient(180deg, #E2E7F5 0%, #fcf9f9 100%);
+  background: linear-gradient(180deg, #ffffff 0%, #fcf9f9 100%);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.1);
   /* 柔和的灰色阴影 */
   display: flex;
@@ -183,7 +183,7 @@ page {
 
 .name {
   font-family: Alibaba Sans;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: normal;
   line-height: normal;
   letter-spacing: 0em;
@@ -199,7 +199,7 @@ page {
   line-height: normal;
   letter-spacing: 0em;
   font-variation-settings: "opsz"auto;
-  color: rgba(61, 61, 61, 0.5);
+  color: rgba(110, 110, 110, 0.5);
   margin-left: 10%;
   margin-bottom: 5px;
 }
@@ -233,9 +233,11 @@ page {
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow:  2px 2px 10px #d0d0d0,
+  -7px -5px 21px #f0f0f0;
   /* 数字 */
   font-family: Alibaba Sans;
-  font-size: 20px;
+  font-size: 16px;
   font-weight: bold;
   line-height: normal;
   letter-spacing: 0em;
@@ -247,13 +249,12 @@ page {
   background-color: transparent;
   font-family: Source Han Sans;
   font-size: 14px;
-  font-weight: normal;
+  font-weight: 600;
   line-height: normal;
   letter-spacing: 0em;
   font-variation-settings: "opsz"auto;
-  color: #FFFFFF;
+  color: #acabab;
   opacity: 1;
-  text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
   margin-right: 4%;
 }
 
@@ -261,9 +262,9 @@ page {
   border-radius: 10px;
   opacity: 1;
   background: #FFFFFF;
-  width: 72px;
-  height: 78%;
-  margin-left: 10px;
+  width: 68px;
+  height: 72%;
+  margin-left: 12px;
   font-family: Source Han Sans;
   font-size: 13px;
   font-weight: bold;
@@ -426,7 +427,7 @@ page {
 
 .p {
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 0px;
   font-size: 20px;
   display: flex;
   justify-content: center;

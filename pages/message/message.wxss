@@ -39,16 +39,15 @@ page {
   display: flex;
   flex-direction: row;
   align-items: center;
-
   gap: 8px;
   z-index: 1;
   font-family: Inter;
-  font-size: 14px;
+  font-size: 15px;
   font-weight: normal;
   line-height: 20px;
   letter-spacing: 0px;
   /* 外部/Gray 3 */
-  color: #828282;
+  color: rgba(0, 0, 0, 0.67);
 }
 
 .inp image {
@@ -60,12 +59,12 @@ page {
 
 .ttt {
   font-family: Source Han Sans;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: normal;
   line-height: normal;
   letter-spacing: 0em;
   font-variation-settings: "opsz"auto;
-  color: rgba(153, 147, 147, 0.67);
+  color: rgba(0, 0, 0, 0.67);
 }
 
 .types {

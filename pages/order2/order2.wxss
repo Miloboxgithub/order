@@ -3,7 +3,7 @@
   height: 10vh;
   border-radius: 3px;
   opacity: 1;
-  background: rgba(216, 216, 216, 0.63);
+  background: #EDEDED ;
   display: flex;
   align-items: center;
 }
@@ -18,9 +18,9 @@
   border-radius: 10px;
   opacity: 1;
   background: #FFFFFF;
-  width: 72px;
-  height: 78%;
-  margin-left: 10px;
+  width: 68px;
+  height: 72%;
+  margin-left: 12px;
   font-family: Source Han Sans;
   font-size: 13px;
   font-weight: bold;

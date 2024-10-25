@@ -27,7 +27,7 @@ App({
     const date = new Date();
     console.log(date.getDay())
     let t = 15 - date.getDay()
-    for (let i = 0; i < t; i++) {
+    for (let i = -2; i < t; i++) {
       const date = new Date();
       date.setDate(date.getDate() + i); // 设置为当前日期加上i天
 
@@ -37,12 +37,21 @@ App({
       const formattedDate = `${month}月${day}日`; // 格式化日期
       const fD = `${year}-${month}-${day}`; // 格式化日期
       const dayOfWeek = daysOfWeek[date.getDay()]; // 获取星期几
-
+      if(i==0){
+        futureDates.push({
+          date: formattedDate,
+          dayOfWeek: dayOfWeek,
+          fD:fD,
+          today:true
+        });
+      }
+      else{
       futureDates.push({
         date: formattedDate,
         dayOfWeek: dayOfWeek,
-        fD:fD
-      }); }
+        fD:fD,
+        today:false
+      }); }}
       this.globalData.futureDates=futureDates
   },
   globalData: {

@@ -1,10 +1,10 @@
 <scroll-view class="containers" scroll-y="true" scroll-with-animation="true" style="height: 150vh;">
-  <scroll-view scroll-x="true" scroll-with-animation="true" style="width: 310vw;">
+  <scroll-view scroll-x="true" scroll-with-animation="true" style="width: 320vw;" scroll-into-view="today">
   <view class="dates">
     <view class="yi">
       <image style="transform: scaleX(-1); position: fixed; top:23px;left:5px;" src="/img/回图标.svg" mode="" />
     </view>
-    <view bind:tap="changeFlag" wx:for="{{time_items}}" class="time-item {{item.flag?'ttt':''}}" wx:key="*this" data-index="{{index}}">
+    <view bind:tap="changeFlag" wx:for="{{time_items}}" class="time-item {{item.flag?'ttt':''}}" wx:key="*this" data-index="{{index}}" id="{{item.flag?'today':''}}">
       <view>{{item.zou}}</view>
       <view>{{item.date}}</view>
     </view>
@@ -38,7 +38,10 @@
                 <text style="font-size: 70rpx;font-weight: 500;padding-right: 15rpx;color: rgb(173, 175, 187);">{{temp}}℃</text>
                 <text style="color: rgb(214, 207, 207);">{{tianqi}}</text>
             </view>
-            <view class="pp">
+            <view class="pp" style="text-align: center;">
+                {{today}}
+            </view>
+            <view class="pp" style="margin-top: 5px;">
                 <text>{{fengxiang}} {{dengji}}级</text>
                 <text> | </text>
                 <text>湿度为{{humi}}</text>
