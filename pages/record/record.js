@@ -42,7 +42,7 @@ Page({
       tname:app.globalData.name
     })
     wx.request({
-      url: 'https://ehuiyue.buteck.com/user/getreservationinfo',
+      url: 'https://ehuiyue.buteck.com/api/user/getreservationinfo',
       method:"GET",
       data:{
         reserved_by_name:that.data.tname
@@ -117,7 +117,7 @@ Page({
 
     console.log(i,'quxiao',this.data.items[i])
     wx.request({
-      url: 'https://ehuiyue.buteck.com/user/delreserve',
+      url: 'https://ehuiyue.buteck.com/api/user/delreserve',
       method:'DELETE',
       header:{
         Authorization:app.globalData.token

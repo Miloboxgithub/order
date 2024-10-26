@@ -177,7 +177,7 @@ Page({
     })
     console.log(this.data.ymd)
     wx.request({
-      url: 'https://ehuiyue.buteck.com/user/getmeetingroom',
+      url: 'https://ehuiyue.buteck.com/api/user/getmeetingroom',
       method: "GET",
       header: {
         Authorization: app.globalData.token
@@ -215,7 +215,7 @@ Page({
       lolo:true
     })
     wx.request({
-      url: '  https://ehuiyue.buteck.com/user/getmeetingtime',
+      url: '  https://ehuiyue.buteck.com/api/user/getmeetingtime',
       method: "GET",
       header: {
         Authorization: app.globalData.token

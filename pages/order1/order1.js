@@ -117,7 +117,7 @@ Page({
       lolo:true
     })
     wx.request({
-      url: 'https://ehuiyue.buteck.com/user/meetingroom',
+      url: 'https://ehuiyue.buteck.com/api/user/meetingroom',
       method: "GET",
       header: {
         Authorization: app.globalData.token

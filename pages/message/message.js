@@ -51,7 +51,7 @@ Page({
         et: exe.ts[i].substring(6, 11)
       })
     wx.request({
-      url: 'https://ehuiyue.buteck.com/user/reserved',
+      url: 'https://ehuiyue.buteck.com/api/user/reserved',
       method: "POST",
       header: {
         Authorization: app.globalData.token

@@ -110,7 +110,7 @@ Page({
       lolo:true
     })
     wx.request({
-      url: 'https://ehuiyue.buteck.com/user/meetingtime',
+      url: 'https://ehuiyue.buteck.com/api/user/meetingtime',
       method: "GET",
       header: {
         Authorization: app.globalData.token
