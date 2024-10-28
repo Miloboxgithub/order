@@ -5,15 +5,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-    number:'20242024',
-    password:'李三',
+    number:'',
+    password:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    
+    let number = wx.getStorageSync('number');
+    let password = wx.getStorageSync('password');
+    this.setData({
+      number,
+      password
+    })
   },
   logins: function(e){
     let code = wx.getStorageSync('code');
@@ -56,6 +61,8 @@ Page({
               app.globalData.token=res.data.data.token
               wx.setStorageSync('name', that.data.password);
               wx.setStorageSync('token', res.data.data.token);
+              wx.setStorageSync('number', that.data.number);
+              wx.setStorageSync('password', that.data.password);
               setTimeout(() => {
                 wx.switchTab({
                   url: e.currentTarget.dataset.url,

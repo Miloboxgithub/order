@@ -170,7 +170,8 @@ Page({
     })
     //op[0].flag = true
     this.setData({
-      time_items: op
+      time_items: op,
+      timelen:ed.length
     })
 
   },

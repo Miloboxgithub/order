@@ -1,5 +1,5 @@
 <scroll-view class="containers" scroll-y="true" scroll-with-animation="true" style="height: 150vh;">
-  <scroll-view scroll-x="true" scroll-with-animation="true" style="width: 320vw;" scroll-into-view="today">
+  <scroll-view scroll-x="true" scroll-with-animation="true" style="width: {{timelen*25}}vw;" scroll-into-view="today">
   <view class="dates">
     <view class="yi">
       <image style="transform: scaleX(-1); position: fixed; top:23px;left:5px;" src="/img/回图标.svg" mode="" />
@@ -28,20 +28,20 @@
 
     <!-- 第二块 -->
     <view class="two">
-      <!-- <image  src="/Pic/QWeather-Icons-1.1.0/1.1.0/icons/{{icon}}.svg" mode=""/> -->
+      <image  src="/img/Illustration.png" mode="" style="position: absolute;left: -10px;"/>
         <view class="detail">
           <view class="place">
             <image style="height:20px;width:20px;margin-right: 7px;" src="/Pic/dingwei.png" mode=""/>
-            <text>{{shi}}-{{qu}}</text>
+            <text style="font-size: 14px;">{{shi}}-{{qu}}</text>
         </view>
             <view class="p">
-                <text style="font-size: 70rpx;font-weight: 500;padding-right: 15rpx;color: rgb(173, 175, 187);">{{temp}}℃</text>
+                <text style="font-size: 80rpx;font-weight: 500;padding-right: 15rpx;color: rgb(173, 175, 187);">{{temp}}℃</text>
                 <text style="color: rgb(214, 207, 207);">{{tianqi}}</text>
             </view>
-            <view class="pp" style="text-align: center;">
+            <view class="pp" style="text-align: center; font-size: 11px;">
                 {{today}}
             </view>
-            <view class="pp" style="margin-top: 5px;">
+            <view class="pp" style="margin-top: 5px; font-size: 12px;">
                 <text>{{fengxiang}} {{dengji}}级</text>
                 <text> | </text>
                 <text>湿度为{{humi}}</text>
@@ -51,7 +51,7 @@
     </view>
 
     <!-- 第三块 -->
-    <view class="three">
+    <!-- <view class="three"> -->
         <!-- 区分1 -->
         <!-- <view class="t">
             <view class="tt">
@@ -82,7 +82,7 @@
                 <text>能见度</text>
             </view>
         </view> -->
-    </view>
+    <!-- </view> -->
 </view>
   <custom-loading show="{{lolo}}" title="加载中..."></custom-loading>
   <view class="chico">

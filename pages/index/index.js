@@ -263,7 +263,8 @@ Page({
     })
     //op[0].flag = true
     this.setData({
-      time_items: op
+      time_items: op,
+      timelen:ed.length
     })
     this.setData({
       ymd:  app.globalData.sharedData.ymd 
@@ -361,12 +362,20 @@ Page({
   },
   getWeather(e){
     let that=this
-    wx.getLocation({
-        type: 'wgs84',
-        success (res) {
-         console.log(res);
-          const latitude = res.latitude
-          const longitude = res.longitude
+    // wx.request({
+    //   url: 'https://apis.map.qq.com/ws/location/v1/ip',
+    //   method: 'GET',
+    //   data: {
+    //       key: 'GU7BZ-7CHKZ-VTMX5-TRGXN-PUBYT-XNFKE', // 替换为您的实际密钥
+    //       output: 'json'
+    //   },
+    //   success(ress) {
+    //     console.log(ress)
+    //       const { latitude, longitude } = ress.data.result.location;
+
+
+          const latitude = 22.69681
+          const longitude = 114.401147
           const key='9ec4b623160141459b16b5d334f5140e'
           wx.request({
             url:`https://geoapi.qweather.com/v2/city/lookup?location=${longitude},${latitude}&key=${key}`,
@@ -409,9 +418,10 @@ Page({
             }
             
           })
-        },
+        // }
+        // });
+      
 
-    })
   },
   formatDate: function(date) {
     const year = date.getFullYear();
