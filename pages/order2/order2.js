@@ -1,4 +1,5 @@
 const app = getApp();
+const  token= wx.getStorageSync('token');
 Page({
 
   /**
@@ -113,7 +114,7 @@ Page({
       url: 'https://ehuiyue.buteck.com/api/user/meetingtime',
       method: "GET",
       header: {
-        Authorization: app.globalData.token
+        Authorization: token
       },
       data: {
         ymd: that.data.ymd,

@@ -138,8 +138,9 @@
 
 .qur {
   width: 80px;
-  position: fixed;
-  bottom: 100px;
+  /* position: fixed; */
+  /* bottom: 100px; */
+  margin-top: 20px;
   border-radius: 10px;
   opacity: 1;
   background: #3386EC;

@@ -1,12 +1,12 @@
 <view class="containers">
   <view class="coitem">
-    <view class="tst">姓名</view>
+    <view class="tst">昵称</view>
     <view class="inp">
       <image src="/img/source-verify.svg" mode="" />
     <input bindinput="input1" type="text" value="{{rname}}" /></view>
   </view>
   <view class="coitem">
-    <view class="tst">电话</view>
+    <view class="tst">工号</view>
     <view class="inp">
       <image src="/img/telephone.svg" mode="" />
     <input bindinput="input2" type="text" value="{{phone}}" /></view>
@@ -16,6 +16,14 @@
     <view class="inp">
       <image src="/img/doc-edit.svg" mode="" /><input bindinput="input3" class="ttt" type="text" placeholder="请输入..." value="{{type}}" />
     </view>
+  </view>
+  <view class="coitem">
+    <view class="agreement">
+    <label class="checkbox-label">
+      <checkbox value="agreements" bind:tap="onCheckboxChange" />
+    </label>
+    <text>我已阅读并同意<text style="color: rgb(159, 20, 201);" bind:tap="navigates" data-url="/pages/yh/yh">《用户协议》</text>和<text style="color: rgb(159, 20, 201);" bind:tap="navigates" data-url="/pages/ys/ys">《隐私协议》</text></text>
+  </view>
   </view>
   <view class="types">
     <view bind:tap="chantype" class="type" wx:for="{{types}}" wx:key="*this" data-index="{{index}}">

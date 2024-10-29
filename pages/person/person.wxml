@@ -1,16 +1,45 @@
 <view class="containers">
-<view class="tou">
-  <view class="xiang"><image src="/img/BgSub_ehuiyue_compressed.png" mode="aspectFill"/></view>
-  <view class="msg"><view class="name">E会约</view></view>
+  <view class="tou">
+    <view class="xiang">
+      <image src="/img/BgSub_ehuiyue_compressed.png" mode="aspectFill" />
+    </view>
+    <view class="msg">
+      <view class="name">E会约</view>
+    </view>
 
-</view>
-<view class="det">
-  <view class="detitem">
-  <view class="item" bind:tap="wei"><view class="zzz"><image  src="/img/路径.svg" mode=""/>反馈与建议</view><image class="jjj" src="/img/回图标.svg" mode=""/></view>
-  <view class="item" bind:tap="navigate" data-url="/pages/feedback/feedback"><view class="zzz"><image  src="/img/路径 (1).svg" mode=""/>更新日志</view><image class="jjj" src="/img/回图标.svg" mode=""/></view>
-  <view class="item" bind:tap="navigate" data-url="/pages/story/story"><view class="zzz"><image  src="/img/路径 (2).svg" mode=""/>系统开发故事</view><image class="jjj" src="/img/回图标.svg" mode=""/></view>
-  <view class="item" bind:tap="navigate" data-url="/pages/about/about"><view class="zzz"><image src="/img/路径 (3).svg" mode=""/>关于我们</view><image class="jjj" src="/img/回图标.svg" mode=""/></view>
-  <view class="item" bind:tap="navigate" data-url="/pages/logs/logs"><view class="zzz"><image src="/img/推出.png" mode=""/>退出登录</view><image class="jjj" src="/img/回图标.svg" mode=""/></view>
   </view>
-</view>
+  <view class="det">
+    <view class="detitem">
+      <view class="item" bind:tap="showModal">
+        <view class="zzz">
+          <image src="/img/路径.svg" mode="" />反馈与建议
+        </view>
+        <image class="jjj" src="/img/回图标.svg" mode="" />
+      </view>
+      <view class="item" bind:tap="navigate" data-url="/pages/feedback/feedback">
+        <view class="zzz">
+          <image src="/img/路径 (1).svg" mode="" />更新日志
+        </view>
+        <image class="jjj" src="/img/回图标.svg" mode="" />
+      </view>
+      <view class="item" bind:tap="navigate" data-url="/pages/story/story">
+        <view class="zzz">
+          <image src="/img/路径 (2).svg" mode="" />系统开发故事
+        </view>
+        <image class="jjj" src="/img/回图标.svg" mode="" />
+      </view>
+      <view class="item" bind:tap="navigate" data-url="/pages/about/about">
+        <view class="zzz">
+          <image src="/img/路径 (3).svg" mode="" />关于我们
+        </view>
+        <image class="jjj" src="/img/回图标.svg" mode="" />
+      </view>
+      <view class="item" bind:tap="navigate" data-url="/pages/logs/logs">
+        <view class="zzz">
+          <image src="/img/推出.png" mode="" />退出登录
+        </view>
+        <image class="jjj" src="/img/回图标.svg" mode="" />
+      </view>
+    </view>
+  </view>
 </view>

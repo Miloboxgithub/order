@@ -1,5 +1,5 @@
 <custom-loading show="{{lolo}}" title="加载中..."></custom-loading>
-<scroll-view class="containers" scroll-y="true" scroll-with-animation="true" style="height: 150vh;">
+<scroll-view class="containers" scroll-y="true" scroll-with-animation="true" style="height: 163vh;">
   <scroll-view scroll-x="true" scroll-with-animation="true"  style="width: {{timelen*25}}vw;" scroll-into-view="today">
   <view class="dates">
     <view class="yi">

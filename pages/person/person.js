@@ -40,6 +40,51 @@ Page({
       }
     });
   },
+  showModal: function() {
+    const contentToCopy = 'wangrui@sztu.edu.cn';
+
+    wx.showModal({
+      title: '反馈地址',
+      content: contentToCopy,
+      showCancel: true, // 显示取消按钮
+      confirmText: '复制', // 确定按钮的文字
+      cancelText: '取消', // 取消按钮的文字
+      success: (res) => {
+        if (res.confirm) {
+          // 用户点击了确定
+          this.copyToClipboard(contentToCopy);
+        } else if (res.cancel) {
+          // 用户点击了取消
+          console.log('用户点击了取消');
+        }
+      },
+      fail: (err) => {
+        console.error('弹框显示失败', err);
+      }
+    });
+  },
+
+  copyToClipboard: function(content) {
+    wx.setClipboardData({
+      data: content,
+      success: (res) => {
+        wx.showToast({
+          title: '已复制',
+          icon: 'success',
+          duration: 2000
+        });
+      },
+      fail: (err) => {
+        wx.showToast({
+          title: '复制失败',
+          icon: 'none',
+          duration: 2000
+        });
+        console.error('复制失败', err);
+      }
+    });
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

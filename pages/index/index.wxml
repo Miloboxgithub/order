@@ -1,4 +1,4 @@
-<scroll-view class="containers" scroll-y="true" scroll-with-animation="true" style="height: 150vh;">
+<scroll-view class="containers" scroll-y="true" scroll-with-animation="true" style="height: 140vh;">
   <scroll-view scroll-x="true" scroll-with-animation="true" style="width: {{timelen*25}}vw;" scroll-into-view="today">
   <view class="dates">
     <view class="yi">
@@ -107,7 +107,7 @@
     </view>
   </view>
   <view wx:if="{{tab2}}" class="time">
-    <view class="chan">选择参观时段</view>
+    <view class="chan">选择时段</view>
     <view class="kuang">
       <view class="ks">
         <view bind:tap="choices" data-url="/pages/order2/order2" wx:for="{{kkk}}" class="kkk"  wx:key="*this" data-index="{{index}}">

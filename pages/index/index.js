@@ -1,4 +1,5 @@
 const app = getApp();
+const  token= wx.getStorageSync('token');
 Page({
 
   /**
@@ -149,6 +150,7 @@ Page({
     ],
     ymd: '',
     lolo:false,
+    hvh:100
   },
 
   /**
@@ -180,7 +182,7 @@ Page({
       url: 'https://ehuiyue.buteck.com/api/user/getmeetingroom',
       method: "GET",
       header: {
-        Authorization: app.globalData.token
+        Authorization: token
       },
       data: {
         ymd: that.data.ymd
@@ -200,7 +202,8 @@ Page({
         })
         that.setData({
           items: ttt,
-          lolo:false
+          lolo:false,
+          hvh:17*op.length
         })
       },
       fail: (err) => {
@@ -218,7 +221,7 @@ Page({
       url: '  https://ehuiyue.buteck.com/api/user/getmeetingtime',
       method: "GET",
       header: {
-        Authorization: app.globalData.token
+        Authorization: token
       },
       data: {
         ymd: that.data.ymd

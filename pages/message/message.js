@@ -1,4 +1,5 @@
 const app = getApp();
+const  token= wx.getStorageSync('token');
 Page({
 
   /**
@@ -21,9 +22,15 @@ Page({
     et: '',
     rname: '',
     phone: '',
-
+    isAgreed: false,
   },
-
+  onCheckboxChange: function(e) {
+    
+    this.setData({
+      isAgreed: !this.data.isAgreed
+    });
+    console.log(this.data.isAgreed)
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -50,11 +57,12 @@ Page({
         st: exe.ts[i].substring(0, 5),
         et: exe.ts[i].substring(6, 11)
       })
+      if(that.data.isAgreed){
     wx.request({
       url: 'https://ehuiyue.buteck.com/api/user/reserved',
       method: "POST",
       header: {
-        Authorization: app.globalData.token
+        Authorization: token
       },
       data: {
         ymd: that.data.ymd,
@@ -81,8 +89,19 @@ Page({
       fail: (err) => {
         console.error('nono', err);
       }
-    })
+    })}
+    else {
+      wx.showToast({
+        title: '请仔细阅读用户与隐私协议并勾选',
+        icon: 'none',
+        duration: 2000
+      });}
   }
+  },
+  navigates: function (e) {
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url
+    });
   },
   navigate: function (e) {
     app.globalData.sharedData = {

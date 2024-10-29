@@ -84,7 +84,7 @@ page {
   opacity: 1;
   background: #F8F8F8;
   width: 90vw;
-  height: 276px;
+  height: 410px;
   margin-left: 5vw;
   margin-top: 20px;
   display: flex;

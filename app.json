@@ -10,7 +10,9 @@
     "pages/order2/order2",
     "pages/story/story",
     "pages/feedback/feedback",
-    "pages/journal/journal"
+    "pages/journal/journal",
+    "pages/yh/yh",
+    "pages/ys/ys"
   ],
   "window": {
     "navigationBarTextStyle": "black",

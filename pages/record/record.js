@@ -1,4 +1,5 @@
 const app = getApp();
+const  token= wx.getStorageSync('token');
 Page({
 
   /**
@@ -48,7 +49,7 @@ Page({
         reserved_by_name:that.data.tname
       },
       header:{
-        Authorization:app.globalData.token
+        Authorization:token
       },
       success:(res)=>{
         console.log(res.data.data.reservedinfo.reserved_info2s,'sss')
@@ -120,7 +121,7 @@ Page({
       url: 'https://ehuiyue.buteck.com/api/user/delreserve',
       method:'DELETE',
       header:{
-        Authorization:app.globalData.token
+        Authorization:token
       },
       data:{
         ymd:this.data.items[i].day,
