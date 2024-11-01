@@ -1,6 +1,17 @@
 // app.js
 App({
   onLaunch() {
+    wx.loadFontFace({
+      family: 'DingTalk-JinBuTi',
+      global: true,
+      source: 'url("https://wx-water-station-1300008292.cos.ap-guangzhou.myqcloud.com/DingTalk-JinBuTi.woff")',  //此处需替换为真实字体地址
+      success(res) {
+        console.log(res.status)
+      },
+      fail: function (res) {
+        console.log(res.status)
+      },
+    });
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())

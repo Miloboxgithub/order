@@ -1,6 +1,6 @@
 page {
   opacity: 1;
-  background: #EFEFEF;
+  background: #FFFFFF;
 }
 
 .containers {
@@ -10,17 +10,46 @@ page {
 }
 
 .pic {
-  height: 160px;
+  
   width: 78vw;
   margin-left: 5.5vw;
-  margin-top: 50px;
+  margin-top: 36px;
+  display: flex;
+  justify-content: center;
 }
 
 .pic image {
-  height: 100%;
-  width: 100%;
+  width: 85px;
+height: 85px;
 }
-
+.niu{
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  font-family: 'DingTalk-JinBuTi', sans-serif;
+font-size: 26px;
+font-weight: normal;
+line-height: normal;
+display: flex;
+align-items: center;
+letter-spacing: -0.3px;
+font-variation-settings: "opsz" auto;
+color: #556EFE;
+}
+.xiao{
+  display: flex;
+  justify-content: center;
+  margin-top: 4px;
+  font-family: Alibaba PuHuiTi 3.0;
+font-size: 14px;
+font-weight: normal;
+line-height: normal;
+display: flex;
+align-items: center;
+letter-spacing: -0.3px;
+font-variation-settings: "opsz" auto;
+color: #90B4FF;
+}
 .hao {
   width: 82vw;
   margin-left: 3.5vw;
@@ -29,44 +58,48 @@ page {
 
 .hao text {
   margin-left: 2vw;
-  font-family: Poppins;
-  font-size: 14px;
-  font-weight: normal;
-  line-height: 20px;
-  text-align: center;
+  font-family: Alibaba PuHuiTi 3.0;
+font-size: 16px;
+font-weight: 600;
+line-height: 24px;
+display: flex;
+align-items: center;
+letter-spacing: -0.3px;
+color: #3D3D3D;
   display: flex;
   align-items: center;
-  letter-spacing: 0px;
-  color: #3D3D3D;
-  margin-bottom: 6px;
 }
 
 .input {
   width: 82vw;
-  border-radius: 10px;
-  opacity: 1;
-  background: #EBF2F0;
-  height: 62px;
+  height: 48px;
+  border-radius: 8px;
+opacity: 1;
+background: #FFFFFF;
+box-sizing: border-box;
+border: 1px solid #DCDCDC;
   display: flex;
   align-items: center;
 }
 
-.input image {
-  position: absolute;
-  margin-left: 14px;
-  width: 14px;
-  height: 14px;
+.hao image {
+
+  width: 24px;
+height: 24px;
 }
 
 .input input {
  
   width: 100%;
-  height: 50px;
-  font-size: 14px;
-  font-weight: bold;
-  line-height: 20px;
-  letter-spacing: 0px;
-  color: #17482E;
+  font-family: Alibaba PuHuiTi 3.0;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.3px;
+  font-variation-settings: "opsz" auto;
+  color: #DCDCDC;
 }
 
 .confirm {
@@ -74,31 +107,30 @@ page {
   width: 82vw;
   margin-left: 3.5vw;
   justify-content: space-between;
-  margin-top: 40px;
-  font-family: Poppins;
-  font-size: 12px;
+  margin-top: 12px;
+  font-family: Alibaba PuHuiTi 3.0;
+  font-size: 16px;
   font-weight: normal;
-  line-height: 17px;
-  text-align: center;
+  line-height: 24px;
   display: flex;
   align-items: center;
-  letter-spacing: 0px;
-  color: #17482E;
+  letter-spacing: -0.3px;
+  font-variation-settings: "opsz" auto;
+  color: #3D3D3D;
 }
 
 .confirm image {
-  margin-left: 14px;
-  width: 15.13px;
-  height: 17.34px;
+  width: 24px;
+height: 24px;
 }
 
 .btn {
-  width: 84vw;
-  margin-left: 2.5vw;
-  border-radius: 100px;
+  width: 82vw;
+  margin-left: 4vw;
+  border-radius: 8px;
   opacity: 1;
-  background: #65C186;
-  height: 50px;
+  background: #556EFE;
+  height: 55px;
   margin-top: 40px;
   font-family: Poppins;
   font-size: 14px;
@@ -114,7 +146,7 @@ page {
   align-items: center;
 }
 .register{
-  margin-top: 40px;
+  margin-top: 30px;
   display: flex;
   justify-content: center;
   font-family: Poppins;
@@ -125,11 +157,6 @@ text-align: center;
 display: flex;
 align-items: center;
 letter-spacing: 0.63px;
-/* 没有帐户？ */ 
-color: #8B8B8B 
-/* 点击注册 */ 
-/* color: #426E52  */
-
 }
 input {
   width: 100%;
@@ -154,4 +181,28 @@ input:focus, input:hover {
   border-color: #92c4a4;
   background-color: #fff;
   box-shadow: 0 0 0 5px rgb(146 196 164 / 30%);
+}
+.bg{
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  left: 0;
+  height: 245px;
+  z-index: -3;
+}
+.headtext{
+  font-family: Alibaba PuHuiTi 3.0;
+font-size: 16px;
+font-weight: 600;
+line-height: 24px;
+text-align: center;
+display: flex;
+align-items: center;
+letter-spacing: -0.3px;
+/* 颜色/中性色色板/#OAOAOA */
+color: #0A0A0A;
+display: flex;
+justify-content: center;
+align-items: center;
+margin-top: 7vh;
 }

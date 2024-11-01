@@ -8,3 +8,7 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+@font-face {
+  font-family: "DingTalk-JinBuTi";
+  src: url('https://wx-water-station-1300008292.cos.ap-guangzhou.myqcloud.com/DingTalk-JinBuTi.woff');  
+}
