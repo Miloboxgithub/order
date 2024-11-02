@@ -25,5 +25,8 @@
     "tabIndent": "auto",
     "tabSize": 2
   },
-  "appid": "wx246a41342c5a6a02"
+  "appid": "wx246a41342c5a6a02",
+  "requestDomain": [
+    "https://wx-water-station-1300008292.cos.ap-guangzhou.myqcloud.com"
+  ]
 }

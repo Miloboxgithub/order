@@ -1,17 +1,7 @@
 // app.js
 App({
   onLaunch() {
-    wx.loadFontFace({
-      family: 'DingTalk-JinBuTi',
-      global: true,
-      source: 'url("https://wx-water-station-1300008292.cos.ap-guangzhou.myqcloud.com/DingTalk-JinBuTi.woff")',  //此处需替换为真实字体地址
-      success(res) {
-        console.log(res.status)
-      },
-      fail: function (res) {
-        console.log(res.status)
-      },
-    });
+
     // 展示本地存储能力
     const logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -38,8 +28,8 @@ App({
     const futureDates = [];
     const date = new Date();
     console.log(date.getDay())
-    let t = 15 - date.getDay()
-    for (let i = -2; i < t; i++) {
+    // let t = 10 - date.getDay()
+    for (let i = 0; i < 7; i++) {
       const date = new Date();
       date.setDate(date.getDate() + i); // 设置为当前日期加上i天
 

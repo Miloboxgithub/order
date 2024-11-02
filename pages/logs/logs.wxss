@@ -10,7 +10,7 @@ page {
 }
 
 .pic {
-  
+
   width: 78vw;
   margin-left: 5.5vw;
   margin-top: 36px;
@@ -20,36 +20,43 @@ page {
 
 .pic image {
   width: 85px;
-height: 85px;
+  height: 85px;
 }
-.niu{
+
+.niu {
   display: flex;
   justify-content: center;
   margin-top: 8px;
-  font-family: 'DingTalk-JinBuTi', sans-serif;
-font-size: 26px;
-font-weight: normal;
-line-height: normal;
-display: flex;
-align-items: center;
-letter-spacing: -0.3px;
-font-variation-settings: "opsz" auto;
-color: #556EFE;
+  font-family: 'DingTalk-JinBuTi',sans-serif;
+  font-size: 26px;
+  font-weight: normal;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.3px;
+  font-variation-settings: "opsz"auto;
+  color: #556EFE;
 }
-.xiao{
+.niu image{
+  width: 148px;
+  height: 31px;
+}
+
+.xiao {
   display: flex;
   justify-content: center;
   margin-top: 4px;
   font-family: Alibaba PuHuiTi 3.0;
-font-size: 14px;
-font-weight: normal;
-line-height: normal;
-display: flex;
-align-items: center;
-letter-spacing: -0.3px;
-font-variation-settings: "opsz" auto;
-color: #90B4FF;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: normal;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.3px;
+  font-variation-settings: "opsz"auto;
+  color: #90B4FF;
 }
+
 .hao {
   width: 82vw;
   margin-left: 3.5vw;
@@ -59,13 +66,13 @@ color: #90B4FF;
 .hao text {
   margin-left: 2vw;
   font-family: Alibaba PuHuiTi 3.0;
-font-size: 16px;
-font-weight: 600;
-line-height: 24px;
-display: flex;
-align-items: center;
-letter-spacing: -0.3px;
-color: #3D3D3D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.3px;
+  color: #3D3D3D;
   display: flex;
   align-items: center;
 }
@@ -74,10 +81,10 @@ color: #3D3D3D;
   width: 82vw;
   height: 48px;
   border-radius: 8px;
-opacity: 1;
-background: #FFFFFF;
-box-sizing: border-box;
-border: 1px solid #DCDCDC;
+  opacity: 1;
+  background: #FFFFFF;
+  box-sizing: border-box;
+  border: 1px solid #DCDCDC;
   display: flex;
   align-items: center;
 }
@@ -85,21 +92,21 @@ border: 1px solid #DCDCDC;
 .hao image {
 
   width: 24px;
-height: 24px;
+  height: 24px;
 }
 
 .input input {
- 
+
   width: 100%;
   font-family: Alibaba PuHuiTi 3.0;
   font-size: 16px;
-  font-weight: normal;
+  font-weight: 500;
   line-height: 24px;
   display: flex;
   align-items: center;
   letter-spacing: -0.3px;
-  font-variation-settings: "opsz" auto;
-  color: #DCDCDC;
+  font-variation-settings: "opsz"auto;
+
 }
 
 .confirm {
@@ -115,13 +122,13 @@ height: 24px;
   display: flex;
   align-items: center;
   letter-spacing: -0.3px;
-  font-variation-settings: "opsz" auto;
+  font-variation-settings: "opsz"auto;
   color: #3D3D3D;
 }
 
 .confirm image {
   width: 24px;
-height: 24px;
+  height: 24px;
 }
 
 .btn {
@@ -145,25 +152,27 @@ height: 24px;
   justify-content: center;
   align-items: center;
 }
-.register{
+
+.register {
   margin-top: 30px;
   display: flex;
   justify-content: center;
   font-family: Poppins;
-font-size: 14px;
-font-weight: normal;
-line-height: 20px;
-text-align: center;
-display: flex;
-align-items: center;
-letter-spacing: 0.63px;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 20px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.63px;
 }
+
 input {
   width: 100%;
   height: 100%;
   line-height: 30px;
-  padding: 0 5rem;
-  padding-left: 3rem;
+  /* padding: 0 5rem; */
+  padding-left: 1.2rem;
   border: 2px solid transparent;
   border-radius: 10px;
   outline: none;
@@ -172,17 +181,30 @@ input {
   transition: .5s ease;
 }
 
-input::placeholder {
-  color: #94b89f;
+/* .inputs::placeholder {
+  color: #0d1441;
+} */
+.placeholderStyle {
+  font-family: Alibaba PuHuiTi 3.0;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.3px;
+  font-variation-settings: "opsz"auto;
+  color: #DCDCDC;
 }
 
-input:focus, input:hover {
+input:focus,
+input:hover {
   outline: none;
-  border-color: #92c4a4;
+  border-color: #556EFE;
   background-color: #fff;
-  box-shadow: 0 0 0 5px rgb(146 196 164 / 30%);
+  box-shadow: 0 0 0 5px rgb(85 110 254 / 30%);
 }
-.bg{
+
+.bg {
   position: absolute;
   top: 0;
   width: 100vw;
@@ -190,19 +212,20 @@ input:focus, input:hover {
   height: 245px;
   z-index: -3;
 }
-.headtext{
+
+.headtext {
   font-family: Alibaba PuHuiTi 3.0;
-font-size: 16px;
-font-weight: 600;
-line-height: 24px;
-text-align: center;
-display: flex;
-align-items: center;
-letter-spacing: -0.3px;
-/* 颜色/中性色色板/#OAOAOA */
-color: #0A0A0A;
-display: flex;
-justify-content: center;
-align-items: center;
-margin-top: 7vh;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.3px;
+  /* 颜色/中性色色板/#OAOAOA */
+  color: #0A0A0A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6.6vh;
 }

@@ -160,12 +160,14 @@ Page({
     this.Get_time_items()
     setTimeout(() => {
       this.GetData1()
-    this.GetData2()
+    // this.GetData2()
     }, 100);
-    this.getWeather()
+    // this.getWeather()
     // 获取今天的日期
-    const today = this.formatDate(new Date());
+    let today = this.formatDate(new Date());
     // 更新数据
+    let [y, m, d] = today.split('-');
+  today = `${y}年${parseInt(m, 10)}月${parseInt(d, 10)}日`;
     this.setData({
       today: today
     });
@@ -196,19 +198,35 @@ Page({
             name: item.roomname,
             ke: item.re,
             ed: item.total,
-            num: item.capacity
+            num: item.capacity,
+            act:false
           }
           ttt.push(t)
         })
+        ttt[0].act=true
         that.setData({
           items: ttt,
           lolo:false,
           hvh:17*op.length
         })
+        
       },
       fail: (err) => {
         console.error('nono', err);
       }
+    })
+  },
+  changeRoom(e){
+    let t=parseInt(e.currentTarget.dataset.index)
+    let tt =this.data.items
+    tt.forEach((item,index)=>{
+      item.act=false
+      if(index==t){
+        item.act=true
+      }
+    })
+    this.setData({
+      items:tt
     })
   },
   GetData2: function () {
@@ -257,11 +275,12 @@ Page({
       
       let t = {
         flag: false,
-        zou: item.dayOfWeek,
-        date: item.date,
+        zou: that.convertWeekdayToZhouji(item.dayOfWeek),
+        date: that.extractDay(item.date),
         fD: item.fD
       }
-      if(item.today){t.flag=true; app.globalData.sharedData.ymd = t.fD}
+      if(item.today){t.flag=true; app.globalData.sharedData.ymd = t.fD;
+      t.date='今'}
       op.push(t)
     })
     //op[0].flag = true
@@ -272,6 +291,25 @@ Page({
     this.setData({
       ymd:  app.globalData.sharedData.ymd 
     })
+  },
+  convertWeekdayToZhouji(weekday) {
+    const weekdayMap = {
+      '星期一': '周一',
+      '星期二': '周二',
+      '星期三': '周三',
+      '星期四': '周四',
+      '星期五': '周五',
+      '星期六': '周六',
+      '星期日': '周日'
+    };
+    return weekdayMap[weekday] || weekday;
+  },
+  extractDay(dateString) {
+    const parts = dateString.match(/(\d+)月(\d+)日/);
+    if (parts && parts.length > 2) {
+      return parseInt(parts[2], 10);
+    }
+    return dateString;
   },
   navigate: function (e) {
     wx.navigateTo({
@@ -324,21 +362,6 @@ Page({
         console.error('更改标题失败：', err);
       }
     });
-  },
-  tabtab(e) {
-    if (e.currentTarget.dataset.id == 1) {
-      this.setData({
-        tab1: true,
-        tab2: false
-      })
-      this.changeTitle('首页');
-    } else {
-      this.setData({
-        tab1: false,
-        tab2: true
-      })
-      this.changeTitle('会议室预约时段');
-    }
   },
   changeFlag(e) {
     let i = e.currentTarget.dataset.index
@@ -451,7 +474,7 @@ Page({
       })
     }
     this.GetData1()
-    this.GetData2()
+    // this.GetData2()
   },
 
   /**

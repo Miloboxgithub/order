@@ -8,7 +8,15 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
-@font-face {
+/* @font-face {
   font-family: "DingTalk-JinBuTi";
-  src: url('https://wx-water-station-1300008292.cos.ap-guangzhou.myqcloud.com/DingTalk-JinBuTi.woff');  
+  src: url('https://wx-water-station-1300008292.cos.ap-guangzhou.myqcloud.com/DingTalk-JinBuTi.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+} */
+@font-face {
+  font-family: 'DingTalk-JinBuTi'; /* 定义字体名称 */
+  src: url('/static/DingTalk JinBuTi.ttf') format('truetype'); /* 字体文件路径和格式 */
+  font-weight: normal; /* 字体粗细 */
+  font-style: normal; /* 字体样式 */
 }

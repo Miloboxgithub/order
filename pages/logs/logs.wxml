@@ -4,14 +4,14 @@
 <view class="pic">
 <image src="/img/logo.png" alt=""/>
 </view>
-<view class="niu">SZTU-E会约</view>
+<view class="niu"><image src="/img/SZTU-E会约.svg" mode=""/></view>
 <view class="xiao">轻松预约校园会议室</view>
 <view class="hao">
 <view style="display: flex;align-items: center;margin-bottom: 8px;">
   <image src="/img/Vector.svg" mode=""/>
   <text>昵称</text></view>
   <view class="input">
-    <input bindinput="input2" type="text" value="{{password}}" />
+    <input bindinput="input2" type="text" placeholder="请输入昵称" placeholder-class="placeholderStyle" value="{{password}}" />
   </view>
 </view>
 <view class="hao" style="margin-top: 24px;">
@@ -19,11 +19,11 @@
   <image src="/img/lock.svg" mode=""/>
   <text>职工号</text></view>
   <view class="input">
-    <input bindinput="input1" type="text" value="{{number}}"/>
+    <input bindinput="input1" placeholder="请输入职工号"  placeholder-class="placeholderStyle" type="text" value="{{number}}"/>
   </view>
 </view>
 <view class="confirm">
-    <view style="display: flex; "><image src="/img/dui.svg" mode=""/><text style="margin-left: 5px;">记住我</text></view>
+    <view style="display: flex;" bind:tap="rems"><image src="{{rem?'/img/dui.svg':'/img/属性 1=协议未勾选.svg'}}" mode=""/><text style="margin-left: 5px;">记住我</text></view>
     <view style="margin-right: 5px;color: #556EFE;"><text >忘记密码？</text></view>
   </view>
   <view class="btn" bindtap="logins" data-url="/pages/index/index">

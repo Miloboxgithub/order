@@ -7,6 +7,7 @@ Page({
   data: {
     number:'',
     password:'',
+    rem:true
   },
 
   /**
@@ -138,6 +139,11 @@ Page({
   input2:function(e){
     this.setData({
       password:e.detail.value
+    })
+  },
+  rems:function(){
+    this.setData({
+      rem:!this.data.rem
     })
   },
 

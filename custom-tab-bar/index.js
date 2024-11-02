@@ -2,13 +2,13 @@ Component({
   data: {
     chans:false,
     selected:0,
-    color: "#dbdbdb",
-    selectedColor: " #007AFF",
+    color: "#A3A3A3",
+    selectedColor: "#556EFE",
     list: [{
       "pagePath": "/pages/index/index",
       "iconPath": "/img/1.png",
       "selectedIconPath": "/img/11.png",
-      "text": "首页"
+      "text": "预约"
     } , {
       "pagePath": "/pages/record/record",
       "iconPath": "/img/2.png",
@@ -19,7 +19,7 @@ Component({
       "pagePath": "/pages/person/person",
       "iconPath": "/img/3.png",
       "selectedIconPath": "/img/33.png",
-      "text": "个人"
+      "text": "我的"
     }]
   },
   attached() {
