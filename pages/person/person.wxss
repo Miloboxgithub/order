@@ -3,8 +3,9 @@
   top: 0;
   width: 100vw;
 height: 100vh;
-background: linear-gradient(0deg, #FFFFFF 58%, #E5F1FF 100%);
+background: linear-gradient(0deg,#F6F6F6 58%, #E5F1FF 100%);
 display: flex;
+z-index: -1;
 }
 .xiang{
   width: 88px;
@@ -15,35 +16,57 @@ display: flex;
 align-items: center;
 justify-content: center;
 margin-left: 22px;
-margin-top: 8vh;
+margin-top: 14vh;
 }
 .xiang image{
   width: 100px;
 height: 100px;
 }
 .msg{
-  margin-left: 35px;
-margin-top: 10vh;
+  margin-left: 12px;
+margin-top: 14vh;
 }
 .name{
-  margin-top: 13px;
-  font-family: Source Han Sans;
-font-size: 23px;
-font-weight: 500;
-line-height: normal;
-letter-spacing: 0em;
-color: #3D3D3D;
+  margin-top: 18px;
+  font-family: Alibaba PuHuiTi 3.0;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.3px;
+  color: #6D6D6D;
 }
 .num{
-  margin-top: 11px;
-  margin-left: 4px;
-  font-family: Source Han Sans;
-font-size: 10px;
-font-weight: 350;
-line-height: normal;
-letter-spacing: 0em;
-color: #3D3D3D;
+  margin-top: 8px;
+  /* margin-left: 4px; */
+  font-family: Alibaba PuHuiTi 3.0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 24px;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.3px;
+  font-variation-settings: "opsz" auto;
+  color: #828282;
 }
+.headtext {
+  font-family: Alibaba PuHuiTi 3.0;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  letter-spacing: -0.3px;
+  /* 颜色/中性色色板/#OAOAOA */
+  color: #0A0A0A;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 6.6vh;
+}
+
 .det{
   position: fixed;
   bottom: 0;
@@ -55,14 +78,15 @@ height: 74vh;
 }
 .detitem{
   margin-left: 4%;
-  margin-top: 15%;
+  margin-top: 21vh;
   width: 92%;
-  height: 338px;
   opacity: 1;
-background: #FFFFFF;
 }
 .item{
-  height: 40px;
+  border-radius: 8px;
+opacity: 1;
+background: #FFFFFF;
+height: 48px;
   font-family: Source Han Sans;
   font-size: 16px;
   font-weight: normal;
@@ -74,13 +98,12 @@ display: flex;
 justify-content: space-between;
 align-items: center;
 margin-bottom: 10px;
-padding-top: 15px;
 padding-left: 10px;
 padding-right: 15px;
 }
 .jjj{
-  width: 9px;
-height: 17px;
+  width: 24px;
+  height: 24px;
 }
 .zzz image{
   height: 20px;
@@ -92,4 +115,13 @@ height: 17px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-family: Alibaba PuHuiTi 3.0;
+font-size: 16px;
+font-weight: 500;
+line-height: 24px;
+display: flex;
+align-items: center;
+letter-spacing: -0.3px;
+font-variation-settings: "opsz" auto;
+color: #3D3D3D;
 }

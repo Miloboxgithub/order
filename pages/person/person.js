@@ -5,14 +5,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+     number:''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    let number = wx.getStorageSync('number');
+    this.setData({
+      number
+    })
   },
   navigate: function (e) {
     wx.navigateTo({url: e.currentTarget.dataset.url});
