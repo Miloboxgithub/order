@@ -1,4 +1,4 @@
-<scroll-view class="containers" scroll-y="true" scroll-with-animation="true" style="height: 100vh;">
+<scroll-view class="containers" scroll-y="true" scroll-with-animation="true" style="height: 110vh;">
 <view class="bgb" ></view>
   <image src="/img/home_bg@1x.png" mode="aspectFill" class="bg"/>
 <view class="headtext">首页</view>
@@ -44,34 +44,35 @@
         </view>
       </view>   
       </view> <view style="display: flex; justify-content: center;">
-      <view class="qer">预约</view></view>
+      <view class="qer" bind:tap="dakai">预约</view></view>
       </view>  
-  <!-- <view wx:if="{{tab1}}" class="hui">
-    <view bind:tap="navigate" data-url="/pages/order1/order1" wx:for="{{items}}" class="item " style="background-color:{{item.ed==item.ke? '#FAFAFA':''}};" wx:key="*this" data-index="{{index}}">
-      <view style="display: flex; justify-content: space-around; align-items: center; width: 90%;margin-left: 8%;margin-top: 5px;">
-        <view class="docu">
-          <image src="{{item.ed==item.ke ?'/img/Paper.svg':'/img/Paper@1x.png'}}" mode="" />
-        </view>
-        <view class="xuan {{item.ed==item.ke ? 'man':''}}">{{item.ed==item.ke ?'已满':item.ke+'/'+item.ed}}</view>
-      </view>
-      <view class="name">{{item.name}}</view>
-      <view class="num">人数{{item.num}}</view>
-    </view>
-  </view> -->
-  <!-- <view wx:if="{{tab2}}" class="time">
-    <view class="chan">选择时段</view>
-    <view class="kuang">
-      <view class="ks">
-        <view bind:tap="choices" data-url="/pages/order2/order2" wx:for="{{kkk}}" class="kkk"  wx:key="*this" data-index="{{index}}">
-          <view class="tst">{{item.time}}</view>
-          <view class="sts" style="background-color: {{item.ed==item.ke ?'rgba(208, 206, 206, 0.41)':''}};">{{item.ed==item.ke ?'约满':item.ke+'/'+item.ed}}</view>
-          <view class="gou"><image src="{{item.flag ?'/img/Severicons (1).svg':'/img/Severicons.svg'}}" mode=""/></view>
-        </view>
-      </view>
-    </view>
-    <view style="display: flex; align-items: center; justify-content: center;">
-  <view bind:tap="navigate" data-url="/pages/order2/order2" class="qur">
-  确认
-  </view></view>
-  </view> -->
 </scroll-view>
+<!-- 底部选择器 -->
+<view class="bgg" catchtouchmove="true" bindtap='hideview' style="display:{{yue?'block':'none'}}; top: 0px;"></view>
+<view class="bpicker" catchtouchmove="true" style="display: {{yue?'block':'none'}};">
+  <view class="bts">请确认预约信息</view>
+  <view class="dang">当前预约会议室</view>
+  <view class="huii">D3-1703A</view>
+  <view class="dang">当前预约时段</view>
+  <view class="dangtime">
+    <view class="titem" >13:00-14:00</view>
+    <view class="titem" >13:00-14:00</view>
+    <view class="titem" >13:00-14:00</view>
+  </view>
+  <view class="content">会议内容<image src="/img/_.svg" mode=""/></view>
+  <view class="inp">
+    <textarea id="description" placeholder="请输入会议内容或点击下方标签录入" value="{{type}}" bindinput="handleDescriptionInput" placeholder-class="placeholderStyle"></textarea>
+    </view>
+    <view class="typp">
+      <view class="tys" bind:tap="chantype" wx:for="{{types}}" wx:key="*this" data-index="{{index}}">{{item.v}}</view>
+    </view>
+    <view class="details">
+      <image src="{{rem?'/img/dui.svg':'/img/属性 1=协议未勾选.svg'}}"  bind:tap="ququ" mode=""/>
+      <view class="guiz">《会议室使用规定》 </view>
+      <view class="xiang" bind:tap="navigates" data-url="/pages/detail/detail"> 查看详情</view>
+    </view>
+    <view class="last">
+      <view class="zuoz" bindtap='hideview'>取消</view>
+      <view class="youy">确认</view>
+    </view>
+</view>

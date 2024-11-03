@@ -27,7 +27,7 @@
   width: 40px;
   height: 40px;
   border: 3px solid rgba(0, 0, 0, 0.1);
-  border-top-color: #6200ea;
+  border-top-color: #556EFE;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -41,5 +41,5 @@
 .loading-text {
   margin-top: 10px;
   font-size: 14px;
-  color: #6200ea;
+  color: #556EFE;
 }

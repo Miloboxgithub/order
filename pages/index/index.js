@@ -150,7 +150,26 @@ Page({
     ],
     ymd: '',
     lolo:false,
-    hvh:100
+    hvh:100,
+    yue:false,
+    types: [{
+      v: '班会'
+    }, {
+      v: '学术交流'
+    }, {
+      v: '项目会议'
+    }, {
+      v: '团建'
+    },{
+      v:'商务洽谈'
+    },
+    {
+      v:'培训'
+    },
+    {v:'其他'}
+  ],
+  type:'',
+  rem:true,
   },
 
   /**
@@ -160,7 +179,7 @@ Page({
     this.Get_time_items()
     setTimeout(() => {
       this.GetData1()
-    // this.GetData2()
+    this.GetData2()
     }, 100);
     // this.getWeather()
     // 获取今天的日期
@@ -172,7 +191,35 @@ Page({
       today: today
     });
   },
-
+  dakai(){
+    this.setData({
+      yue:true
+    })
+        //隐藏tabber
+        this.getTabBar().setData({
+          chans: !this.getTabBar().data.chans
+        })
+  },
+  chantype: function (e) {
+    let op = e.currentTarget.dataset.index
+    this.setData({
+      type: this.data.types[op].v
+    })
+  },
+  ququ(){
+    this.setData({
+      rem:!this.data.rem
+    })
+  },
+  hideview(){
+    this.setData({
+      yue:false
+    })
+        //隐藏tabber
+        this.getTabBar().setData({
+          chans:false
+        })
+  },
   GetData1: function () {
     let that = this
     this.setData({
@@ -455,6 +502,9 @@ Page({
     const day = date.getDate().toString().padStart(2, '0');
     
     return `${year}-${month}-${day}`;
+  },
+  navigates: function (e) {
+    wx.navigateTo({url: e.currentTarget.dataset.url});
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

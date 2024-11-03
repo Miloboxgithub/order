@@ -1,0 +1,22 @@
+page {
+  background-color: #f5f5f5;
+}
+.containers{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 10px;
+}
+.content{
+  width: 85vw;
+  height: 920px;
+  border-radius: 16px;
+opacity: 1;
+background: #FFFFFF;
+padding: 16px;
+white-space: pre-wrap;
+font-family: Alibaba PuHuiTi 3.0;
+font-weight: 400;
+font-size: 14px;
+font-variation-settings: "opsz" auto;
+}

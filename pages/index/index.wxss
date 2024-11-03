@@ -40,7 +40,6 @@ color: #3D3D3D;
   width: 94vw;
   margin-left: 3vw;
   border-radius: 16px;
-  opacity: 1;
   background: linear-gradient(180deg, #F6F8FE 0%, #FFFFFF 100%);
   box-sizing: border-box;
   border: 1px solid #FFFFFF;
@@ -266,6 +265,247 @@ color: #3D3D3D
   color: #B3B3B3
 }
 
+.bgg {
+  display: none;
+  position: absolute;
+  left: 0%;
+  width: 100vw;
+  height: 120vh;
+  background-color: black;
+  z-index: 1001;
+  -moz-opacity: 0.7;
+  opacity: 0.70;
+  filter: alpha(opacity=70);
+}
+.bpicker{
+  bottom: 0;
+  width: 100vw;
+  height: 670px;
+  position: fixed;
+  z-index: 2000;
+  background: linear-gradient(to bottom, #baccf1, #FFFFFF 15%); /* 从 #A6C3FF 到 #FFFFFF 的渐变 */
+  backdrop-filter: blur(87px); /* 模糊效果 */
+  border-top-left-radius: 12px; /* 左上角圆角 */
+  border-top-right-radius: 12px; /* 右上角圆角 */
+}
+.bts{
+  font-family: Alibaba PuHuiTi 3.0;
+font-size: 18px;
+font-weight: 500;
+line-height: 24px;
+text-align: center;
+letter-spacing: -0.3px;
+font-variation-settings: "opsz" auto;
+color: #262626;
+margin-top: 16px;
+}
+.dang{
+  margin-left: 12px;
+  margin-top: 20px;
+  font-family: Alibaba PuHuiTi 3.0;
+font-size: 16px;
+font-weight: normal;
+line-height: 24px;
+display: flex;
+align-items: center;
+letter-spacing: -0.3px;
+font-variation-settings: "opsz" auto;
+color: #3D3D3D;
+}
+.huii{
+  width: 102px;
+height: 30px;
+border-radius: 8px;
+opacity: 1;
+background: #556EFE;
+color: #FFFFFF;
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 4px 12px;
+margin-left: 12px;
+margin-top: 12px;
+letter-spacing: 0.6px;
+}
+.dangtime{
+  display: flex;
+  margin-top: 12px;
+  flex-wrap: wrap;
+}
+.titem{
+  height: 30px;
+  width: 45.5vw;
+  margin-left: 3vw;
+  border-radius: 8px;
+opacity: 1;
+background: #EBF2FF;
+box-sizing: border-box;
+border: 1px solid #A6C3FF;
+margin-bottom: 8px;
+font-family: Alibaba PuHuiTi 3.0;
+font-size: 16px;
+font-weight: normal;
+line-height: normal;
+text-align: center;
+display: flex;
+align-items: center;
+letter-spacing: 0.6px;
+font-variation-settings: "opsz" auto;
+color: #A6C3FF;
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.content{
+  margin-top: 12px;
+  font-family: Alibaba PuHuiTi 3.0;
+font-size: 16px;
+font-weight: normal;
+line-height: 24px;
+letter-spacing: -0.3px;
+font-variation-settings: "opsz" auto;
+color: #3D3D3D;
+margin-left: 12px;
+display: flex;
+align-items: center;
+}
+.content image{
+  width: 9px;
+  height: 9px;
+  margin-left: 5px;
+}
+.inp{
+  border-radius: 8px;
+opacity: 1;
+background: #F8F8F8;
+box-sizing: border-box;
+border: 1px dashed #DADADA;
+width: 94vw;
+margin-left: 3vw;
+height: 72px;
+}
+#description{
+  margin:8px 12px;
+  font-family: Alibaba PuHuiTi 3.0;
+font-size: 14px;
+font-weight: normal;
+line-height: normal;
+letter-spacing: -0.3px;
+font-variation-settings: "opsz" auto;
+color: #3D3D3D;
+height: 100%;
+width: 100%;
+}
+.placeholderStyle{
+  font-family: Alibaba PuHuiTi 3.0;
+font-size: 14px;
+font-weight: normal;
+line-height: normal;
+display: flex;
+align-items: center;
+letter-spacing: -0.3px;
+font-variation-settings: "opsz" auto;
+color: #C8C8C8;
+}
+.typp{
+  display: flex;
+  flex-wrap: wrap;
+  width: 94vw;
+  margin-left: 3vw;
+}
+.tys{
+  border-radius: 8px;
+opacity: 1;
+background: #FFFFFF;
+box-sizing: border-box;
+border: 1px solid #EAEBF0;
+padding: 8px 12px;
+margin-right: 12px;
+margin-top: 8px;
+font-family: Alibaba PuHuiTi 3.0;
+font-size: 14px;
+font-weight: normal;
+line-height: normal;
+text-align: center;
+display: flex;
+align-items: center;
+letter-spacing: -0.3px;
+font-variation-settings: "opsz" auto;
+color: #868BA1;
+}
+.details{
+  margin-top: 20px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+}
+.details image{
+  width: 24px;
+height: 24px;
+}
+.guiz{
+  font-family: Alibaba PuHuiTi 3.0;
+font-size: 15px;
+font-weight: normal;
+line-height: 21px;
+letter-spacing: -0.3px;
+/* 颜色/其他/文字色/body */
+color: #262626;
+}
+.xiang{
+  font-family: Alibaba PuHuiTi 3.0;
+font-size: 15px;
+font-weight: normal;
+line-height: 21px;
+letter-spacing: -0.3px;
+/* 颜色/功能色/消息色/normal */
+color: #1150FF;
+}
+.last{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+.zuoz{
+  margin-left: 10px;
+  width: 130px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+opacity: 1;
+/* 颜色/其他/背景色/2 */
+background: #F5F5F5;
+font-family: Alibaba PuHuiTi 3.0;
+font-size: 15px;
+font-weight: 600;
+line-height: 21px;
+letter-spacing: -0.3px;
+font-variation-settings: "opsz" auto;
+/* 颜色/其他/文字色/body */
+color: #262626;
+}
+.youy{
+  margin-right: 10px;
+  border-radius: 999px;
+opacity: 1;
+background: #556EFE;
+width: 180px;
+height: 50px;
+display: flex;
+align-items: center;
+justify-content: center;
+font-family: Alibaba PuHuiTi 3.0;
+font-size: 15px;
+font-weight: 600;
+line-height: 21px;
+letter-spacing: -0.3px;
+font-variation-settings: "opsz" auto;
+color: #FFFFFF;
+}
 .docu {
   width: 45px;
   height: 46px;
