@@ -1,18 +1,24 @@
-// pages/about/about.js
+// pages/mine/mine.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    number:'',
+    name:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    let number = wx.getStorageSync('number');
+    let name = wx.getStorageSync('password')
+    this.setData({
+      number,
+      name
+    })
   },
   navigate: function (e) {
     wx.navigateTo({url: e.currentTarget.dataset.url});

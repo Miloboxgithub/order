@@ -12,7 +12,8 @@
     "pages/feedback/feedback",
     "pages/journal/journal",
     "pages/yh/yh",
-    "pages/ys/ys"
+    "pages/ys/ys",
+    "pages/mine/mine"
   ],
   "window": {
     "navigationBarTextStyle": "black",

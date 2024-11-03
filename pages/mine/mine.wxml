@@ -1,0 +1,6 @@
+<view class="containers">
+<image src="/img/logo.png" mode=""/>
+<view class="name">{{name?name:'我的昵称'}}</view>
+<view class="hao">工号：{{number}}</view>
+<view class="qur" bind:tap="navigate" data-url="/pages/logs/logs">退出登录</view>
+</view>

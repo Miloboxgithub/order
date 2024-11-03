@@ -1,11 +1,39 @@
-<scroll-view class="containers" scroll-y="true" style="height: {{shs}}px;"> 
-<view class="nnn">{{tname}}</view>
-<view class="ttt">已预定：</view>
-<view class="item" wx:for="{{items}}" wx:key="*this" >
-  <view class="name">{{item.name}}</view>
-  <view class="type">（{{item.type}}）</view>
-  <view class="day">{{item.day}}</view>
-  <view class="time">{{item.time}}</view>
-  <view class="quxiao" bind:tap="quxiao" data-index="{{index}}">取消预约</view>
-</view>
+<scroll-view class="containers" scroll-y="true" style="height: {{shs}}px;">
+
+  <view class="ttt">
+    <block wx:for="{{yuyue}}">
+      <view class="yitem {{item.act?'active':''}}" wx:key="*this" data-index="{{index}}" bind:tap="changey">{{item.t}}
+        <image class="acimg" src="{{item.act?'/img/路径 3865.svg':''}}" mode="" />
+      </view>
+    </block>
+  </view>
+  <view wx:if="{{yuyue[0].act}}" class="item" wx:for="{{items}}" wx:key="*this">
+    <view class="name">{{item.name}}</view>
+    <view class="type">会议内容   {{item.type}}</view>
+    <view class="day">
+      <image src="/img/time.svg" />预约时间 {{item.day}} {{item.time}}
+    </view>
+    <view class="divider"></view>
+    <view class="quxiao" bind:tap="quxiao" data-index="{{index}}">取消预约</view>
+  </view>
+  <view wx:if="{{yuyue[1].act}}" class="items" wx:for="{{items}}" wx:key="*this">
+    <view class="name">{{item.name}}</view>
+    <view class="type">会议内容   {{item.type}}</view>
+    <view class="status">预约状态   {{item.status?'':'已取消'}}</view>
+    <view class="day">
+      <image src="/img/time.svg" />预约时间 {{item.day}} {{item.time}}
+    </view>
+    <view class="dot" bind:tap="changeAct" data-index="{{index}}">
+      <image src="/img/more.svg" mode="" />
+    </view>
+    <view class="custom-modal" bindtap="hideModal" wx:if="{{item.act}}"></view>
+    <view class="del" wx:if="{{item.act}}" bind:tap="delrecord" data-index="{{index}}">
+      <image src="/img/提示弹窗@1x (1).png" mode="aspectFill" />
+    </view>
+  </view>
+  <view class="nothing" wx:if="{{items.length==0}}" >
+   <image src="/img/nothing.png" mode=""/>
+   <view class="nos">暂时还没有会议室预约记录~</view>
+   <view class="gos" bind:tap="navigate" data-url="/pages/index/index">去预约</view>
+  </view>
 </scroll-view>

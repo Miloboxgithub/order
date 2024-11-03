@@ -13,8 +13,10 @@ Page({
    */
   onLoad(options) {
     let number = wx.getStorageSync('number');
+    let name = wx.getStorageSync('password')
     this.setData({
-      number
+      number,
+      name
     })
   },
   navigate: function (e) {

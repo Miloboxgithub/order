@@ -5,7 +5,7 @@
       <image src="/img/BgSub_ehuiyue_compressed.png" mode="aspectFill" />
     </view>
     <view class="msg">
-      <view class="name">我的昵称<image class="jjj" style="margin-left: 5px;" src="/img/回图标.svg" mode="" /></view>
+      <view class="name">{{name?name:'我的昵称'}}<image class="jjj" style="margin-left: 5px;z-index: 10;position: absolute;right: 41vw;display: block;" src="/img/回图标.svg" mode="" bind:tap="navigate" data-url="/pages/mine/mine"/></view>
       <view class="num">工号：{{number}}</view>
     </view>
 
@@ -35,12 +35,6 @@
         </view>
         <image class="jjj" src="/img/回图标.svg" mode="" />
       </view>
-      <!-- <view class="item" bind:tap="navigate" data-url="/pages/logs/logs">
-        <view class="zzz">
-          <image src="/img/推出.png" mode="" />退出登录
-        </view>
-        <image class="jjj" src="/img/回图标.svg" mode="" />
-      </view> -->
     </view>
   
 </view>

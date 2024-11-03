@@ -25,7 +25,8 @@ Page({
         time: '9:00-10:00'
       }
     ],
-    shs:800
+    shs:800,
+    yuyue:[{t:'当前预约',act:true},{t:'历史预约',act:false}]
   },
 
   /**
@@ -60,11 +61,14 @@ Page({
         console.log(that.data.shs)
         let ttt =[]
         op.forEach(function(item,index){
+          let [y, m, d] = item.ymd.split('-');
+          let td = `${y}年${parseInt(m, 10)}月${parseInt(d, 10)}日`;
           let t ={
             name:item.room_name,
             type:item.meetingtype,
-            day:item.ymd,
-            time : item.start_time.substring(0, 5)+'-'+item.end_time.substring(0, 5)
+            day:td,
+            time : item.start_time.substring(0, 5)+'-'+item.end_time.substring(0, 5),
+            act:false
           }
           ttt.push(t)
         })
@@ -114,6 +118,21 @@ Page({
       }
     });
   },
+  changey(e){
+    let i = e.currentTarget.dataset.index
+    let tt = this.data.yuyue
+    if(i){
+      tt[1].act=true
+      tt[0].act=false
+    }
+    else{
+      tt[0].act=true
+      tt[1].act=false
+    }
+    this.setData({
+      yuyue:tt
+    })
+  },
   PostQuxiao(i){
 
     console.log(i,'quxiao',this.data.items[i])
@@ -137,6 +156,36 @@ Page({
       fail: (err) =>{
         console.error('nono',err);
       }
+    })
+  },
+  changeAct(e){
+    let i = e.currentTarget.dataset.index
+    let tt=this.data.items
+    tt[i].act=true
+    this.setData({
+      items:tt
+    })
+  },
+  hideModal(){
+    let tt =this.data.items
+    tt.forEach((i,k)=>{
+      i.act=false
+    })
+    this.setData({
+      items:tt
+    })
+  },
+  delrecord(e){
+let i = e.currentTarget.dataset.index
+wx.showToast({
+  title: '删除成功',
+  icon: 'none',
+  duration: 1000 // 提示框显示的时间（毫秒）
+});
+  },
+  navigate: function (e) {
+    wx.switchTab({
+      url: e.currentTarget.dataset.url,
     })
   },
   /**
@@ -176,7 +225,7 @@ Page({
       });
       app.globalData.sharedData.key1= 0
     }
-    
+
 
   },
 
