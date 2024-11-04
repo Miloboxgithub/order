@@ -19,4 +19,12 @@ font-family: Alibaba PuHuiTi 3.0;
 font-weight: 400;
 font-size: 14px;
 font-variation-settings: "opsz" auto;
+letter-spacing: 0.5px;
+word-wrap: break-word; /* 或者使用 overflow-wrap: break-word; */
+}
+.tes{
+  white-space: pre-wrap;
+  font-weight: 500;
+font-size: 16px;
+word-wrap: break-word; /* 或者使用 overflow-wrap: break-word; */
 }

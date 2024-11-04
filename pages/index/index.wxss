@@ -280,7 +280,7 @@ color: #3D3D3D
 .bpicker{
   bottom: 0;
   width: 100vw;
-  height: 670px;
+ 
   position: fixed;
   z-index: 2000;
   background: linear-gradient(to bottom, #baccf1, #FFFFFF 15%); /* 从 #A6C3FF 到 #FFFFFF 的渐变 */
@@ -467,6 +467,7 @@ color: #1150FF;
   align-items: center;
   justify-content: space-around;
   margin-top: 15px;
+  margin-bottom: 30px;
 }
 .zuoz{
   margin-left: 10px;

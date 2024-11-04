@@ -8,7 +8,7 @@
   <view class="dates">
     <view class="yi">
       <view class="zzz">预约日期</view>
-      <view class="yyy">{{today}}</view>
+      <view class="yyy">{{xymd?xymd:today}}</view>
     </view>
     <view style="display: flex; margin-top: 8px; justify-content: space-around;">
     <view bind:tap="changeFlag" wx:for="{{time_items}}" class="time-item {{item.flag?'ttt':''}}" wx:key="*this" data-index="{{index}}" id="{{item.flag?'today':''}}">
@@ -38,7 +38,7 @@
   <view class="kuang">
   <view style=" display: flex; justify-content: center;">
       <view class="ks">
-        <view bind:tap="choices"  wx:for="{{kkk}}" class="kkk {{item.flag?'kact':''}}"  wx:key="*this" data-index="{{index}}" style="color: {{item.ed==item.ke ?'#A8A8A8':''}}; background: {{item.ed==item.ke ?'#F5F5F5':''}};">
+        <view bind:tap="{{item.ed==item.ke?'':'choices'}}"  wx:for="{{kkk}}" class="kkk {{item.flag?'kact':''}}"  wx:key="*this" data-index="{{index}}" style="color: {{item.ed==item.ke ?'#A8A8A8':''}}; background: {{item.ed==item.ke ?'#F5F5F5':''}};">
           <view class="tst">{{item.time}}</view>
           <view class="tst" >{{item.ed==item.ke ?'不可预约':'空闲'}}</view>
         </view>
@@ -49,15 +49,13 @@
 </scroll-view>
 <!-- 底部选择器 -->
 <view class="bgg" catchtouchmove="true" bindtap='hideview' style="display:{{yue?'block':'none'}}; top: 0px;"></view>
-<view class="bpicker" catchtouchmove="true" style="display: {{yue?'block':'none'}};">
+<view class="bpicker" catchtouchmove="true" style="display: {{yue?'block':'none'}}; height: auto;">
   <view class="bts">请确认预约信息</view>
   <view class="dang">当前预约会议室</view>
   <view class="huii">D3-1703A</view>
   <view class="dang">当前预约时段</view>
   <view class="dangtime">
-    <view class="titem" >13:00-14:00</view>
-    <view class="titem" >13:00-14:00</view>
-    <view class="titem" >13:00-14:00</view>
+    <view class="titem" wx:for="{{tans}}">{{item}}</view>
   </view>
   <view class="content">会议内容<image src="/img/_.svg" mode=""/></view>
   <view class="inp">

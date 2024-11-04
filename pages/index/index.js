@@ -170,6 +170,7 @@ Page({
   ],
   type:'',
   rem:true,
+  bgheight:75
   },
 
   /**
@@ -192,13 +193,30 @@ Page({
     });
   },
   dakai(){
+    let tt = this.data.kkk
+    let tans = []
+    tt.forEach((i,k)=>{
+      if(i.flag){
+        tans.push(i.time)
+      }
+    })
+    if(tans.length){
     this.setData({
-      yue:true
+      yue:true,
+      tans
     })
         //隐藏tabber
         this.getTabBar().setData({
           chans: !this.getTabBar().data.chans
         })
+      }
+      else{
+        wx.showToast({
+          title: '请选择时段',
+          icon: 'none',
+          duration: 1000 // 提示框显示的时间（毫秒）
+        });
+      }
   },
   chantype: function (e) {
     let op = e.currentTarget.dataset.index
@@ -304,6 +322,7 @@ Page({
           }
           ttt.push(t)
         })
+        ttt = ttt.slice(0,-2)
         that.setData({
           kkk: ttt,
           lolo:false
@@ -415,6 +434,8 @@ Page({
     this.setData({
       ymd: this.data.time_items[i].fD
     })
+    let [y, m, d] = this.data.ymd.split('-');
+    let xymd = `${y}年${parseInt(m, 10)}月${parseInt(d, 10)}日`;
     // console.log(this.data.ymd)
     let op = this.data.time_items
     op.forEach(function (item, index) {
@@ -425,7 +446,8 @@ Page({
       }
     })
     this.setData({
-      time_items: op
+      time_items: op,
+      xymd
     })
     setTimeout(() => {
       this.GetData1()
