@@ -1,5 +1,6 @@
 const app = getApp();
 const  token= wx.getStorageSync('token');
+const apiurl = app.globalData.apiurl
 Page({
 
   /**
@@ -95,56 +96,62 @@ Page({
     ],
     kkk: [{
         time: '8:00-9:00',
-        ke: 8,
-        ed: 8,
-        flag: false
+        flag: false,
+        status:0,
       },
       {
         time: '9:00-10:00',
-        ke: 4,
-        ed: 8,
+        status:0,
         flag: false
       },
       {
         time: '10:00-11:00',
-        ke: 6,
-        ed: 8,
+        status:0,
         flag: false
       },
       {
         time: '11:00-12:00',
-        ke: 8,
-        ed: 8,
+        status:0,
+        flag: false
+      },
+      {
+        time: '12:00-13:00',
+        status:0,
+        flag: false
+      },
+      {
+        time: '13:00-14:00',
+        status:0,
         flag: false
       },
       {
         time: '14:00-15:00',
-        ke: 8,
-        ed: 8,
+        status:0,
         flag: false
       },
       {
         time: '15:00-16:00',
-        ke: 3,
-        ed: 8,
+        status:0,
         flag: false
       },
       {
         time: '16:00-17:00',
-        ke: 8,
-        ed: 8,
+        status:0,
+        flag: false
+      },
+      {
+        time: '17:00-18:00',
+        status:0,
+        flag: false
+      },
+      {
+        time: '18:00-19:00',
+        status:0,
         flag: false
       },
       {
         time: '19:00-20:00',
-        ke: 2,
-        ed: 8,
-        flag: false
-      },
-      {
-        time: '20:00-21:00',
-        ke: 7,
-        ed: 8,
+        status:0,
         flag: false
       },
     ],
@@ -170,7 +177,8 @@ Page({
   ],
   type:'',
   rem:true,
-  bgheight:75
+  bgheight:75,
+  droom:'',
   },
 
   /**
@@ -180,7 +188,6 @@ Page({
     this.Get_time_items()
     setTimeout(() => {
       this.GetData1()
-    this.GetData2()
     }, 100);
     // this.getWeather()
     // 获取今天的日期
@@ -244,25 +251,21 @@ Page({
       items: [],
       lolo:true
     })
-    console.log(this.data.ymd)
     wx.request({
-      url: 'https://ehuiyue.buteck.com/api/user/getmeetingroom',
+      url: `${apiurl}/user/meetingroomnum`,
       method: "GET",
       header: {
         Authorization: token
       },
       data: {
-        ymd: that.data.ymd
       },
       success: (res) => {
         console.log('data1', res.data);
-        let op = res.data.data.meeting_room.meetingroomnums
+        let op = res.data.data.meetingroomnumoutput.meetingroom_nums
         let ttt = []
         op.forEach(function (item, index) {
           let t = {
-            name: item.roomname,
-            ke: item.re,
-            ed: item.total,
+            name: item.name,
             num: item.capacity,
             act:false
           }
@@ -274,7 +277,49 @@ Page({
           lolo:false,
           hvh:17*op.length
         })
-        
+        this.checkRoomst(this.data.items[0].name)
+      },
+      fail: (err) => {
+        console.error('nono', err);
+      }
+    })
+    
+  },
+  checkRoomst(e){
+    console.log(this.data.ymd,e)
+    let kkk = this.data.kkk
+    kkk.forEach((i,k)=>{
+      i.flag=false
+    })
+    this.setData({
+      lolo:true,
+      kkk,
+      droom:e
+    })
+    let that = this
+    wx.request({
+      url: `${apiurl}/user/meetingroom`,
+      method: "GET",
+      header: {
+        Authorization: token
+      },
+      data: {
+        appointment_date:that.data.ymd,
+        meetingroom_name:e
+      },
+      success: (res) => {
+        console.log('checkst', res.data.data.SelectRoom.status);
+        let st = res.data.data.SelectRoom.status
+        let os = that.data.kkk
+        for(let i = 0 ; i<12;i++){
+          os[i].status = st[i]
+        }
+        this.setData({
+          kkk:os
+        })
+        this.setData({
+          lolo:false
+        })
       },
       fail: (err) => {
         console.error('nono', err);
@@ -284,6 +329,7 @@ Page({
   changeRoom(e){
     let t=parseInt(e.currentTarget.dataset.index)
     let tt =this.data.items
+    this.checkRoomst(tt[t].name)
     tt.forEach((item,index)=>{
       item.act=false
       if(index==t){
@@ -294,44 +340,104 @@ Page({
       items:tt
     })
   },
-  GetData2: function () {
+  yuyues(){
     let that = this
-    this.setData({
-      kkk: [],
-      lolo:true
-    })
+    if(this.data.type.length==0){
+      wx.showToast({
+        title: '请填写会议内容',
+        icon: 'none',
+        duration: 1200 // 提示框显示的时间（毫秒）
+      });
+    }
+    else if(!this.data.rem){
+      wx.showToast({
+        title: '请阅读会议室使用规定并勾选',
+        icon: 'none',
+        duration: 1200 // 提示框显示的时间（毫秒）
+      });
+    }
+    else{
     wx.request({
-      url: '  https://ehuiyue.buteck.com/api/user/getmeetingtime',
-      method: "GET",
+      url: `${apiurl}/user/reserved`,
+      method: "POST",
       header: {
         Authorization: token
       },
       data: {
-        ymd: that.data.ymd
+        appointment_date:this.data.ymd,
+        meetingroom_name:this.data.droom,
+        alltime:this.data.tans,
+        appointment_type:this.data.type
       },
       success: (res) => {
-        console.log('data2', res.data.data.MeetingTimeStates);
-        let op = res.data.data.MeetingTimeStates
-        let ttt = []
-        op.forEach(function (item, index) {
-          let t = {
-            time: item.start_time.substring(0, 5) + '-' + item.end_time.substring(0, 5),
-            ke: item.re,
-            ed: item.total,
-            flag: false
-          }
-          ttt.push(t)
-        })
-        ttt = ttt.slice(0,-2)
-        that.setData({
-          kkk: ttt,
-          lolo:false
-        })
+        console.log('yuyue', res.data.data.message);
+        if(res.data.data.message=='success'){
+          app.globalData.sharedData = {
+            key1: 1
+          };
+          wx.switchTab({
+            url: '/pages/record/record',
+          })
+          that.hideview()
+        }
+        else{
+          wx.showToast({
+            title: '预约失败，请稍后再试',
+            icon: 'none',
+            duration: 1000 // 提示框显示的时间（毫秒）
+          });
+        }
       },
       fail: (err) => {
         console.error('nono', err);
       }
     })
+  }
+  },
+  handleDescriptionInput(e){
+    this.setData({
+      type:e.detail.value
+    })
+    console.log(this.data.type)
+  },
+  GetData2: function () {
+    // let that = this
+    // this.setData({
+    //   kkk: [],
+    //   lolo:true
+    // })
+    // wx.request({
+    //   url: '  https://ehuiyue.buteck.com/api/user/getmeetingtime',
+    //   method: "GET",
+    //   header: {
+    //     Authorization: token
+    //   },
+    //   data: {
+    //     ymd: that.data.ymd
+    //   },
+    //   success: (res) => {
+    //     console.log('data2', res.data.data.MeetingTimeStates);
+    //     let op = res.data.data.MeetingTimeStates
+    //     let ttt = []
+    //     op.forEach(function (item, index) {
+    //       let t = {
+    //         time: item.start_time.substring(0, 5) + '-' + item.end_time.substring(0, 5),
+    //         ke: item.re,
+    //         ed: item.total,
+    //         flag: false
+    //       }
+    //       ttt.push(t)
+    //     })
+    //     ttt = ttt.slice(0,-2)
+    //     that.setData({
+    //       kkk: ttt,
+    //       lolo:false
+    //     })
+    //   },
+    //   fail: (err) => {
+    //     console.error('nono', err);
+    //   }
+    // })
   },
   Get_time_items: function () {
     let that =this
@@ -431,6 +537,13 @@ Page({
   },
   changeFlag(e) {
     let i = e.currentTarget.dataset.index
+    let to = this.data.items
+    let roomname
+    to.forEach((i,k)=>{
+      if(i.act){
+        roomname = i.name
+      }
+    })
     this.setData({
       ymd: this.data.time_items[i].fD
     })
@@ -449,9 +562,9 @@ Page({
       time_items: op,
       xymd
     })
+    
     setTimeout(() => {
-      this.GetData1()
-      this.GetData2()
+      this.checkRoomst(roomname)
     }, 100);
 
   },
@@ -546,6 +659,7 @@ Page({
       })
     }
     this.GetData1()
+    this.Get_time_items()
     // this.GetData2()
   },
 

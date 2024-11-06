@@ -16,10 +16,10 @@
     <view class="divider"></view>
     <view class="quxiao" bind:tap="quxiao" data-index="{{index}}">取消预约</view>
   </view>
-  <view wx:if="{{yuyue[1].act}}" class="items" wx:for="{{items}}" wx:key="*this">
+  <view wx:if="{{yuyue[1].act}}" class="items" wx:for="{{itemsed}}" wx:key="*this">
     <view class="name">{{item.name}}</view>
     <view class="type">会议内容   {{item.type}}</view>
-    <view class="status">预约状态   {{item.status?'':'已取消'}}</view>
+    <view class="status">预约状态   {{item.status==1?'已结束':'已取消'}}</view>
     <view class="day">
       <image src="/img/time.svg" />预约时间 {{item.day}} {{item.time}}
     </view>
@@ -31,9 +31,11 @@
       <image src="/img/提示弹窗@1x (1).png" mode="aspectFill" />
     </view>
   </view>
-  <view class="nothing" wx:if="{{items.length==0}}" >
+
+  <view class="nothing" wx:if="{{items.length==0&&yuyue[0].act}}" >
    <image src="/img/nothing.png" mode=""/>
    <view class="nos">暂时还没有会议室预约记录~</view>
    <view class="gos" bind:tap="navigate" data-url="/pages/index/index">去预约</view>
   </view>
 </scroll-view>
+<custom-loading show="{{lolo}}" title="加载中..."></custom-loading>

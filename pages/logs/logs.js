@@ -1,4 +1,5 @@
 const app = getApp();
+const apiurl = app.globalData.apiurl
 Page({
 
   /**
@@ -26,108 +27,64 @@ Page({
     let wechatname
     let that = this
     //console.log(this.data.number,'|',this.data.password)
-    wx.getUserProfile({
-      desc: '用于完善个人资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
-      success: res => {
-        console.log('用户信息：', res.userInfo);
-        wechatname = res.userInfo.nickName
-        //测试请求
-        // wx.request({
-        //   url: 'http://10.108.7.66:8085/login/login',
-        //   method:'POST',
-        //   data:{
-        //     number:that.data.number,
-        //     name:that.data.password,
-        //     code:code,
-        //     wechatname:wechatname
-        //   },
-        //   success:(res)=>{
-        //     // console.log('yesyes',res.data);
-        //     // if(res.data.message=='sql: no rows in result set'){
-        //     //   wx.showToast({
-        //     //     title: '请填写正确信息~',
-        //     //     icon: 'none', // 图标类型，可选值为 "success", "loading", "none"
-        //     //     duration: 1000, // 显示时间，单位为毫秒，默认为 1500 毫秒
-        //     //     mask: false, // 是否显示透明蒙层，防止触摸穿透
-        //     //   });
-        //     // }
-        //     // if(res.data.message==''){
-        //     //   wx.showToast({
-        //     //     title: '登录成功!',
-        //     //     icon: 'none', // 图标类型，可选值为 "success", "loading", "none"
-        //     //     duration: 1000, // 显示时间，单位为毫秒，默认为 1500 毫秒
-        //     //     mask: false, // 是否显示透明蒙层，防止触摸穿透
-        //     //   });
-        //     //   app.globalData.name= that.data.password
-        //     //   app.globalData.token=res.data.data.token
-        //     //   wx.setStorageSync('name', that.data.password);
-        //     //   wx.setStorageSync('token', res.data.data.token);
-        //     //   wx.setStorageSync('number', that.data.number);
-        //     //   wx.setStorageSync('password', that.data.password);
-        //     //   setTimeout(() => {
-        //     //     wx.switchTab({
-        //     //       url: e.currentTarget.dataset.url,
-        //     //     })
-        //     //   }, 1000);
-        //       //console.log(app.globalData.token)
-          
-        //   },
-        //   fail: (err) =>{
-        //     console.error('nono',err);
-        //   }
-        // })
-        // 这里可以将用户信息发送到服务器进行进一步处理
-        wx.request({
-          url: 'https://ehuiyue.buteck.com/api/login/login',
-          method:'POST',
-          data:{
-            number:that.data.number,
-            name:that.data.password,
-            code:code,
-            wechatname:wechatname
-          },
-          success:(res)=>{
-            console.log('yesyes',res.data);
-            if(res.data.message=='sql: no rows in result set'||res.data.data.message=='Failed'){
-              wx.showToast({
-                title: '请填写正确信息~',
-                icon: 'none', // 图标类型，可选值为 "success", "loading", "none"
-                duration: 1000, // 显示时间，单位为毫秒，默认为 1500 毫秒
-                mask: false, // 是否显示透明蒙层，防止触摸穿透
-              });
-            }
-            console.log(res,'--------------------')
-            if(res.data.data.message=='Success'){
-              wx.showToast({
-                title: '登录成功!',
-                icon: 'none', // 图标类型，可选值为 "success", "loading", "none"
-                duration: 1000, // 显示时间，单位为毫秒，默认为 1500 毫秒
-                mask: false, // 是否显示透明蒙层，防止触摸穿透
-              });
-              app.globalData.name= that.data.password
-              app.globalData.token=res.data.data.token
-              wx.setStorageSync('name', that.data.password);
-              wx.setStorageSync('token', res.data.data.token);
-              wx.setStorageSync('number', that.data.number);
-              wx.setStorageSync('password', that.data.password);
-              setTimeout(() => {
-                wx.switchTab({
-                  url: e.currentTarget.dataset.url,
-                })
-              }, 1000);
-              //console.log(app.globalData.token)
-          }
-          },
-          fail: (err) =>{
-            console.error('nono',err);
-          }
-        })
-
+    wx.request({
+      url: `${apiurl}/login/login`,
+      method:'POST',
+      data:{
+        sno:that.data.number,
+        name:that.data.password,
+        // code:code,
+        // wechatname:wechatname
       },
-      fail: err => {
-        console.error('获取用户信息失败：', err);
+      success:(res)=>{
+        console.log('yesyes',res.data);
+        
+        if(res.data.data.message=='Success'){
+          wx.showToast({
+            title: '登录成功!',
+            icon: 'none', // 图标类型，可选值为 "success", "loading", "none"
+            duration: 1000, // 显示时间，单位为毫秒，默认为 1500 毫秒
+            mask: false, // 是否显示透明蒙层，防止触摸穿透
+          });
+          app.globalData.name= that.data.password
+          app.globalData.token=res.data.data.token
+          wx.setStorageSync('name', that.data.password);
+          wx.setStorageSync('token', res.data.data.token);
+          wx.setStorageSync('number', that.data.number);
+          wx.setStorageSync('password', that.data.password);
+          setTimeout(() => {
+            wx.switchTab({
+              url: e.currentTarget.dataset.url,
+            })
+          }, 1000);
+          //console.log(app.globalData.token)
       }
-    });
+      else{
+        wx.showToast({
+          title: '请填写正确信息~',
+          icon: 'none', // 图标类型，可选值为 "success", "loading", "none"
+          duration: 1000, // 显示时间，单位为毫秒，默认为 1500 毫秒
+          mask: false, // 是否显示透明蒙层，防止触摸穿透
+        });
+      }
+      },
+      fail: (err) =>{
+        console.error('nono',err);
+      }
+    })
+    // wx.getUserProfile({
+    //   desc: '用于完善个人资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+    //   success: res => {
+    //     //console.log('用户信息：', res.userInfo);
+    //     wechatname = res.userInfo.nickName
+    //     // 这里可以将用户信息发送到服务器进行进一步处理
+
+
+    //   },
+    //   fail: err => {
+    //     console.error('获取用户信息失败：', err);
+    //   }
+    // });
 
 
   },

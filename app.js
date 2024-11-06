@@ -68,6 +68,7 @@ App({
       submit:{
         
       },
-      token:''
+      token:'',
+      apiurl:'https://ehuiyue.buteck.com/api',
   }
 })

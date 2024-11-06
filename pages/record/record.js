@@ -1,5 +1,6 @@
 const app = getApp();
 const  token= wx.getStorageSync('token');
+const apiurl = app.globalData.apiurl
 Page({
 
   /**
@@ -7,23 +8,9 @@ Page({
    */
   data: {
     tname:'',
-    items: [{
-      name:'会议室A',
-        type: '班会',
-        day: '9月29日',
-        time: '9:00-10:00'
-      },
-      {
-        name:'会议室B',
-        type: '班会',
-        day: '9月29日',
-        time: '9:00-10:00'
-      }, {
-        name:'会议室C',
-        type: '班会',
-        day: '9月29日',
-        time: '9:00-10:00'
-      }
+    items: [
+    ],
+    itemsed: [
     ],
     shs:800,
     yuyue:[{t:'当前预约',act:true},{t:'历史预约',act:false}]
@@ -35,19 +22,19 @@ Page({
   onLoad(options) {
     this.GetData()
   },
-  GetData: function()
+  GetData: function(today)
   {
     let that = this
     
     this.setData({
       items:[],
-      tname:app.globalData.name
+      tname:app.globalData.name,
+      // lolo:true
     })
     wx.request({
-      url: 'https://ehuiyue.buteck.com/api/user/getreservationinfo',
+      url: `${apiurl}/user/getreservationinfo`,
       method:"GET",
       data:{
-        reserved_by_name:that.data.tname
       },
       header:{
         Authorization:token
@@ -56,24 +43,33 @@ Page({
         console.log(res.data.data.reservedinfo.reserved_info2s,'sss')
         let op = res.data.data.reservedinfo.reserved_info2s
         this.setData({
-          shs:150*(op.length+1)
+          shs:170*(op.length+1)
         })
         console.log(that.data.shs)
         let ttt =[]
+        let sss =[]
         op.forEach(function(item,index){
-          let [y, m, d] = item.ymd.split('-');
+          let ff = that.compareDates(item.appointment_date,today)
+          
+          let [y, m, d] = item.appointment_date.split('-');
           let td = `${y}年${parseInt(m, 10)}月${parseInt(d, 10)}日`;
           let t ={
-            name:item.room_name,
-            type:item.meetingtype,
+            name:item.meetingroom_name,
+            type:item.appointment_type,
             day:td,
-            time : item.start_time.substring(0, 5)+'-'+item.end_time.substring(0, 5),
-            act:false
+            date:item.appointment_date,
+            time : item.appointment_time,
+            act:false,
+            status:item.status
           }
+          if(ff!=-1&&t.status==1)
           ttt.push(t)
+          else sss.push(t)
         })
         that.setData({
-          items:ttt
+          items:ttt.reverse(),
+          itemsed:sss.reverse(),
+          lolo:false
         })
       },
       fail: (err) =>{
@@ -134,24 +130,22 @@ Page({
     })
   },
   PostQuxiao(i){
-
+    let that = this
     console.log(i,'quxiao',this.data.items[i])
     wx.request({
-      url: 'https://ehuiyue.buteck.com/api/user/delreserve',
-      method:'DELETE',
+      url: `${apiurl}/user/calreserve`,
+      method:'POST',
       header:{
         Authorization:token
       },
       data:{
-        ymd:this.data.items[i].day,
-        room_name:this.data.items[i].name,
-        start_time:this.data.items[i].time.substring(0,5),
-        end_time:this.data.items[i].time.substring(6,11),
-        meeting_type:this.data.items[i].type,
-        reserved_by_name:this.data.tname
+        appointment_date:this.data.items[i].date,
+        meetingroom_name:this.data.items[i].name,
+        appointment_time:this.data.items[i].time,
       },
       success:(res)=>{
-        console.log(res)
+        console.log(res.data)
+        that.GetData()
       },
       fail: (err) =>{
         console.error('nono',err);
@@ -160,10 +154,10 @@ Page({
   },
   changeAct(e){
     let i = e.currentTarget.dataset.index
-    let tt=this.data.items
+    let tt=this.data.itemsed
     tt[i].act=true
     this.setData({
-      items:tt
+      itemsed:tt
     })
   },
   hideModal(){
@@ -176,12 +170,36 @@ Page({
     })
   },
   delrecord(e){
+    let that = this
 let i = e.currentTarget.dataset.index
-wx.showToast({
-  title: '删除成功',
-  icon: 'none',
-  duration: 1000 // 提示框显示的时间（毫秒）
-});
+wx.request({
+  url: `${apiurl}/user/delreserve`,
+  method:'DELETE',
+  header:{
+    Authorization:token
+  },
+  data:{
+    appointment_date:this.data.itemsed[i].date,
+    meetingroom_name:this.data.itemsed[i].name,
+    appointment_time:this.data.itemsed[i].time,
+  },
+  success:(res)=>{
+    console.log(res.data,'del')
+    that.GetData()
+    setTimeout(() => {
+      wx.showToast({
+        title: '删除成功',
+        icon: 'none',
+        duration: 500 // 提示框显示的时间（毫秒）
+      });
+    }, 1000);
+    
+  },
+  fail: (err) =>{
+    console.error('nono',err);
+  }
+})
+
   },
   navigate: function (e) {
     wx.switchTab({
@@ -205,7 +223,9 @@ wx.showToast({
         selected: 1
       })
     }
-    this.GetData()
+        // 获取今天的日期
+        let today = this.formatDate(new Date());
+    this.GetData(today)
     // 获取全局变量中的数据
     let sharedData = app.globalData.sharedData;
     console.log('sharedData:', sharedData);
@@ -228,7 +248,27 @@ wx.showToast({
 
 
   },
-
+  formatDate: function(date) {
+    const year = date.getFullYear();
+    const month = (date.getMonth() + 1).toString().padStart(2, '0'); // 月份从0开始，需要加1
+    const day = date.getDate().toString().padStart(2, '0');
+    
+    return `${year}-${month}-${day}`;
+  },
+  compareDates(dateStr1, dateStr2) {
+    // 将日期字符串转换为 Date 对象
+    const date1 = new Date(dateStr1);
+    const date2 = new Date(dateStr2);
+  
+    // 比较两个日期
+    if (date1 > date2) {
+      return 1; // date1 更大
+    } else if (date1 < date2) {
+      return -1; // date2 更大
+    } else {
+      return 0; // 两个日期相同
+    }
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
