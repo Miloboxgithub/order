@@ -1,5 +1,5 @@
 const app = getApp();
-const token = wx.getStorageSync('token');
+let token = wx.getStorageSync('token');
 const apiurl = app.globalData.apiurl
 Page({
 
@@ -178,14 +178,20 @@ Page({
       },
       data: {},
       success: (res) => {
-        console.log('data1', res.data);
+        console.log('data1', token);
+        if (res.data == 'Forbidden') {
+          wx.navigateTo({
+            url: '/pages/logs/logs',
+          })
+        }
         let op = res.data.data.meetingroomnumoutput.meetingroom_nums
         let ttt = []
         op.forEach(function (item, index) {
           let t = {
             name: item.name,
             num: item.capacity,
-            act: false
+            act: false,
+            status: item.status
           }
           ttt.push(t)
         })
@@ -195,6 +201,7 @@ Page({
           lolo: false,
           hvh: 17 * op.length
         })
+        console.log(that.data.items, '---------')
         this.checkRoomst(this.data.items[0].name)
         this.KongXian()
       },
@@ -205,7 +212,8 @@ Page({
 
   },
   checkRoomst(e) {
-    console.log(this.data.ymd, e)
+    console.log(this.data.ymd, this.formatDate(new Date()), e)
+
     let kkk = this.data.kkk
     kkk.forEach((i, k) => {
       i.flag = false
@@ -227,16 +235,30 @@ Page({
         meetingroom_name: e
       },
       success: (res) => {
-        console.log('checkst', res.data.data.SelectRoom.status);
+        console.log('checkst', res);
         let st = res.data.data.SelectRoom.status
         let os = that.data.kkk
-        for (let i = 0; i < 12; i++) {
-          os[i].status = st[i]
+        if (this.data.ymd == this.formatDate(new Date())) {
+          const now = new Date();
+          const hours = now.getHours() + 1;
+          console.log(hours)
+          let od = hours - 8
+          if(od>12)od=12
+          for (let j = 0; j < od; j++) {
+            if(st[j]==0||st[j]==2)
+            os[j].status = 3
+            else os[j].status =st[j]
+          }
+          for (let p = od; od < 12; p++) {
+            os[p].status = st[p]
+          }
+        } else {
+          for (let i = 0; i < 12; i++) {
+            os[i].status = st[i]
+          }
         }
         this.setData({
-          kkk: os
-        })
-        this.setData({
+          kkk: os,
           lolo: false
         })
       },
@@ -625,14 +647,18 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    token = wx.getStorageSync('token');
     if (typeof this.getTabBar === 'function' &&
       this.getTabBar()) {
       this.getTabBar().setData({
         selected: 0
       })
     }
-    this.GetData1()
+    setTimeout(() => {
+      this.GetData1()
     this.Get_time_items()
+    }, 100);
+    
     // this.GetData2()
   },
 

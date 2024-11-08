@@ -44,9 +44,8 @@ color: #3D3D3D;
   box-sizing: border-box;
   border: 1px solid #FFFFFF;
   padding-top: 16px;
-  padding-left: 14px;
   padding-right: 14px;
-  padding-bottom: 18px;
+
 }
 .zou{
   margin-top: 2px;
@@ -571,7 +570,6 @@ color: #FFFFFF;
 
 .time_item {
   border-radius: 249px;
-opacity: 1;
 background: #F6F6F6;
   width: 41px;
   height: 80px;
@@ -610,15 +608,6 @@ box-shadow: 0px 4px 10px 0px rgba(93, 144, 250, 0.53);
   justify-content: center;
 }
 
-/*  */
-.e-card {
-  background: transparent;
-  box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
-  position: relative;
-  width: 34vw;
-  height: 135px;
-  overflow: hidden;
-}
 
 .wave {
   position: absolute;

@@ -107,6 +107,12 @@ Page({
       selected: 2
     })
   }
+  let number = wx.getStorageSync('number');
+  let name = wx.getStorageSync('password')
+  this.setData({
+    number,
+    name
+  })
   },
   /**
    * 生命周期函数--监听页面隐藏

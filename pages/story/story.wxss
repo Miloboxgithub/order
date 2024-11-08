@@ -3,20 +3,22 @@ page {
   height: 150vh;
 }
 .sss{
+  text-align: justify;
   border-radius: 16px;
   width: 92vw;
   margin-left: 4vw;
 background: #FFFFFF;
 padding-bottom: 16px;
 padding-top: 16px;
+word-wrap: break-word; /* 或者使用 overflow-wrap: break-word; */
+white-space: pre-wrap;
 }
 .so{
   margin-left: 16px;
   margin-right: 16px;
 }
 .content text {
-  /* display: block; */
-
+  display: block;
   line-height: 1.5;
   color: #3d3d3d;
   white-space: pre-wrap;

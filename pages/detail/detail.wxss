@@ -9,7 +9,8 @@ page {
 }
 .content{
   width: 85vw;
-  height: 920px;
+  height: auto;
+  margin-bottom: 50px;
   border-radius: 16px;
 opacity: 1;
 background: #FFFFFF;
@@ -21,10 +22,14 @@ font-size: 14px;
 font-variation-settings: "opsz" auto;
 letter-spacing: 0.5px;
 word-wrap: break-word; /* 或者使用 overflow-wrap: break-word; */
+text-align: justify;
 }
 .tes{
   white-space: pre-wrap;
   font-weight: 500;
 font-size: 16px;
 word-wrap: break-word; /* 或者使用 overflow-wrap: break-word; */
+}
+.sdsd{
+  font-weight: 500 !important;
 }
