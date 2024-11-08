@@ -11,11 +11,11 @@
       <view class="yyy">{{xymd?xymd:today}}</view>
     </view>
     <view style="display: flex; margin-top: 8px; justify-content: space-around;">
-    <view bind:tap="changeFlag" wx:for="{{time_items}}" class="time-item {{item.flag?'ttt':''}}" wx:key="*this" data-index="{{index}}" id="{{item.flag?'today':''}}">
+    <view bind:tap="changeFlag" wx:for="{{time_items}}" class="time_item {{item.flag?'ttt':''}}" wx:key="*this" data-index="{{index}}" id="{{item.flag?'today':''}}">
       <view class="zou" style="color:{{item.flag?'':'#5A5A5A'}}">{{item.zou}}</view>
       <view class="date" style="color:{{item.flag?'':'#5A5A5A'}}">{{item.date}}</view>
-      <view class="kong" style="color:{{item.flag?'':'#A3A3A3'}}">有空闲</view>
-      <view class="yuan" ></view>
+      <view class="kong" style="color:{{item.flag?'':'#A3A3A3'}}">{{item.kong?'已约满':'有空闲'}}</view>
+      <view class="{{item.kong?'yuans':'yuan'}}" ></view>
     </view></view>
     </view>
   <!-- </scroll-view> -->

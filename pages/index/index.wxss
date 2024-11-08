@@ -91,6 +91,14 @@ background: #76EE8E;
 border-radius: 50%;
 margin-bottom: 2px;
 }
+.yuans{
+  width: 5px;
+height: 5px;
+opacity: 1;
+background: #ec3c07;
+border-radius: 50%;
+margin-bottom: 2px;
+}
 
 .hui {
   display: grid;
@@ -561,7 +569,7 @@ color: #FFFFFF;
   margin-right: 4%;
 }
 
-.time-item {
+.time_item {
   border-radius: 249px;
 opacity: 1;
 background: #F6F6F6;

@@ -243,3 +243,7 @@ font-variation-settings: "opsz" auto;
 color: #FFFFFF;
 margin-top: 40px;
 }
+.bottom{
+  height: 200px;
+  width: 100vw;
+}

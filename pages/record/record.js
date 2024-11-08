@@ -67,7 +67,7 @@ Page({
           else sss.push(t)
         })
         that.setData({
-          items:ttt.reverse(),
+          items:ttt,
           itemsed:sss.reverse(),
           lolo:false
         })

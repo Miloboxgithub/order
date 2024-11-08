@@ -1,5 +1,5 @@
 const app = getApp();
-const  token= wx.getStorageSync('token');
+const token = wx.getStorageSync('token');
 const apiurl = app.globalData.apiurl
 Page({
 
@@ -9,176 +9,95 @@ Page({
   data: {
     tab1: true,
     tab2: false,
-    time_items: [{
-        flag: true,
-        zou: '周一',
-        date: '9月30日'
-      },
-      {
-        flag: false,
-        zou: '周二',
-        date: '10月1日'
-      },
-      {
-        flag: false,
-        zou: '周三',
-        date: '10月2日'
-      },
-      {
-        flag: false,
-        zou: '周四',
-        date: '10月3日'
-      },
-      {
-        flag: false,
-        zou: '周五',
-        date: '10月4日'
-      },
-      {
-        flag: false,
-        zou: '周六',
-        date: '10月5日'
-      },
-      {
-        flag: false,
-        zou: '周日',
-        date: '10月6日'
-      }
-    ],
-    items: [{
-        name: '会议室1',
-        num: 30,
-        ke: 6,
-        ed: 9
-      },
-      {
-        name: '会议室2',
-        num: 20,
-        ke: 9,
-        ed: 9
-      },
-      {
-        name: '会议室3',
-        num: 30,
-        ke: 6,
-        ed: 9
-      },
-      {
-        name: '会议室4',
-        num: 30,
-        ke: 6,
-        ed: 9
-      },
-      {
-        name: '会议室5',
-        num: 30,
-        ke: 6,
-        ed: 9
-      },
-      {
-        name: '会议室6',
-        num: 30,
-        ke: 6,
-        ed: 9
-      },
-      {
-        name: '会议室7',
-        num: 30,
-        ke: 6,
-        ed: 9
-      },
-      {
-        name: '会议室8',
-        num: 30,
-        ke: 6,
-        ed: 9
-      }
-    ],
+    time_items: [],
+    items: [],
     kkk: [{
-        time: '8:00-9:00',
+        time: '08:00-09:00',
         flag: false,
-        status:0,
+        status: 0,
       },
       {
-        time: '9:00-10:00',
-        status:0,
+        time: '09:00-10:00',
+        status: 0,
         flag: false
       },
       {
         time: '10:00-11:00',
-        status:0,
+        status: 0,
         flag: false
       },
       {
         time: '11:00-12:00',
-        status:0,
+        status: 0,
         flag: false
       },
       {
         time: '12:00-13:00',
-        status:0,
+        status: 0,
         flag: false
       },
       {
         time: '13:00-14:00',
-        status:0,
+        status: 0,
         flag: false
       },
       {
         time: '14:00-15:00',
-        status:0,
+        status: 0,
         flag: false
       },
       {
         time: '15:00-16:00',
-        status:0,
+        status: 0,
         flag: false
       },
       {
         time: '16:00-17:00',
-        status:0,
+        status: 0,
         flag: false
       },
       {
         time: '17:00-18:00',
-        status:0,
+        status: 0,
         flag: false
       },
       {
         time: '18:00-19:00',
-        status:0,
+        status: 0,
         flag: false
       },
       {
         time: '19:00-20:00',
-        status:0,
+        status: 0,
         flag: false
       },
     ],
     ymd: '',
-    lolo:false,
-    hvh:100,
-    yue:false,
+    lolo: false,
+    hvh: 100,
+    yue: false,
     types: [{
-      v: '班会'
-    }, {
-      v: '学术交流'
-    }, {
-      v: '项目会议'
-    }, {
-      v: '团建'
-    },{
-      v:'商务洽谈'
-    },
-    {
-      v:'培训'
-    },
-    {v:'其他'}
-  ],
-  type:'',
-  rem:true,
-  bgheight:75,
-  droom:'',
+        v: '班会'
+      }, {
+        v: '学术交流'
+      }, {
+        v: '项目会议'
+      }, {
+        v: '团建'
+      }, {
+        v: '商务洽谈'
+      },
+      {
+        v: '培训'
+      },
+      {
+        v: '其他'
+      }
+    ],
+    type: '',
+    rem: true,
+    bgheight: 75,
+    droom: '',
   },
 
   /**
@@ -189,41 +108,41 @@ Page({
     setTimeout(() => {
       this.GetData1()
     }, 100);
+
     // this.getWeather()
     // 获取今天的日期
     let today = this.formatDate(new Date());
     // 更新数据
     let [y, m, d] = today.split('-');
-  today = `${y}年${parseInt(m, 10)}月${parseInt(d, 10)}日`;
+    today = `${y}年${parseInt(m, 10)}月${parseInt(d, 10)}日`;
     this.setData({
       today: today
     });
   },
-  dakai(){
+  dakai() {
     let tt = this.data.kkk
     let tans = []
-    tt.forEach((i,k)=>{
-      if(i.flag){
+    tt.forEach((i, k) => {
+      if (i.flag) {
         tans.push(i.time)
       }
     })
-    if(tans.length){
-    this.setData({
-      yue:true,
-      tans
-    })
-        //隐藏tabber
-        this.getTabBar().setData({
-          chans: !this.getTabBar().data.chans
-        })
-      }
-      else{
-        wx.showToast({
-          title: '请选择时段',
-          icon: 'none',
-          duration: 1000 // 提示框显示的时间（毫秒）
-        });
-      }
+    if (tans.length) {
+      this.setData({
+        yue: true,
+        tans
+      })
+      //隐藏tabber
+      this.getTabBar().setData({
+        chans: !this.getTabBar().data.chans
+      })
+    } else {
+      wx.showToast({
+        title: '请选择时段',
+        icon: 'none',
+        duration: 1000 // 提示框显示的时间（毫秒）
+      });
+    }
   },
   chantype: function (e) {
     let op = e.currentTarget.dataset.index
@@ -231,25 +150,25 @@ Page({
       type: this.data.types[op].v
     })
   },
-  ququ(){
+  ququ() {
     this.setData({
-      rem:!this.data.rem
+      rem: !this.data.rem
     })
   },
-  hideview(){
+  hideview() {
     this.setData({
-      yue:false
+      yue: false
     })
-        //隐藏tabber
-        this.getTabBar().setData({
-          chans:false
-        })
+    //隐藏tabber
+    this.getTabBar().setData({
+      chans: false
+    })
   },
   GetData1: function () {
     let that = this
     this.setData({
       items: [],
-      lolo:true
+      lolo: true
     })
     wx.request({
       url: `${apiurl}/user/meetingroomnum`,
@@ -257,8 +176,7 @@ Page({
       header: {
         Authorization: token
       },
-      data: {
-      },
+      data: {},
       success: (res) => {
         console.log('data1', res.data);
         let op = res.data.data.meetingroomnumoutput.meetingroom_nums
@@ -267,34 +185,35 @@ Page({
           let t = {
             name: item.name,
             num: item.capacity,
-            act:false
+            act: false
           }
           ttt.push(t)
         })
-        ttt[0].act=true
+        ttt[0].act = true
         that.setData({
           items: ttt,
-          lolo:false,
-          hvh:17*op.length
+          lolo: false,
+          hvh: 17 * op.length
         })
         this.checkRoomst(this.data.items[0].name)
+        this.KongXian()
       },
       fail: (err) => {
         console.error('nono', err);
       }
     })
-    
+
   },
-  checkRoomst(e){
-    console.log(this.data.ymd,e)
+  checkRoomst(e) {
+    console.log(this.data.ymd, e)
     let kkk = this.data.kkk
-    kkk.forEach((i,k)=>{
-      i.flag=false
+    kkk.forEach((i, k) => {
+      i.flag = false
     })
     this.setData({
-      lolo:true,
+      lolo: true,
       kkk,
-      droom:e
+      droom: e
     })
     let that = this
     wx.request({
@@ -304,21 +223,21 @@ Page({
         Authorization: token
       },
       data: {
-        appointment_date:that.data.ymd,
-        meetingroom_name:e
+        appointment_date: that.data.ymd,
+        meetingroom_name: e
       },
       success: (res) => {
         console.log('checkst', res.data.data.SelectRoom.status);
         let st = res.data.data.SelectRoom.status
         let os = that.data.kkk
-        for(let i = 0 ; i<12;i++){
+        for (let i = 0; i < 12; i++) {
           os[i].status = st[i]
         }
         this.setData({
-          kkk:os
+          kkk: os
         })
         this.setData({
-          lolo:false
+          lolo: false
         })
       },
       fail: (err) => {
@@ -326,77 +245,125 @@ Page({
       }
     })
   },
-  changeRoom(e){
-    let t=parseInt(e.currentTarget.dataset.index)
-    let tt =this.data.items
+  KongXian(e) {
+    let tarr = this.data.time_items
+    let rarr = this.data.items
+    let that = this
+    tarr.forEach((i, k) => {
+
+      const date = i.fD
+      let flgg = 0
+      rarr.forEach((ii, kk) => {
+        const rname = ii.name
+        wx.request({
+          url: `${apiurl}/user/meetingroom`,
+          method: "GET",
+          header: {
+            Authorization: token
+          },
+          data: {
+            appointment_date: date,
+            meetingroom_name: rname
+          },
+          success: (res) => {
+            // console.log(date, rname, res.data.data.SelectRoom.status);
+            let st = res.data.data.SelectRoom.status
+            for (let j = 0; j < 12; j++) {
+              if (!st[j]) {
+                break
+              }
+              if (j == 11) {
+                flgg++
+              }
+            }
+            if (flgg == rarr.length) {
+              let karr = that.data.time_items
+              karr.forEach((is, ks) => {
+                if (ks == k) {
+                  is.kong = true
+                }
+
+              })
+              that.setData({
+                time_items: karr
+              })
+            }
+          },
+          fail: (err) => {
+            console.error('nono', err);
+          }
+        })
+      })
+    })
+  },
+  changeRoom(e) {
+    let t = parseInt(e.currentTarget.dataset.index)
+    let tt = this.data.items
     this.checkRoomst(tt[t].name)
-    tt.forEach((item,index)=>{
-      item.act=false
-      if(index==t){
-        item.act=true
+    tt.forEach((item, index) => {
+      item.act = false
+      if (index == t) {
+        item.act = true
       }
     })
     this.setData({
-      items:tt
+      items: tt
     })
   },
-  yuyues(){
+  yuyues() {
     let that = this
-    if(this.data.type.length==0){
+    if (this.data.type.length == 0) {
       wx.showToast({
         title: '请填写会议内容',
         icon: 'none',
         duration: 1200 // 提示框显示的时间（毫秒）
       });
-    }
-    else if(!this.data.rem){
+    } else if (!this.data.rem) {
       wx.showToast({
         title: '请阅读会议室使用规定并勾选',
         icon: 'none',
         duration: 1200 // 提示框显示的时间（毫秒）
       });
+    } else {
+      wx.request({
+        url: `${apiurl}/user/reserved`,
+        method: "POST",
+        header: {
+          Authorization: token
+        },
+        data: {
+          appointment_date: this.data.ymd,
+          meetingroom_name: this.data.droom,
+          alltime: this.data.tans,
+          appointment_type: this.data.type
+        },
+        success: (res) => {
+          console.log('yuyue', res.data.data);
+          if (res.data.data.message == 'success') {
+            app.globalData.sharedData = {
+              key1: 1
+            };
+            wx.switchTab({
+              url: '/pages/record/record',
+            })
+            that.hideview()
+          } else {
+            wx.showToast({
+              title: '预约失败，请稍后再试',
+              icon: 'none',
+              duration: 1000 // 提示框显示的时间（毫秒）
+            });
+          }
+        },
+        fail: (err) => {
+          console.error('nono', err);
+        }
+      })
     }
-    else{
-    wx.request({
-      url: `${apiurl}/user/reserved`,
-      method: "POST",
-      header: {
-        Authorization: token
-      },
-      data: {
-        appointment_date:this.data.ymd,
-        meetingroom_name:this.data.droom,
-        alltime:this.data.tans,
-        appointment_type:this.data.type
-      },
-      success: (res) => {
-        console.log('yuyue', res.data.data.message);
-        if(res.data.data.message=='success'){
-          app.globalData.sharedData = {
-            key1: 1
-          };
-          wx.switchTab({
-            url: '/pages/record/record',
-          })
-          that.hideview()
-        }
-        else{
-          wx.showToast({
-            title: '预约失败，请稍后再试',
-            icon: 'none',
-            duration: 1000 // 提示框显示的时间（毫秒）
-          });
-        }
-      },
-      fail: (err) => {
-        console.error('nono', err);
-      }
-    })
-  }
   },
-  handleDescriptionInput(e){
+  handleDescriptionInput(e) {
     this.setData({
-      type:e.detail.value
+      type: e.detail.value
     })
     console.log(this.data.type)
   },
@@ -440,28 +407,32 @@ Page({
     // })
   },
   Get_time_items: function () {
-    let that =this
+    let that = this
     let op = []
     let ed = app.globalData.futureDates
     ed.forEach(function (item, index) {
-      
+
       let t = {
         flag: false,
         zou: that.convertWeekdayToZhouji(item.dayOfWeek),
         date: that.extractDay(item.date),
-        fD: item.fD
+        fD: item.fD,
+        kong: false
       }
-      if(item.today){t.flag=true; app.globalData.sharedData.ymd = t.fD;
-      t.date='今'}
+      if (item.today) {
+        t.flag = true;
+        app.globalData.sharedData.ymd = t.fD;
+        t.date = '今'
+      }
       op.push(t)
     })
     //op[0].flag = true
     this.setData({
       time_items: op,
-      timelen:ed.length
+      timelen: ed.length
     })
     this.setData({
-      ymd:  app.globalData.sharedData.ymd 
+      ymd: app.globalData.sharedData.ymd
     })
   },
   convertWeekdayToZhouji(weekday) {
@@ -495,7 +466,7 @@ Page({
       // 设置要传递的数据
       app.globalData.sharedData = {
         keys: v,
-        ymd:this.data.ymd
+        ymd: this.data.ymd
       };
     } else {
       let v = []
@@ -506,7 +477,7 @@ Page({
       })
       app.globalData.sharedData = {
         arr: v,
-        ymd:this.data.ymd
+        ymd: this.data.ymd
       };
     }
 
@@ -539,8 +510,8 @@ Page({
     let i = e.currentTarget.dataset.index
     let to = this.data.items
     let roomname
-    to.forEach((i,k)=>{
-      if(i.act){
+    to.forEach((i, k) => {
+      if (i.act) {
         roomname = i.name
       }
     })
@@ -562,14 +533,14 @@ Page({
       time_items: op,
       xymd
     })
-    
+
     setTimeout(() => {
       this.checkRoomst(roomname)
     }, 100);
 
   },
-  getWeather(e){
-    let that=this
+  getWeather(e) {
+    let that = this
     // wx.request({
     //   url: 'https://apis.map.qq.com/ws/location/v1/ip',
     //   method: 'GET',
@@ -582,64 +553,66 @@ Page({
     //       const { latitude, longitude } = ress.data.result.location;
 
 
-          const latitude = 22.69681
-          const longitude = 114.401147
-          const key='9ec4b623160141459b16b5d334f5140e'
-          wx.request({
-            url:`https://geoapi.qweather.com/v2/city/lookup?location=${longitude},${latitude}&key=${key}`,
-            success(res){
-                console.log(res.data.location[0].adm1);//市
-                console.log(res.data.location[0].name);//qu
+    const latitude = 22.69681
+    const longitude = 114.401147
+    const key = '9ec4b623160141459b16b5d334f5140e'
+    wx.request({
+      url: `https://geoapi.qweather.com/v2/city/lookup?location=${longitude},${latitude}&key=${key}`,
+      success(res) {
+        console.log(res.data.location[0].adm1); //市
+        console.log(res.data.location[0].name); //qu
+        that.setData({
+          shi: res.data.location[0].adm1,
+          qu: res.data.location[0].name
+        })
+        wx.request({
+          url: `https://devapi.qweather.com/v7/weather/now?location=${longitude},${latitude}&key=${key}`,
+          success(res) {
+            console.log(res.data.now);
+            that.setData({
+              icon: res.data.now.icon,
+              tianqi: res.data.now.text,
+              temp: res.data.now.temp,
+              fengxiang: res.data.now.windDir, //fengxiang 
+              dengji: res.data.now.windScale,
+              humi: res.data.now.humidity,
+              pa: res.data.now.pressure,
+              see: res.data.now.vis,
+              jiangshui: res.data.now.precip,
+              time: res.data.updateTime.slice(11, 16)
+            })
+            wx.request({
+              url: `https://devapi.qweather.com/v7/indices/1d?type=1,2,3,4,5&location=${longitude},${latitude}&key=${key}`,
+              success(res) {
+                console.log(res);
                 that.setData({
-                    shi:res.data.location[0].adm1,
-                    qu:res.data.location[0].name
+                  AQI: res.data.daily[4].category,
+                  jiance: res.data.daily[0].category,
+                  PM: res.data.daily[1].category,
                 })
-                wx.request({
-                  url: `https://devapi.qweather.com/v7/weather/now?location=${longitude},${latitude}&key=${key}`,
-                  success(res){
-                      console.log(res.data.now);
-                      that.setData({
-                        icon:res.data.now.icon,
-                        tianqi:res.data.now.text,
-                        temp:res.data.now.temp,
-                        fengxiang:res.data.now.windDir,//fengxiang 
-                        dengji:res.data.now.windScale,
-                        humi:res.data.now.humidity,
-                        pa:res.data.now.pressure,
-                        see:res.data.now.vis,
-                        jiangshui:res.data.now.precip,
-                        time:res.data.updateTime.slice(11,16)                         
-                      })
-                      wx.request({
-                        url:`https://devapi.qweather.com/v7/indices/1d?type=1,2,3,4,5&location=${longitude},${latitude}&key=${key}`,
-                        success(res){
-                            console.log(res);
-                            that.setData({
-                                AQI:res.data.daily[4].category,
-                                jiance:res.data.daily[0].category,
-                                PM:res.data.daily[1].category,
-                              })
-                        }
-                      })
-                  }
-                })
-            }
-            
-          })
-        // }
-        // });
-      
+              }
+            })
+          }
+        })
+      }
+
+    })
+    // }
+    // });
+
 
   },
-  formatDate: function(date) {
+  formatDate: function (date) {
     const year = date.getFullYear();
     const month = (date.getMonth() + 1).toString().padStart(2, '0'); // 月份从0开始，需要加1
     const day = date.getDate().toString().padStart(2, '0');
-    
+
     return `${year}-${month}-${day}`;
   },
   navigates: function (e) {
-    wx.navigateTo({url: e.currentTarget.dataset.url});
+    wx.navigateTo({
+      url: e.currentTarget.dataset.url
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
