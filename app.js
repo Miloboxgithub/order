@@ -29,7 +29,7 @@ App({
     const date = new Date();
     console.log(date.getDay())
     // let t = 10 - date.getDay()
-    for (let i = 0; i < 7; i++) {
+    for (let i = 0; i < 14; i++) {
       const date = new Date();
       date.setDate(date.getDate() + i); // 设置为当前日期加上i天
 

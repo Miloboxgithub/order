@@ -55,7 +55,8 @@
     ]
   },
   "usingComponents": {
-    "custom-loading": "/components/custom-loading/index"
+    "custom-loading": "/components/custom-loading/index",
+    "custom-modal": "/components/custom-modal/index"
   },
   "permission": {
     "scope.userLocation": {

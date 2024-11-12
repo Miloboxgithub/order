@@ -11,8 +11,8 @@
       <view class="log-items">
         <!-- 更新条目示例 -->
         <view class="value" wx:for="{{updateLog}}" wx:key="index">
-          <text class="">{{item.version}} - {{item.date}}</text>
-          <text class="">{{item.details}}</text>
+          <text class="">{{item.version}} - {{item.date}}  </text>
+          <text class="">  {{item.details}}</text>
         </view>
       </view>
     </view>

@@ -9,9 +9,9 @@
 <view class="hao">
 <view style="display: flex;align-items: center;margin-bottom: 8px;">
   <image src="/img/Vector.svg" mode=""/>
-  <text>昵称</text></view>
+  <text>用户名</text></view>
   <view class="input">
-    <input bindinput="input2" type="text" placeholder="请输入昵称" placeholder-class="placeholderStyle" value="{{password}}" />
+    <input bindinput="input2" type="text" placeholder="请输入用户名" placeholder-class="placeholderStyle" value="{{password}}" />
   </view>
 </view>
 <view class="hao" style="margin-top: 24px;">

@@ -1,8 +1,9 @@
 Page({
   data: {
-    currentVersion: '1.0.0',
+    currentVersion: '1.2.5',
     updateLog: [
-      { version: '1.0.0', date: '2024-10-24', details: '体验版本发布' }
+      { version: '1.0.0', date: '2024-10-24', details: '体验版本发布' },
+      { version: '1.2.5', date: '2024-11-09', details: '正式版本发布' }
     ]
   },
 

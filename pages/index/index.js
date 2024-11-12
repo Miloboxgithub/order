@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    modalShow: false,
     tab1: true,
     tab2: false,
     time_items: [],
@@ -71,27 +72,50 @@ Page({
         status: 0,
         flag: false
       },
+      // {
+      //   time: '20:00-21:00',
+      //   status: 0,
+      //   flag: false
+      // },
+      // {
+      //   time: '21:00-22:00',
+      //   status: 0,
+      //   flag: false
+      // },
+      // {
+      //   time: '22:00-23:00',
+      //   status: 0,
+      //   flag: false
+      // },
+      // {
+      //   time: '23:00-24:00',
+      //   status: 0,
+      //   flag: false
+      // },
     ],
     ymd: '',
     lolo: false,
     hvh: 100,
     yue: false,
     types: [{
-        v: '班会'
-      }, {
         v: '学术交流'
       }, {
         v: '项目会议'
       }, {
-        v: '团建'
-      }, {
-        v: '商务洽谈'
+        v: '企业交流'
       },
       {
-        v: '培训'
+        v: '座谈会'
       },
       {
-        v: '其他'
+        v: '党员活动'
+      },
+      {
+        v: '毕业设计'
+      },
+
+      {
+        v: '其它活动'
       }
     ],
     type: '',
@@ -118,6 +142,56 @@ Page({
     this.setData({
       today: today
     });
+  },
+  tanperson(e) {
+    let i = parseInt(e.currentTarget.dataset.index)
+    let that = this
+    //console.log(this.data.ymd,this.data.droom,this.data.kkk[i].time)
+    wx.request({
+      url: `${apiurl}/user/reservedperson`,
+      method: "GET",
+      data: {
+        appointment_date: this.data.ymd,
+        meetingroom_name: this.data.droom,
+        appointment_time: this.data.kkk[i].time
+      },
+      header: {
+        Authorization: token
+      },
+      success: (res) => {
+        console.log('personcheck', res.data);
+        let msg = res.data.data.reservedperson
+        if (res.data.data.message == 'success')
+          // wx.showModal({
+          //   title: '预约人:'+msg.appointment_person,
+          //   content: '如需调换请联系预约人',
+          //   showCancel: false, // 隐藏取消按钮
+          //   success(res) {
+          //   }
+          // });
+          this.setData({
+            modalShow: true,
+            person:msg.appointment_person,
+          });
+        //隐藏tabber
+        this.getTabBar().setData({
+          chans: !this.getTabBar().data.chans
+        })
+      },
+      fail: (err) => {
+        console.error('nono', err);
+      }
+    })
+
+  },
+  handleConfirm() {
+    this.setData({
+      modalShow: false
+    });
+    //隐藏tabber
+    this.getTabBar().setData({
+      chans: !this.getTabBar().data.chans
+    })
   },
   dakai() {
     let tt = this.data.kkk
@@ -178,7 +252,7 @@ Page({
       },
       data: {},
       success: (res) => {
-        console.log('data1', token);
+        console.log('data1', res.data);
         if (res.data == 'Forbidden') {
           wx.navigateTo({
             url: '/pages/logs/logs',
@@ -196,10 +270,13 @@ Page({
           ttt.push(t)
         })
         ttt[0].act = true
+        setTimeout(() => {
+          that.setData({
+            lolo: false,
+          })
+        }, 400);
         that.setData({
           items: ttt,
-          lolo: false,
-          hvh: 17 * op.length
         })
         console.log(that.data.items, '---------')
         this.checkRoomst(this.data.items[0].name)
@@ -239,17 +316,15 @@ Page({
         let st = res.data.data.SelectRoom.status
         let os = that.data.kkk
         if (this.data.ymd == this.formatDate(new Date())) {
-          const now = new Date();
-          const hours = now.getHours() + 1;
-          console.log(hours)
+          let now = new Date();
+          let hours = now.getHours() + 1;
           let od = hours - 8
-          if(od>12)od=12
+          if (od > 12) od = 12
           for (let j = 0; j < od; j++) {
-            if(st[j]==0||st[j]==2)
-            os[j].status = 3
-            else os[j].status =st[j]
+            if (st[j] == 0 || st[j] == 2) os[j].status = 3
+            else os[j].status = st[j]
           }
-          for (let p = od; od < 12; p++) {
+          for (let p = od; p < 12; p++) {
             os[p].status = st[p]
           }
         } else {
@@ -257,10 +332,15 @@ Page({
             os[i].status = st[i]
           }
         }
-        this.setData({
+        that.setData({
           kkk: os,
-          lolo: false
         })
+        setTimeout(() => {
+          that.setData({
+            lolo: false
+          })
+        }, 100);
+
       },
       fail: (err) => {
         console.error('nono', err);
@@ -291,7 +371,7 @@ Page({
             // console.log(date, rname, res.data.data.SelectRoom.status);
             let st = res.data.data.SelectRoom.status
             for (let j = 0; j < 12; j++) {
-              if (!st[j]) {
+              if (st[j] == 0 || st[j] == 2) {
                 break
               }
               if (j == 11) {
@@ -656,9 +736,9 @@ Page({
     }
     setTimeout(() => {
       this.GetData1()
-    this.Get_time_items()
+      this.Get_time_items()
     }, 100);
-    
+
     // this.GetData2()
   },
 
